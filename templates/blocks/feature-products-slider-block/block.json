@@ -1,0 +1,13 @@
+{
+	"name": "acf/feature-products-slider-block",
+	"title": "Feature Products Slider",
+	"description": "Choose what products to be part of the slider",
+	"category": "widgets",
+	"icon": "text-page",
+	"keywords": ["products", "slider", "featured", "feature"],
+	"acf": {
+		"mode": "editor",
+		"renderTemplate": "feature-products-slider-block.php"
+	},
+	"align": "full"
+}

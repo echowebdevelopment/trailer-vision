@@ -1,0 +1,154 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
+
+/**************************************/
+/*                                    */
+/* !SASS Bootstrap Variables          */
+/*                                    */
+/**************************************/
+
+/**************************************/
+/* !Colours                           */
+/**************************************/
+
+$primary: #0d311f;
+// $secondary: #d7e0d3;
+$secondary: #d7dfd3;
+// $tertiary: #EFF4F2;
+$tertiary: #f4f8f2;
+$accent-green: #83af99;
+$accent-terracotta: #d96c5d;
+$white: #ffffff;
+$black: #000000;
+
+/**************************************/
+/* !Spacing                           */
+/**************************************/
+
+$padding-x: 1rem;
+$padding-y: 0.8rem;
+
+/**************************************/
+/* !Grid */
+/**************************************/
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	mobile: 1000px,
+	xl: 1200px,
+	xxl: 1400px,
+	xxxl: 1600px,
+);
+
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1320px,
+	xxxl: 1600px,
+);
+
+$container-padding-x: 3rem;
+$headings-margin-bottom: 1.5rem;
+
+/**************************************/
+/* !Typography */
+/**************************************/
+
+$font-family-sans-serif: "sofia-pro", sans-serif, system-ui, -apple-system,
+	"Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
+	sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+	"Noto Color Emoji";
+
+$font-size-base: 1rem;
+$font-size-xxl: $font-size-base * 8;
+$font-size-xl: $font-size-base * 1.9;
+$font-size-sm: $font-size-base * 0.85;
+$font-size-xs: $font-size-base * 0.75;
+
+$h1-font-size: $font-size-base * 2.8;
+$h2-font-size: $font-size-base * 2.5;
+$h3-font-size: $font-size-base * 2;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 500;
+$font-weight-bold: 800;
+
+$body-color: $primary;
+$body-bg: $tertiary;
+
+$font-weight-base: $font-weight-light;
+$headings-font-weight: $font-weight-semibold;
+$lead-font-weight: $font-weight-normal;
+
+/**************************************/
+/* !Buttons                           */
+/**************************************/
+
+$btn-border-width: 0;
+$btn-line-height: 1.25;
+
+/**************************************/
+/* !Forms                             */
+/**************************************/
+
+$input-padding-x: 1rem;
+$input-padding-y: 0.55rem;
+
+/**************************************/
+/* !Transitions                       */
+/**************************************/
+
+$transition-duration: 0.3s;
+$transition-timing: ease-in-out;
+
+/**************************************/
+/*                                    */
+/* !CSS Variables                     */
+/*                                    */
+/**************************************/
+
+:root {
+	--primary: #0d311f;
+	--primary-modal: rgba(13, 49, 31, 0.7);
+	// --secondary: #d7e0d3;
+	--secondary: #d7dfd3;
+	// --tertiary: #EFF4F2;
+	--tertiary: #f4f8f2;
+	--accent-green: #83af99;
+	--accent-terracotta: #d96c5d;
+	--danger: #d96c5d;
+	--sale: #d96c5d;
+	--white: #ffffff;
+	--black: #000000;
+	--grey-border: rgba(112, 112, 112, 0.5);
+
+	--spacer: 5rem;
+	--spacer-sm: 2rem;
+	--spacer-md: 3rem;
+	--spacer-lg: 7rem;
+}
+
+/**************************************/
+/* !Pagination Blog                   */
+/**************************************/
+
+$pagination-color: var(--primary);
+$pagination-bg: transparent;
+$pagination-border-radius: 0;
+$pagination-border-width: 1px;
+$pagination-border-color: var(--primary);
+
+$pagination-hover-border-color: var(--primary);
+$pagination-hover-color: var(--white);
+$pagination-hover-bg: var(--primary);
+
+$pagination-active-border-color: var(--secondary);
+$pagination-active-color: var(--secondary);
+$pagination-active-bg: transparent;

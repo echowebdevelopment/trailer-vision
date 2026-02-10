@@ -1,0 +1,13 @@
+{
+	"name": "acf/photo-collage",
+	"title": "Photo Collage",
+	"description": "",
+	"category": "widgets",
+	"icon": "tide",
+	"keywords": ["collage", "photo collage", "gallery"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "photo-collage.php"
+	},
+	"align": "full"
+}

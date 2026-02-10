@@ -1,0 +1,13 @@
+{
+	"name": "acf/featured-category",
+	"title": "Featured Category",
+	"description": "",
+	"category": "widgets",
+	"icon": "tide",
+	"keywords": ["featured category", "featured", "category"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "featured-category.php"
+	},
+	"align": "full"
+}

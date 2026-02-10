@@ -1,0 +1,13 @@
+{
+	"name": "acf/video",
+	"title": "Video Block",
+	"description": "",
+	"category": "widgets",
+	"icon": "tide",
+	"keywords": ["video"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "video.php"
+	},
+	"align": "full"
+}

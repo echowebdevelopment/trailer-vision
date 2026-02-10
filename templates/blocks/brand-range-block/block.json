@@ -1,0 +1,13 @@
+{
+	"name": "acf/brand-range-block",
+	"title": "Brand Range block",
+	"description": "Brand range block",
+	"category": "widgets",
+	"icon": "text-page",
+	"keywords": ["range", "brand"],
+	"acf": {
+		"mode": "editor",
+		"renderTemplate": "brand-range-block.php"
+	},
+	"align": "full"
+}

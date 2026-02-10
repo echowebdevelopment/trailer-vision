@@ -1,0 +1,13 @@
+{
+	"name": "acf/homepage-grid-block",
+	"title": "Homepage grid block",
+	"description": "Grid of block",
+	"category": "widgets",
+	"icon": "text-page",
+	"keywords": ["homepage", "images", "header"],
+	"acf": {
+		"mode": "editor",
+		"renderTemplate": "homepage-grid-block.php"
+	},
+	"align": "full"
+}
