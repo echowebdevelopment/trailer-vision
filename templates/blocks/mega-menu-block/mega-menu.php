@@ -8,95 +8,72 @@ $args = wp_parse_args($args, $defaults);
 
 $data = $args['data'];
 
+$mobile_menu_name = $data['mobile_menu_name'];
 ?>
-<div class="position-relative echo-mega-menu padding w-100 menu-body">
-    <?php
-    $style = $data['menu_style'];
-    //var_dump( $data['link_group'] );
-    
-    if ($style == 'menu_style_1' || $style == 'menu_style_4') {
-        $layout_class = 'col col-xl-12';
-        $layout_class_2 = 'd-none';
-    } else {
-        $layout_class = 'col-lg-12 col-xl-7';
-        $layout_class_2 = 'col-lg-12 col-xl-5';
-    }
-    ?>
-    <div class="container <?php echo $data['menu_style'] ?>">
-        <div class="row">
-            <p class="h3 menu-mobile-title"><?php echo $data['title'] ?></p>
-            <div class="<?php echo $layout_class ?>">
-                <div class="row gx-2 extra-padding-start">
-                    <?php
-                    $rows = $data['link_group'];
-                    if ($rows) {
-                        foreach ($rows as $row) {
-                            if ($style == 'menu_style_1' || $style == 'menu_style_4') {
-                                $inner_layout_class = 'col-xl-3 col-lg-12 content-col';
-                            } elseif ($style == 'menu_style_2') {
-                                $inner_layout_class = 'col-xl-6 col-lg-12 pt-5 pb-5';
-                            } else {
-                                $inner_layout_class = 'col-xl-12 pt-5 pb-5 d-block d-xl-flex menu-style-3-col';
-                            }
-                            $main_link = '#';
-                            if ($row['main_category_link']) {
-                                $main_link = $row['main_category_link']['url'];
-                            }
-                            ?>
-                            <div class="<?php echo $inner_layout_class ?>">
-                                <div class="d-xl-block d-none block-feature-img">
-                                    <a href="<?php echo $main_link; ?>">
-                                        <?php
-                                        $image = $row['featured_image'];
-                                        echo wp_get_attachment_image($image, 'full', false, array('loading' => 'lazy'));
-                                        ?>
-                                    </a>
-                                </div>
-                                <div class="menu-list">
-                                    <a href="<?php echo $main_link; ?>">
-                                        <p class="h5"><?php echo $row['title'] ?></p>
-                                    </a>
-                                    <?php
-                                    if ($style != 'menu_style_4') { ?>
-                                        <ul>
-                                            <?php if ($row['link_items']) {
-                                                foreach ($row['link_items'] as $link) {
-                                                    echo '<li><a href="' . $link['link_item']['url'] . '" class="btn-arrow-right">' . $link['link_item']['title'] . '</a></li>';
-                                                }
-                                            }
-                                            ?>
-                                        </ul>
-                                    <?php } ?>
-                                    <div class="link_item-description">
-                                        <?php echo $row['description'] ?>
-                                    </div>
-                                    <?php if ($style == 'menu_style_4') {
-                                        echo '<a href="' . $row['button']['url'] . '" class="btn btn-arrow-right">' . $row['button']['title'] . '</a>';
 
-                                    } ?>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                    }
+<div class="echo-mega-menu menu-body postion-relative">
+    <div class="menu-body">
 
-                    ?>
+        <div class="row d-block d-xl-none">
+            <div class="col-12">
+                <div class="text-end">
+                    <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#navbarNavOffcanvas" aria-controls="navbarNavOffcanvas" aria-expanded="false">
+                        <i class="icon-cross"></i>
+                    </button>
+                </div>
+                <div class="offcanvas-header p-0">
+                    <span class="title"><?php echo $mobile_menu_name ?></span>
+                    <button class="btn-close-mega p-0" type="button" data-bs-dismiss="dropdown"
+                        aria-label="<?php esc_attr_e('Close menu', 'understrap'); ?>">
+                        <i class="icon-back-arrow"></i>Back
+                    </button>
                 </div>
             </div>
-            <div class="<?php echo $layout_class_2 ?> dropdown-image">
-                <?php echo wp_get_attachment_image($data['dropdown_featured_image'], 'full', "", ["class" => "d-xl-block d-none", "loading" => "lazy"]); ?>
-            </div>
+        </div>
+
+        <div class="row g-0">
+            <?php
+                $about = $data['main_menu'];
+
+                $about_title = $about['heading'];
+                $about_subheading = $about['content'];
+                ?>
+                <div class="col-3 d-none d-xl-block">
+                    <div class="bg-square-main-image menu-heading block--padded">
+                        <span class="title"><?php echo $mobile_menu_name ?></span>
+                        <p class="h2 about-title text--white"><?php echo $about_title ?></p>
+                        <div class="about-subtitle text--white"><?php echo $about_subheading ?></div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="bg-square-grey-image menu-content block--padded">
+                        <?php if ($about['menus']): ?>
+                            <div class="row gy-3 justify-content-xl-end">
+                                <?php foreach ($about['menus'] as $about_menu): ?>
+                                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 header-menu">
+                                        <p><?php echo esc_html($about_menu['main_title']); ?></p>
+                                        <?php
+                                        wp_nav_menu(array(
+                                            'menu' => $about_menu['menu_to_show'],
+                                            'container' => false,
+                                            'menu_class' => 'acf-menu',
+                                            'fallback_cb' => false
+                                        ));
+                                        ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
 
         </div>
     </div>
 </div>
+
 <script>
-
-    jQuery(".nav-link").click(function () {
-        jQuery('.btn-close-mega').addClass("show");
-    });
     jQuery(".btn-close-mega").click(function () {
-        jQuery('.btn-close-mega').removeClass("show");
+        jQuery('.offcanvas-body .echo-menu-shortcode').removeClass("show");
     });
-
 </script>

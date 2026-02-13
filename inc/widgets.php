@@ -370,7 +370,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		);
 
 
-		$footer_cols = 5;
+		$footer_cols = 4;
 		for ( $i = 1; $i <= $footer_cols; $i++ )
 		{
 			register_sidebar( array(

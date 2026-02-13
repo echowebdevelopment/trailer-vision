@@ -473,8 +473,8 @@ $utilities: map-merge(
       property: font-weight,
       class: fw,
       values: (
-        light: $font-weight-light,
-        lighter: $font-weight-lighter,
+        light: $font-weight-regular,
+        lighter: $font-weight-regularer,
         normal: $font-weight-normal,
         bold: $font-weight-bold,
         semibold: $font-weight-semibold,

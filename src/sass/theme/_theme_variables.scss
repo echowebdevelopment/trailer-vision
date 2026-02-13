@@ -12,15 +12,25 @@
 /* !Colours                           */
 /**************************************/
 
-$primary: #0d311f;
-// $secondary: #d7e0d3;
-$secondary: #d7dfd3;
-// $tertiary: #EFF4F2;
-$tertiary: #f4f8f2;
-$accent-green: #83af99;
-$accent-terracotta: #d96c5d;
+$primary: #1f2d3b;
+$secondary: #628bb4;
+$tertiary: #bad0e5;
+
+$highlight: #fcea1a;
+$red: #e65b48;
+
+$grey: #f8f8f8;
 $white: #ffffff;
 $black: #000000;
+
+$shadow-color: #00000029;
+$bg-primary-opacity: rgba(31, 45, 59, 0.8);
+$bg-white-opacity: rgba(255, 255, 255, 0.2);
+
+$drop-shadow: 0px 3px 6px $shadow-color;
+
+$body-color: $primary;
+$headings-color: $primary;
 
 /**************************************/
 /* !Spacing                           */
@@ -38,7 +48,6 @@ $grid-breakpoints: (
 	sm: 576px,
 	md: 768px,
 	lg: 992px,
-	mobile: 1000px,
 	xl: 1200px,
 	xxl: 1400px,
 	xxxl: 1600px,
@@ -60,10 +69,7 @@ $headings-margin-bottom: 1.5rem;
 /* !Typography */
 /**************************************/
 
-$font-family-sans-serif: "sofia-pro", sans-serif, system-ui, -apple-system,
-	"Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
-	sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-	"Noto Color Emoji";
+$font-family-sans-serif: "Sen";
 
 $font-size-base: 1rem;
 $font-size-xxl: $font-size-base * 8;
@@ -71,21 +77,21 @@ $font-size-xl: $font-size-base * 1.9;
 $font-size-sm: $font-size-base * 0.85;
 $font-size-xs: $font-size-base * 0.75;
 
-$h1-font-size: $font-size-base * 2.8;
-$h2-font-size: $font-size-base * 2.5;
-$h3-font-size: $font-size-base * 2;
+$h1-font-size: $font-size-base * 2.625;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.625;
+$h4-font-size: $font-size-base * 1.25;
+$h5-font-size: $font-size-base * 1.125;
+$h6-font-size: $font-size-base * 1;
+$lead-font-size: $font-size-base * 1;
 
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-semibold: 500;
-$font-weight-bold: 800;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
 
-$body-color: $primary;
-$body-bg: $tertiary;
-
-$font-weight-base: $font-weight-light;
-$headings-font-weight: $font-weight-semibold;
-$lead-font-weight: $font-weight-normal;
+$font-weight-base: $font-weight-regular;
+$headings-font-weight: $font-weight-bold;
+$lead-font-weight: $font-weight-regular;
 
 /**************************************/
 /* !Buttons                           */
@@ -115,18 +121,18 @@ $transition-timing: ease-in-out;
 /**************************************/
 
 :root {
-	--primary: #0d311f;
-	--primary-modal: rgba(13, 49, 31, 0.7);
-	// --secondary: #d7e0d3;
-	--secondary: #d7dfd3;
-	// --tertiary: #EFF4F2;
-	--tertiary: #f4f8f2;
-	--accent-green: #83af99;
-	--accent-terracotta: #d96c5d;
+	--primary: #1f2d3b;
+	--secondary: #628bb4;
+	--tertiary: #bad0e5;
+	--highlight: #fcea1a;
+	--red: #e65b48;
 	--danger: #d96c5d;
 	--sale: #d96c5d;
+	--grey: #f8f8f8;
 	--white: #ffffff;
 	--black: #000000;
+
+	--primary-modal: rgba(31, 45, 59, 0.7);
 	--grey-border: rgba(112, 112, 112, 0.5);
 
 	--spacer: 5rem;

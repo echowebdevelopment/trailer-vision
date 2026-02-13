@@ -722,7 +722,7 @@ function product_payment_icons()
 { ?>
 	<div class="single-product__payment-icons">
 		<div class="d-flex align-items-center text-content">
-			<i class="icon-secure-payments"></i>
+			<i class="icon-secure-payment"></i>
 			<span>Secure Payments</span>
 		</div>
 		<div class="payment-options">
