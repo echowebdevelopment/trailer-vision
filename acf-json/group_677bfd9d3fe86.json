@@ -46,7 +46,7 @@
             "label": "Opening Times",
             "name": "options_opening_times",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -58,9 +58,9 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
+            "rows": "",
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": "br"
         },
         {
             "key": "field_677bfdb1a5b1a",
@@ -106,29 +106,8 @@
         },
         {
             "key": "field_677bfdd2a5b1c",
-            "label": "Map Link",
+            "label": "Directions Link",
             "name": "options_map_link",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_679a8f1cf1300",
-            "label": "Map Iframe",
-            "name": "map_iframe",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -208,8 +187,8 @@
         },
         {
             "key": "field_677bfe0ca5b1f",
-            "label": "Pinterest Link",
-            "name": "options_pinterest_link",
+            "label": "Linkedin Link",
+            "name": "options_linkedin_link",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -228,35 +207,9 @@
             "append": ""
         },
         {
-            "key": "field_677e975a43f87",
-            "label": "Reviews Platform Logo",
-            "name": "options_reviews_platform_logo",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_677e977543f88",
-            "label": "Reviews Platform Link",
-            "name": "options_reviews_platform_link",
+            "key": "field_698f40e21b805",
+            "label": "Youtube Link",
+            "name": "options_youtube_link",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -312,27 +265,6 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
-        },
-        {
-            "key": "field_67bf26c3fc1ff",
-            "label": "Request Sample Tooltip",
-            "name": "request_sample_tooltip",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": ""
         }
     ],
     "location": [
@@ -353,5 +285,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740580560
+    "display_title": "",
+    "modified": 1770999727
 }

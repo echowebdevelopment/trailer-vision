@@ -17,24 +17,25 @@ $container = get_theme_mod('echo_container_type');
 
 	<div class="site-footer__primary block--padded-md">
 		<div class="<?php echo esc_attr($container); ?>">
-			<div class="row">
-				<div class="site-footer__logo col-12 col-lg-4 block--padded-sm">
-					<?php dynamic_sidebar('footer-col-1'); ?>asd
+			<div class="row gy-5 gy-lg-0">
+				<div class="site-footer__logo col-12 col-lg-4">
+					<?php dynamic_sidebar('footer-col-1'); ?>
 				</div>
-				<div class="site-footer__menu col-12 col-md-4 col-lg-2 block--padded-sm">
-					<?php dynamic_sidebar('footer-col-2'); ?>asd
+				<div class="site-footer__menu col-12 col-sm-6 col-md-4 col-lg-2">
+					<?php dynamic_sidebar('footer-col-2'); ?>
 				</div>
-				<div class="site-footer__menu col-12 col-md-4 col-lg-2 block--padded-sm">
-					<?php dynamic_sidebar('footer-col-3'); ?>asd
+				<div class="site-footer__menu col-12 col-sm-6 col-md-4 col-lg-2">
+					<?php dynamic_sidebar('footer-col-3'); ?>
 				</div>
-				<div class="site-footer__menu col-12 col-md-4 col-lg-4 block--padded-sm">
-					<?php dynamic_sidebar('footer-col-4'); ?>asd
+				<div class="d-none d-lg-block col-lg-1"></div>
+				<div class="site-footer__contact-details site-footer__menu col-12 col-md-4 col-lg-3">
+					<?php dynamic_sidebar('footer-col-4'); ?>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="site-footer__payment-icons block--padded-sm">
+	<div class="site-footer__payment-icons">
 		<div class="<?php echo esc_attr($container); ?>">
 			<div class="row align-items-center justify-content-center text-center site-footer__payment-icons-row">
 				<?php dynamic_sidebar('footer-payment-icons'); ?>

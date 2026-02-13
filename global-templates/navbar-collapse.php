@@ -50,10 +50,6 @@ $container = get_theme_mod('echo_container_type');
 					<?php echo do_shortcode('[gtranslate]'); ?>
 				</li>
 
-				<li class="d-none d-xl-block">
-					<?php echo do_shortcode('[buttons-cta]'); ?>
-				</li>
-
 				<li class="d-lg-block d-xl-none">
 					<nav class="navbar navbar-expand-xl">
 

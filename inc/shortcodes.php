@@ -33,7 +33,7 @@ add_shortcode('company-address', 'company_address_shortcode');
 function company_address_shortcode()
 {
 	$address = get_field('options_address', 'option');
-	$output = '<div class="address"><i class="icon-location-icon"></i><div>' . $address . '</div></div>';
+	$output = '<div class="address"><i class="icon-location"></i><div>' . $address . '</div></div>';
 	return $output;
 }
 
@@ -67,7 +67,7 @@ add_shortcode('email-address', 'email_address_shortcode');
 function email_address_shortcode()
 {
 	$email_address = get_field('options_email_address', 'option');
-	$output = '<div class="global-email"><a class="" href="mailto:' . $email_address . '"><i class="icon-email-icon"></i><span>' . $email_address . '</span></a></div>';
+	$output = '<div class="global-email"><a class="" href="mailto:' . $email_address . '"><i class="icon-email"></i><span>' . $email_address . '</span></a></div>';
 	return $output;
 }
 
@@ -79,7 +79,7 @@ add_shortcode('phone-number', 'phone_number_shortcode');
 function phone_number_shortcode()
 {
 	$phone_number = get_field('options_phone_number', 'option');
-	$output = '<div class="global-phone"><a class="" href="tel:+44' . str_replace(' ', '', $phone_number) . '"><i class="icon-phone-icon"></i><span>' . $phone_number . '</span></a></div>';
+	$output = '<div class="global-phone"><a class="" href="tel:+44' . str_replace(' ', '', $phone_number) . '"><i class="icon-phone"></i><span>' . $phone_number . '</span></a></div>';
 	return $output;
 }
 
