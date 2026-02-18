@@ -37,7 +37,7 @@ if( $video  ) {
 
     // Add extra attributes to iframe HTML.
     $attributes = 'frameborder="0"';
-    $iframe = '<video ' . $attributes . ' style="width:100%" id="myvideo"><source src="' . $src . '"  type="video/mp4"></video><div class="controls"><button id="play-pause" class="btn btn-arrow-right">Play</button></div>';
+    $iframe = '<video ' . $attributes . ' style="width:100%" id="myvideo"><source src="' . $src . '"  type="video/mp4"></video><div class="controls"><button id="play-pause" class="btn">Play</button></div>';
 }
 
 ?>

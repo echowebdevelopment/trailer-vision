@@ -41,7 +41,7 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 
 			<?php get_template_part('global-templates/navbar', $navbar_type); ?>
 
-			<?php /*if (is_product()) {
+			<?php if (is_product()) {
 				global $product;
 				$price_with_tax = wc_get_price_including_tax($product); ?>
 				<div class="sticky-add-to-cart flex-column" style="display: none;">
@@ -81,5 +81,5 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 					</div>
 				</div>
 
-			<?php } */?>
+			<?php } ?>
 		</header><!-- #wrapper-navbar -->

@@ -10,16 +10,11 @@
  **********************************************************/
 defined('ABSPATH') or die('No script kiddies please!');
 
-$auxClass = "block--margin ";
-
-if ( is_checkout() || is_product() || is_product_category() || is_shop() ) {
-	$auxClass = "block--border-both block--padded";
-}
-
+$i = 0;
 ?>
 
 <?php if (have_rows('usp', 'options')): ?>
-	<div class="usp-block block block--fullwidth <?php echo $auxClass; ?>">
+	<div class="usp-block block block--fullwidth block--padded-sm block--bg-coloured">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12">
@@ -29,14 +24,14 @@ if ( is_checkout() || is_product() || is_product_category() || is_shop() ) {
 								the_row();
 								$icon = get_sub_field('icon');
 								$title = get_sub_field('title');
-								$description = get_sub_field('description');
+								$i++;
+								$delay = ($i - 1) * 0.2;
 								?>
-								<div class="usp__item carousel__item">
-									<?php echo wp_get_attachment_image($icon, 'full', false, array('class' => 'usp__img img-fluid', 'loading' => 'lazy')) ?>
-									<div class="usp__content">
-										<p class="usp__title"><?php echo $title ?></p>
-										<p class="usp__description"><?php echo $description ?></p>
-									</div>
+								<div class="usp__item carousel__item text-center">
+									<?php echo wp_get_attachment_image($icon, 'full', false, array('class' => 'usp__img img-fluid fade-in-right', 'style' => '--delay: ' . $delay . 's;', 'loading' => 'lazy')) ?>
+									<p class="usp__title fade-in-left" style="--delay: <?php echo $delay; ?>s;">
+										<?php echo $title ?>
+									</p>
 								</div>
 							<?php endwhile; ?>
 							<?php wp_reset_postdata(); ?>

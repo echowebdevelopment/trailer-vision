@@ -67,7 +67,7 @@ if( $content ) {
 										$theme  = get_sub_field('theme');
 										if ( empty($link) ) { break; }
 
-										echo sprintf('<a class="btn btn--%1$s btn-arrow-right" href="%2$s" target="%3$s">%4$s</a>', $theme, $link['url'], $link['target'], $link['title']);
+										echo sprintf('<a class="btn btn--%1$s" href="%2$s" target="%3$s">%4$s</a>', $theme, $link['url'], $link['target'], $link['title']);
 
 									?>
 									<?php endwhile; ?>

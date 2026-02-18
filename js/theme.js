@@ -6302,37 +6302,46 @@
     }); */
 
     /* Variables passing attributes */
-    $(".other-size-available").click(function (e) {
-      e.preventDefault();
-      var selectedOptions = {};
-      $(".variations select").each(function () {
-        var attributeName = $(this).attr("name");
-        var attributeValue = $(this).find("option:selected").val();
-        if (attributeValue && attributeValue !== "") {
-          selectedOptions[attributeName] = attributeValue;
-        }
-      });
+    // $(".other-size-available").click(function (e) {
+    // 	e.preventDefault();
 
-      // $('.wc-pao-addons-container .wc-pao-addon-wrap .selected').each(function () {
-      //     let fieldName = $(this).attr('data-addon-name');
-      //     let fieldValue = $(this).attr('data-value');
+    // 	let selectedOptions = {};
 
-      //     if (fieldName && fieldValue) {
-      //         selectedOptions[fieldName] = fieldValue;
-      //     }
+    // 	$(".variations select").each(function () {
+    // 		let attributeName = $(this).attr("name");
+    // 		let attributeValue = $(this).find("option:selected").val();
 
-      // 	alert(fieldName);
-      // });
+    // 		if (attributeValue && attributeValue !== "") {
+    // 			selectedOptions[attributeName] = attributeValue;
+    // 		}
+    // 	});
 
-      var queryString = $.param(selectedOptions);
-      var currentLink = $(this).attr("data-base-url") || $(this).attr("href");
-      var updatedLink = currentLink;
-      if (queryString) {
-        updatedLink = currentLink.includes("?") ? currentLink + "&" + queryString : currentLink + "?" + queryString;
-      }
-      $(this).attr("href", updatedLink);
-      window.location.href = updatedLink;
-    });
+    // 	// $('.wc-pao-addons-container .wc-pao-addon-wrap .selected').each(function () {
+    // 	//     let fieldName = $(this).attr('data-addon-name');
+    // 	//     let fieldValue = $(this).attr('data-value');
+
+    // 	//     if (fieldName && fieldValue) {
+    // 	//         selectedOptions[fieldName] = fieldValue;
+    // 	//     }
+
+    // 	// 	alert(fieldName);
+    // 	// });
+
+    // 	let queryString = $.param(selectedOptions);
+    // 	let currentLink = $(this).attr("data-base-url") || $(this).attr("href");
+    // 	let updatedLink = currentLink;
+
+    // 	if (queryString) {
+    // 		updatedLink = currentLink.includes("?")
+    // 			? `${currentLink}&${queryString}`
+    // 			: `${currentLink}?${queryString}`;
+    // 	}
+
+    // 	$(this).attr("href", updatedLink);
+
+    // 	window.location.href = updatedLink;
+    // });
+
     document.addEventListener("facetwp-loaded", function () {
       $.each(FWP.settings.num_choices, function (key, val) {
         var $facet = $(".facetwp-facet-" + key);
@@ -6367,16 +6376,16 @@
             items: 2
           },
           768: {
-            items: 2
-          },
-          992: {
             items: 3
           },
-          1200: {
+          992: {
             items: 4
           },
-          1480: {
+          1200: {
             items: 5
+          },
+          1400: {
+            items: 6
           }
         }
       });
@@ -6521,46 +6530,57 @@
 
     /* !- WC Variation Swatches */
     // Remove title to disable native tooltip
-    $(".variable-item.button-variable-item").on("mouseover", function (e) {
-      e.stopPropagation(); // Prevent event bubbling
-      $(this).removeAttr("title"); // Remove title to disable native tooltip
-    });
+    // $(".variable-item.button-variable-item").on("mouseover", function (e) {
+    // 	e.stopPropagation(); // Prevent event bubbling
+    // 	$(this).removeAttr("title"); // Remove title to disable native tooltip
+    // });
 
     /* !- WC Pao Addons */
     // Hide swatches beyond the first 12
-    $(".form-row.form-row-wide.wc-pao-addon-wrap").each(function () {
-      var container = $(this);
-      var swatches = container.find(".wc-pao-addon-image-swatch");
-      if (swatches.length > 12) {
-        // Hide swatches beyond the first 7
-        swatches.slice(12).hide();
+    // $(".form-row.form-row-wide.wc-pao-addon-wrap").each(function () {
+    // 	let container = $(this);
+    // 	let swatches = container.find(".wc-pao-addon-image-swatch");
 
-        // Create a unique View More button for each addon
-        var viewMoreBtn = $('<span class="btn--link btn-arrow-down small" style="display:block; cursor:pointer; margin:10px 0;">View more colours</span>');
+    // 	if (swatches.length > 12) {
+    // 		// Hide swatches beyond the first 7
+    // 		swatches.slice(12).hide();
 
-        // Append button after swatches
-        container.append(viewMoreBtn);
+    // 		// Create a unique View More button for each addon
+    // 		let viewMoreBtn = $(
+    // 			'<span class="btn--link btn-arrow-down small" style="display:block; cursor:pointer; margin:10px 0;">View more colours</span>'
+    // 		);
 
-        // Toggle swatches visibility on click
-        viewMoreBtn.on("click", function () {
-          var hiddenSwatches = swatches.slice(12);
-          if (hiddenSwatches.is(":visible")) {
-            hiddenSwatches.slideUp(500);
-            $(this).text("View more colours");
-          } else {
-            hiddenSwatches.css("display", "inline-block").hide().slideDown(500);
-            $(this).text("View less colours");
-          }
-        });
-      }
-    });
-    $(".wc-pao-addon-name").each(function () {
-      var description = $(this).siblings(".wc-pao-addon-description").text().trim();
-      if (description) {
-        $(this).wrap('<span class="tooltip-container"></span>');
-        $(this).after('<button type="button" class="attribute-tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="' + description + '">?</button>');
-      }
-    });
+    // 		// Append button after swatches
+    // 		container.append(viewMoreBtn);
+
+    // 		// Toggle swatches visibility on click
+    // 		viewMoreBtn.on("click", function () {
+    // 			let hiddenSwatches = swatches.slice(12);
+    // 			if (hiddenSwatches.is(":visible")) {
+    // 				hiddenSwatches.slideUp(500);
+    // 				$(this).text("View more colours");
+    // 			} else {
+    // 				hiddenSwatches.css("display", "inline-block").hide().slideDown(500);
+    // 				$(this).text("View less colours");
+    // 			}
+    // 		});
+    // 	}
+    // });
+
+    // $(".wc-pao-addon-name").each(function () {
+    // 	var description = $(this)
+    // 		.siblings(".wc-pao-addon-description")
+    // 		.text()
+    // 		.trim();
+    // 	if (description) {
+    // 		$(this).wrap('<span class="tooltip-container"></span>');
+    // 		$(this).after(
+    // 			'<button type="button" class="attribute-tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="' +
+    // 				description +
+    // 				'">?</button>'
+    // 		);
+    // 	}
+    // });
 
     /* !- Sticky Add to Cart */
     var stickyBar = $(".sticky-add-to-cart");
@@ -6615,92 +6635,172 @@
       }
     });
 
-    /* !- Update total price with addon */
-    /* !- Update total price with addon */
-    // Store the previous addon prices globally
-    var prevAddonPrice = 0;
-    var selectedAddonIds = new Set(); // Store selected addon identifiers
+    // /* !- Update total price with addon */
+    // // Store the previous addon prices globally
+    // let prevAddonPrice = 0;
+    // let selectedAddonIds = new Set(); // Store selected addon identifiers
 
-    function updatePrice() {
-      var basePriceElement = $(".woocommerce-variation-price .woocommerce-Price-amount bdi");
-      var basePrice = parseFloat(basePriceElement.text().replace(/[^0-9.]/g, "")) || 0;
-      var selectedAddons = $(".wc-pao-addon-image-swatch.selected");
-      var addonPrice = 0;
+    // function updatePrice() {
+    // 	let basePriceElement = $(
+    // 		".woocommerce-variation-price .woocommerce-Price-amount bdi"
+    // 	);
+    // 	let basePrice =
+    // 		parseFloat(basePriceElement.text().replace(/[^0-9.]/g, "")) || 0;
+    // 	let selectedAddons = $(".wc-pao-addon-image-swatch.selected");
+    // 	let addonPrice = 0;
 
-      // If base price is 0, exit function
-      if (basePrice <= 0) {
-        // alert("Base price is 0, skipping addon calculation.");
-        return; // Exit the function early if the base price is 0
-      }
+    // 	// If base price is 0, exit function
+    // 	if (basePrice <= 0) {
+    // 		// alert("Base price is 0, skipping addon calculation.");
+    // 		return; // Exit the function early if the base price is 0
+    // 	}
 
-      // Reset addonIds for each price update
-      selectedAddonIds.clear();
+    // 	// Reset addonIds for each price update
+    // 	selectedAddonIds.clear();
 
-      // Loop through each selected addon and sum their prices
-      selectedAddons.each(function () {
-        var priceText = $(this).attr("data-price") || "0";
-        var priceMatch = priceText.match(/£[^0-9]*([\d,]+(\.\d{1,2})?)/);
-        if (priceMatch) {
-          addonPrice += parseFloat(priceMatch[1].replace(/[^0-9.]/g, "")) || 0;
-        }
+    // 	// Loop through each selected addon and sum their prices
+    // 	selectedAddons.each(function () {
+    // 		let priceText = $(this).attr("data-price") || "0";
+    // 		let priceMatch = priceText.match(/£[^0-9]*([\d,]+(\.\d{1,2})?)/);
 
-        // Store unique identifier (e.g., data-price or another attribute)
-        var addonIdentifier = $(this).attr("data-price"); // Ensure this is unique
-        if (addonIdentifier) {
-          selectedAddonIds.add(addonIdentifier);
-        }
-      });
-      var newTotal = basePrice + addonPrice - prevAddonPrice;
+    // 		if (priceMatch) {
+    // 			addonPrice += parseFloat(priceMatch[1].replace(/[^0-9.]/g, "")) || 0;
+    // 		}
 
-      // Update the variation price display
-      basePriceElement.html("<span class=\"woocommerce-Price-currencySymbol\">\xA3</span>" + newTotal.toFixed(2));
+    // 		// Store unique identifier (e.g., data-price or another attribute)
+    // 		let addonIdentifier = $(this).attr("data-price"); // Ensure this is unique
+    // 		if (addonIdentifier) {
+    // 			selectedAddonIds.add(addonIdentifier);
+    // 		}
+    // 	});
 
-      // Update the previous addon price to the new total
-      prevAddonPrice = addonPrice;
+    // 	let newTotal = basePrice + addonPrice - prevAddonPrice;
 
-      // Debugging output: New Total Price
-      // alert("Base Price: " + basePrice);
-      // alert("Total Addon Price: " + addonPrice);
-      // alert("Previous Addon Price: " + prevAddonPrice);
-      // alert("New Total Price: " + newTotal);
-    }
+    // 	// Update the variation price display
+    // 	basePriceElement.html(
+    // 		`<span class="woocommerce-Price-currencySymbol">£</span>${newTotal.toFixed(
+    // 			2
+    // 		)}`
+    // 	);
 
-    // Listen for clicks or touch events on addon image swatches
-    $(document).on("click touchend", ".wc-pao-addon-image-swatch", function () {
-      var addonIdentifier = $(this).attr("data-price"); // Ensure identifier is unique
+    // 	// Update the previous addon price to the new total
+    // 	prevAddonPrice = addonPrice;
 
-      // Toggle selection based on current state
-      if ($(this).hasClass("selected")) {
-        selectedAddonIds.add(addonIdentifier);
-      } else {
-        selectedAddonIds["delete"](addonIdentifier);
-      }
-      updatePrice();
-    });
+    // 	// Debugging output: New Total Price
+    // 	// alert("Base Price: " + basePrice);
+    // 	// alert("Total Addon Price: " + addonPrice);
+    // 	// alert("Previous Addon Price: " + prevAddonPrice);
+    // 	// alert("New Total Price: " + newTotal);
+    // }
 
-    // Ensure price updates when variation changes
-    $(document).on("found_variation", function () {
-      updatePrice();
-    });
+    // // Listen for clicks or touch events on addon image swatches
+    // $(document).on("click touchend", ".wc-pao-addon-image-swatch", function () {
+    // 	let addonIdentifier = $(this).attr("data-price"); // Ensure identifier is unique
 
-    // Preserve Addons When Variations Change
-    $(document).on("click", ".variable-item, .woo-variation-raw-select", function () {
-      prevAddonPrice = 0;
+    // 	// Toggle selection based on current state
+    // 	if ($(this).hasClass("selected")) {
+    // 		selectedAddonIds.add(addonIdentifier);
+    // 	} else {
+    // 		selectedAddonIds.delete(addonIdentifier);
+    // 	}
 
-      // Wait for variation change, then restore selected addons
-      $(".wc-pao-addon-image-swatch").each(function () {
-        var addonIdentifier = $(this).attr("data-price"); // Ensure identifier is unique
+    // 	updatePrice();
+    // });
 
-        // Add or remove the selected class based on previously selected addons
-        if (selectedAddonIds.has(addonIdentifier)) {
-          $(this).addClass("selected");
-        } else {
-          $(this).removeClass("selected");
-        }
-      });
-      updatePrice(); // Recalculate price with restored addons
-    });
+    // // Ensure price updates when variation changes
+    // $(document).on("found_variation", function () {
+    // 	updatePrice();
+    // });
+
+    // // Preserve Addons When Variations Change
+    // $(document).on(
+    // 	"click",
+    // 	".variable-item, .woo-variation-raw-select",
+    // 	function () {
+    // 		prevAddonPrice = 0;
+
+    // 		// Wait for variation change, then restore selected addons
+    // 		$(".wc-pao-addon-image-swatch").each(function () {
+    // 			let addonIdentifier = $(this).attr("data-price"); // Ensure identifier is unique
+
+    // 			// Add or remove the selected class based on previously selected addons
+    // 			if (selectedAddonIds.has(addonIdentifier)) {
+    // 				$(this).addClass("selected");
+    // 			} else {
+    // 				$(this).removeClass("selected");
+    // 			}
+    // 		});
+
+    // 		updatePrice(); // Recalculate price with restored addons
+    // 	}
+    // );
   })(jQuery);
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0;
+  }
+  function checkVisibility() {
+    var selectors = [".fade-in-bottom", ".fade-in-left", ".fade-in-right", ".fade-in-top"];
+    selectors.forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(function (el) {
+        if (isElementInViewport(el) && !el.classList.contains("visible")) {
+          el.classList.add("visible");
+        }
+      });
+    });
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    checkVisibility();
+    window.addEventListener("scroll", checkVisibility);
+    window.addEventListener("resize", checkVisibility);
+  });
+  document.querySelectorAll('[data-bs-toggle="pill"]').forEach(function (tab) {
+    tab.addEventListener("shown.bs.tab", function () {
+      setTimeout(checkVisibility, 150);
+    });
+  });
+  function triggerUspAnimations() {
+    var uspBlock = document.querySelector(".usp-block");
+    if (!uspBlock) return;
+    var rect = uspBlock.getBoundingClientRect();
+    var isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (isVisible) {
+      uspBlock.querySelectorAll(".fade-in-left, .fade-in-right, .fade-in-top, .fade-in-bottom").forEach(function (el) {
+        el.classList.add("visible");
+      });
+    }
+  }
+
+  // Run on load
+  document.addEventListener("DOMContentLoaded", function () {
+    triggerUspAnimations();
+  });
+
+  // Also run after slider init (important)
+  window.addEventListener("load", function () {
+    triggerUspAnimations();
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    var fields = document.querySelectorAll(".floating-label .wpcf7-form-control");
+    fields.forEach(function (field) {
+      var wrapper = field.closest(".floating-label");
+      var toggleClass = function toggleClass() {
+        var hasValue = false;
+        if (field.tagName.toLowerCase() === "select") {
+          hasValue = field.selectedIndex > 0; // ignore the first "placeholder" option
+        } else {
+          hasValue = field.value.trim() !== "";
+        }
+        wrapper.classList.toggle("has-value", hasValue);
+      };
+
+      // Run initially and when field changes
+      toggleClass();
+      field.addEventListener("input", toggleClass);
+      field.addEventListener("change", toggleClass);
+      field.addEventListener("blur", toggleClass);
+    });
+  });
 
   exports.Alert = Alert;
   exports.Button = Button;

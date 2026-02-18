@@ -73,7 +73,7 @@ $subheading3 = $sideblock3['subheading_text_grid'] ? sprintf('<div class="text-b
 													if (empty($link)) {
 														break;
 													}
-													echo sprintf('<a class="btn btn--%1$s btn-arrow-right btn-no-border" href="%2$s" target="%3$s">%4$s</a>', $theme, $link['url'], $link['target'], $link['title']);
+													echo sprintf('<a class="btn btn--%1$s btn-no-border" href="%2$s" target="%3$s">%4$s</a>', $theme, $link['url'], $link['target'], $link['title']);
 													?>
 												<?php endwhile; ?>
 											</div>
@@ -107,7 +107,7 @@ $subheading3 = $sideblock3['subheading_text_grid'] ? sprintf('<div class="text-b
 									<?php if ($sideblock1['link_grid']['title']): ?>
 										<div class="block-buttons">
 											<span
-												class="btn btn--<?php echo $sideblock1['theme_grid']; ?> btn-arrow-right"><?php echo $sideblock1['link_grid']['title']; ?>
+												class="btn btn--<?php echo $sideblock1['theme_grid']; ?>"><?php echo $sideblock1['link_grid']['title']; ?>
 											</span>
 										</div>
 									<?php endif; ?>
@@ -133,7 +133,7 @@ $subheading3 = $sideblock3['subheading_text_grid'] ? sprintf('<div class="text-b
 								<?php if ($sideblock2['link_grid']): ?>
 									<div class="block-buttons">
 										<span
-											class="btn btn--<?php echo $sideblock2['theme_grid']; ?> btn-arrow-right"><?php echo $sideblock2['link_grid']['title']; ?></span>
+											class="btn btn--<?php echo $sideblock2['theme_grid']; ?>"><?php echo $sideblock2['link_grid']['title']; ?></span>
 									</div>
 								<?php endif; ?>
 							</div>
@@ -157,7 +157,7 @@ $subheading3 = $sideblock3['subheading_text_grid'] ? sprintf('<div class="text-b
 								<?php if ($sideblock3['link_grid']): ?>
 									<div class="block-buttons">
 										<span
-											class="btn btn--<?php echo $sideblock3['theme_grid']; ?> btn-arrow-right"><?php echo $sideblock3['link_grid']['title']; ?></span>
+											class="btn btn--<?php echo $sideblock3['theme_grid']; ?>"><?php echo $sideblock3['link_grid']['title']; ?></span>
 									</div>
 								<?php endif; ?>
 							</div>

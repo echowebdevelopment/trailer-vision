@@ -1,13 +1,13 @@
 {
-    "key": "group_68147dee0d18c",
-    "title": "Product Management Options",
+    "key": "group_69932d65e6638",
+    "title": "Block: Page Introduction",
     "fields": [
         {
-            "key": "field_68147deedb9a3",
-            "label": "Discontinue Product",
-            "name": "discontinue_product",
+            "key": "field_69932d723f5c8",
+            "label": "Content",
+            "name": "content",
             "aria-label": "",
-            "type": "true_false",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,25 +16,25 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "default_value": "",
             "allow_in_bindings": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 1
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "product"
+                "value": "acf\/page-introduction"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "side",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -42,5 +42,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1746173593
+    "display_title": "",
+    "modified": 1771253140
 }

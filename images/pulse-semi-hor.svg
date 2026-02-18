@@ -1,0 +1,15 @@
+<svg id="pulse-semi-hor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="372" height="185" viewBox="0 0 372 185">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4999" data-name="Rectangle 4999" width="372" height="185" transform="translate(556 1139)" fill="#99b2ca" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_49" data-name="Mask Group 49" transform="translate(-556 -1139)" clip-path="url(#clip-path)">
+    <g id="Group_9445" data-name="Group 9445" transform="translate(-3785.71 1706.883)">
+      <path id="Path_54524" data-name="Path 54524" d="M178.426,139.214a39.211,39.211,0,1,0-39.211,39.211,39.21,39.21,0,0,0,39.211-39.211m-52.281,0a13.07,13.07,0,1,1,13.07,13.071,13.085,13.085,0,0,1-13.07-13.071" transform="translate(4387.959 -520.918)" fill="#99b2ca" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+      <path id="Path_54525" data-name="Path 54525" d="M182.994,91.5a91.5,91.5,0,1,0-91.5,91.5,91.5,91.5,0,0,0,91.5-91.5M45.285,137.709A65.347,65.347,0,1,1,91.5,156.854a64.915,64.915,0,0,1-46.212-19.144" transform="translate(4435.678 -473.2)" fill="#99b2ca" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0.804"/>
+      <path id="Ellipse_353" data-name="Ellipse 353" d="M185.355,25.276c-88.268,0-160.08,71.811-160.08,160.08s71.811,160.08,160.08,160.08,160.08-71.811,160.08-160.08-71.811-160.08-160.08-160.08m0-25.276C287.724,0,370.711,82.986,370.711,185.355S287.724,370.711,185.355,370.711,0,287.724,0,185.355,82.986,0,185.355,0Z" transform="translate(4343 -568.238)" fill="#99b2ca" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0.401"/>
+      <path id="Ellipse_354" data-name="Ellipse 354" d="M139.017,25.276A113.741,113.741,0,1,0,252.757,139.017,113.87,113.87,0,0,0,139.017,25.276m0-25.276A139.017,139.017,0,1,1,0,139.017,139.017,139.017,0,0,1,139.017,0Z" transform="translate(4387.934 -521.899)" fill="#99b2ca" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0.597"/>
+    </g>
+  </g>
+</svg>

@@ -90,7 +90,7 @@ $query = new WP_Query($loop_args);
                                     <h3>You may also like to read</h3>
                                 </div>
                                 <div class="reviews-slider__logo-link">
-                                    <?php echo sprintf('<a class="btn btn--transparent btn-arrow-right" href="/blog/">See more articles</a>'); ?>
+                                    <?php echo sprintf('<a class="btn btn--transparent" href="/blog/">See more articles</a>'); ?>
                                 </div>
 
                             </div>

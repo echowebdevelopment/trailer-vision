@@ -43,7 +43,7 @@ $row_class = isset($args['row_class']) ? $args['row_class'] : '';
                         </div>
                         <h2 class="text-block__heading"><?php echo $args['title']; ?></h2>
                         <p class="blog-content__content"><?php echo $content; ?></p>
-                        <span class="btn btn--primary btn-arrow-right">Read article</span>
+                        <span class="btn btn--primary">Read article</span>
                     </div>
                 </div>
             </div>

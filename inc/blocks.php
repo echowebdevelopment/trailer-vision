@@ -32,7 +32,9 @@ function register_acf_blocks() {
 		'reviews-slider-block',
 		'feature-products-slider-block',
 		'contact-us-block',
-		'blog-slider-feed-block'
+		'blog-slider-feed-block',
+		'page-introduction-block',
+		'divider-block'
 	);
 
 	foreach ( $blocks as $block ) {

@@ -59,7 +59,7 @@ $link = get_field('link_all_faqs');
 					<?php if ($link) { ?>
 						<div class="text-center block--margin-md">
 							<a href="<?php echo $link['url'] ?>" target="<?php echo $link['target'] ?>"
-								class="btn btn--transparent btn-arrow-right">
+								class="btn btn--transparent">
 								<?php echo $link['title'] ?>
 							</a>
 						</div>

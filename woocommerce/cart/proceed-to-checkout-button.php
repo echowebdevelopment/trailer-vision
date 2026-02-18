@@ -21,10 +21,10 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="btn btn--primary btn-arrow-right">
+<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="btn btn--primary">
 	<?php esc_html_e( 'Proceed to checkout', 'woocommerce' ); ?>
 </a>
 
-<a href="<?php echo esc_url( '/shop' ); ?>" class="btn btn--secondary btn-arrow-right">
+<a href="<?php echo esc_url( '/shop' ); ?>" class="btn btn--secondary">
 	<?php esc_html_e( 'Continue Shopping', 'woocommerce' ); ?>
 </a>

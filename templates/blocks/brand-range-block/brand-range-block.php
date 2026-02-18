@@ -74,7 +74,7 @@ if ($heading_center == 'yes') {
 
 									<?php if ($link) { ?>
 										<div class="brand-range-block__content-link">
-											<?php echo sprintf('<span class="btn btn--transparent btn-arrow-right">%1$s</span>', $link['title']); ?>
+											<?php echo sprintf('<span class="btn btn--transparent">%1$s</span>', $link['title']); ?>
 										</div>
 									<?php } ?>
 

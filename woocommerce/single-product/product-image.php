@@ -64,7 +64,7 @@ $image_caption = $image->post_excerpt ?: $product->get_title();
 
 		<!-- Button Below -->
 		<div class="single-product__button">
-			<a id="magic_start" href="#" class="btn btn--primary btn-arrow-right">See more photos</a>
+			<a id="magic_start" href="#" class="btn btn--primary">See more photos</a>
 		</div>
 	<?php } ?>
 </div>

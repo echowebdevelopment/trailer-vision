@@ -72,28 +72,6 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_6790d297297f9"
-                },
-                {
-                    "key": "field_6790d2c0297fc",
-                    "label": "Description",
-                    "name": "description",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 1,
-                    "rows": 3,
-                    "placeholder": "",
-                    "new_lines": "",
-                    "parent_repeater": "field_6790d297297f9"
                 }
             ]
         }
@@ -116,5 +94,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1757079923
+    "display_title": "",
+    "modified": 1771425526
 }

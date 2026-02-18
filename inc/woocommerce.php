@@ -754,7 +754,7 @@ function linked_products()
 
 				?>
 				<a href="<?php echo get_permalink($linked_produt_id) ?>"
-					class="btn btn--transparent btn-arrow-right other-size-available">
+					class="btn btn--transparent other-size-available">
 					<?php echo $option_label; ?>
 				</a>
 			<?php } ?>
@@ -935,7 +935,7 @@ function product_accordion()
 						</summary>
 						<div class="accordion__answer reviews-area">
 							<!-- <p class="reviews-area__title">Read our customer reviews for this product.
-								<a class="btn btn--transparent btn-arrow-right d-none d-sm-block" type="button"
+								<a class="btn btn--transparent d-none d-sm-block" type="button"
 									data-bs-toggle="modal" aria-label="Open Review Model" data-bs-target="#reviewModal">
 									Review this product
 								</a>
@@ -945,7 +945,7 @@ function product_accordion()
 
 
 
-							<!-- <a class="btn btn--transparent btn-arrow-right d-block d-sm-none mobile-reviews-btn" type="button"
+							<!-- <a class="btn btn--transparent d-block d-sm-none mobile-reviews-btn" type="button"
 								data-bs-toggle="modal" aria-label="Open Review Model" data-bs-target="#reviewModal">
 								Review this product
 							</a>
@@ -1123,7 +1123,7 @@ function request_sample_btn()
 			<strong class="request-choice-label">Selected colour</strong>:
 			<span class="request-sample-label">None</span>
 		</div>
-		<a href="#" class="btn btn--transparent btn-arrow-right add-sample-to-cart"
+		<a href="#" class="btn btn--transparent add-sample-to-cart"
 			data-addon-id="<?php echo esc_attr($addon_id); ?>"
 			data-product-name="<?php echo esc_attr($product->get_name()); ?>">
 			Request a sample
@@ -1471,7 +1471,7 @@ function shop_page_filters()
 				echo do_shortcode('[facetwp facet="sorting_filter"]');
 				echo do_shortcode('[facetwp facet="product_search"]');
 				?>
-				<!-- <a class="btn btn--primary btn-arrow-right yith-woocompare-open" href="#">Comparision Menu</a> -->
+				<!-- <a class="btn btn--primary yith-woocompare-open" href="#">Comparision Menu</a> -->
 			</div>
 		</div>
 	</div>

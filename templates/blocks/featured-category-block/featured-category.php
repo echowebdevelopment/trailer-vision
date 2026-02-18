@@ -27,7 +27,7 @@ defined('ABSPATH') or die('No script kiddies please!');
 							<?php echo wp_get_attachment_image($featured, 'full', false, array('class' => 'card-img', 'loading' => 'lazy')) ?>
 							<div class="card-img-overlay p-4">
 								<h3 class="section-title"><?php echo get_sub_field('title'); ?></h3>
-								<?php echo '<span class="btn btn-arrow-right">' . $links['title'] . '</span>'; ?>
+								<?php echo '<span class="btn">' . $links['title'] . '</span>'; ?>
 							</div>
 						</div>
 						</a>

@@ -24,47 +24,9 @@
             "append": ""
         },
         {
-            "key": "field_677fcdc7b0a28",
-            "label": "Description",
-            "name": "description",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_6794e533f6039",
-            "label": "Button",
-            "name": "button",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 0
-        },
-        {
             "key": "field_677fcddeb0a29",
-            "label": "Featured Image",
-            "name": "bg_image",
+            "label": "Background Image",
+            "name": "background_image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -86,33 +48,6 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
-        },
-        {
-            "key": "field_677fce00ef693",
-            "label": "Banner Layout",
-            "name": "layout",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "fullwidth-image": "Fullwidth Image",
-                "half-image": "Halfwidth Image"
-            },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
         }
     ],
     "location": [
@@ -133,5 +68,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1738238115
+    "display_title": "",
+    "modified": 1771247633
 }

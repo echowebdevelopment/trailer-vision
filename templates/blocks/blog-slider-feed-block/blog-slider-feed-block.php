@@ -45,7 +45,7 @@ $query = new WP_Query($loop_args);
 					<?php } ?>
 					<div class="reviews-slider__logo-link">
 						<?php if ($link) {
-							echo sprintf('<a class="btn btn--transparent btn-arrow-right" href="%1$s" target="%2$s">%3$s</a>', $link['url'], $link['target'], $link['title']);
+							echo sprintf('<a class="btn btn--transparent" href="%1$s" target="%2$s">%3$s</a>', $link['url'], $link['target'], $link['title']);
 						} ?>
 					</div>
 
