@@ -57,7 +57,7 @@ class Accordion {
 			{
 				duration: 500, // Increased duration for smoother transition
 				easing: "ease-in-out", // Ease-in-out for smoother animation
-			}
+			},
 		);
 
 		// When the animation is complete, call onAnimationFinish()
@@ -101,7 +101,7 @@ class Accordion {
 			{
 				duration: 500, // Increased duration for smoother transition
 				easing: "ease-in-out", // Ease-in-out for smoother animation
-			}
+			},
 		);
 		// When the animation is complete, call onAnimationFinish()
 		this.animation.onfinish = () => this.onAnimationFinish(true);
@@ -217,7 +217,7 @@ document.querySelectorAll("details").forEach((el) => {
 		$.each(FWP.settings.num_choices, function (key, val) {
 			var $facet = $(".facetwp-facet-" + key);
 			var $wrap = $facet.closest(
-				".shop-filters .widget_block details.accordion__item"
+				".shop-filters .widget_block details.accordion__item",
 			);
 			var $flyout = $facet.closest(".flyout-row");
 			if ($wrap.length || $flyout.length) {
@@ -259,6 +259,42 @@ document.querySelectorAll("details").forEach((el) => {
 				},
 				1400: {
 					items: 6,
+				},
+			},
+		});
+	}
+
+	if ($(".logo-carousel__carousel").length > 0) {
+		/* TinySlider */
+		var logoSlider = tns({
+			container: ".logo-carousel__carousel",
+			mouseDrag: true,
+			autoplay: true,
+			gutter: 40,
+			speed: 1000,
+			autoplayTimeout: 2000,
+			autoplayButtonOutput: false,
+			nav: false,
+			controls: true,
+			controlsText: [
+				"<i class='icon-nav-right'></i><span class='visually-hidden'>Prev</span>",
+				"<i class='icon-nav-forward'></i><span class='visually-hidden'>Next</span>",
+			],
+			responsive: {
+				0: {
+					items: 2,
+				},
+				576: {
+					items: 3,
+				},
+				768: {
+					items: 3,
+				},
+				992: {
+					items: 4,
+				},
+				1200: {
+					items: 5,
 				},
 			},
 		});
@@ -414,7 +450,7 @@ document.querySelectorAll("details").forEach((el) => {
 				{
 					scrollTop: $(".facetwp-template").offset().top - 250,
 				},
-				500
+				500,
 			);
 		}
 	});
@@ -482,7 +518,7 @@ document.querySelectorAll("details").forEach((el) => {
 		$(".product .price .woocommerce-Price-amount")
 			.first()
 			.text()
-			.replace(/[^0-9.]/g, "")
+			.replace(/[^0-9.]/g, ""),
 	);
 
 	// Disable button initially for variable products
@@ -674,16 +710,32 @@ document.querySelectorAll('[data-bs-toggle="pill"]').forEach((tab) => {
 
 function triggerUspAnimations() {
 	const uspBlock = document.querySelector(".usp-block");
+	const logosBlock = document.querySelector(".logo-block");
 
 	if (!uspBlock) return;
 
-	const rect = uspBlock.getBoundingClientRect();
-	const isVisible =
-		rect.top < window.innerHeight && rect.bottom > 0;
+	if (!logosBlock) return;
 
-	if (isVisible) {
+	const rect = uspBlock.getBoundingClientRect();
+	const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+	const rectlogo = logosBlock.getBoundingClientRect();
+	const isVisibleLogo =
+		rectlogo.top < window.innerHeight && rectlogo.bottom > 0;
+
+	if (isVisible || isVisibleLogo) {
 		uspBlock
-			.querySelectorAll(".fade-in-left, .fade-in-right, .fade-in-top, .fade-in-bottom")
+			.querySelectorAll(
+				".fade-in-left, .fade-in-right, .fade-in-top, .fade-in-bottom",
+			)
+			.forEach((el) => {
+				el.classList.add("visible");
+			});
+
+		logosBlock
+			.querySelectorAll(
+				".fade-in-left, .fade-in-right, .fade-in-top, .fade-in-bottom",
+			)
 			.forEach((el) => {
 				el.classList.add("visible");
 			});
@@ -700,9 +752,10 @@ window.addEventListener("load", () => {
 	triggerUspAnimations();
 });
 
+/* Floating Label */
 document.addEventListener("DOMContentLoaded", function () {
 	const fields = document.querySelectorAll(
-		".floating-label .wpcf7-form-control"
+		".floating-label .wpcf7-form-control",
 	);
 
 	fields.forEach((field) => {

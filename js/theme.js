@@ -6390,6 +6390,38 @@
         }
       });
     }
+    if ($(".logo-carousel__carousel").length > 0) {
+      /* TinySlider */
+      tns({
+        container: ".logo-carousel__carousel",
+        mouseDrag: true,
+        autoplay: true,
+        gutter: 40,
+        speed: 1000,
+        autoplayTimeout: 2000,
+        autoplayButtonOutput: false,
+        nav: false,
+        controls: true,
+        controlsText: ["<i class='icon-nav-right'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-nav-forward'></i><span class='visually-hidden'>Next</span>"],
+        responsive: {
+          0: {
+            items: 2
+          },
+          576: {
+            items: 3
+          },
+          768: {
+            items: 3
+          },
+          992: {
+            items: 4
+          },
+          1200: {
+            items: 5
+          }
+        }
+      });
+    }
     if ($(".hero-slider-carousel").length > 0) {
       /* TinySlider */
       tns({
@@ -6761,11 +6793,18 @@
   });
   function triggerUspAnimations() {
     var uspBlock = document.querySelector(".usp-block");
+    var logosBlock = document.querySelector(".logo-block");
     if (!uspBlock) return;
+    if (!logosBlock) return;
     var rect = uspBlock.getBoundingClientRect();
     var isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-    if (isVisible) {
+    var rectlogo = logosBlock.getBoundingClientRect();
+    var isVisibleLogo = rectlogo.top < window.innerHeight && rectlogo.bottom > 0;
+    if (isVisible || isVisibleLogo) {
       uspBlock.querySelectorAll(".fade-in-left, .fade-in-right, .fade-in-top, .fade-in-bottom").forEach(function (el) {
+        el.classList.add("visible");
+      });
+      logosBlock.querySelectorAll(".fade-in-left, .fade-in-right, .fade-in-top, .fade-in-bottom").forEach(function (el) {
         el.classList.add("visible");
       });
     }
@@ -6780,6 +6819,8 @@
   window.addEventListener("load", function () {
     triggerUspAnimations();
   });
+
+  /* Floating Label */
   document.addEventListener("DOMContentLoaded", function () {
     var fields = document.querySelectorAll(".floating-label .wpcf7-form-control");
     fields.forEach(function (field) {

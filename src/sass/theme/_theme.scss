@@ -736,43 +736,53 @@ figure {
 	position: relative;
 }
 
-.tns-nav {
-	position: absolute;
-	bottom: 3rem;
-	right: 5rem;
-	z-index: 2;
-	cursor: pointer;
-
-	@include media-breakpoint-down(xl) {
+.tns-controls {
+	button {
+		border: none;
 		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-		left: 0;
-		right: 0;
+		pointer-events: visible;
+		background-color: transparent;
+		display: flex;
 	}
 }
 
-.tns-nav button {
-	width: 12px;
-	height: 12px;
-	border: 2px solid var(--white);
-	margin-right: 0.8rem;
-	padding: 0;
-	background-color: transparent;
+// .tns-nav {
+// 	position: absolute;
+// 	bottom: 3rem;
+// 	right: 5rem;
+// 	z-index: 2;
+// 	cursor: pointer;
 
-	&:hover {
-		background-color: var(--secondary) !important;
-		border-color: var(--secondary);
-	}
+// 	@include media-breakpoint-down(xl) {
+// 		text-align: center;
+// 		margin-left: auto;
+// 		margin-right: auto;
+// 		left: 0;
+// 		right: 0;
+// 	}
+// }
 
-	&:last-child {
-		margin-right: 0;
-	}
-}
+// .tns-nav button {
+// 	width: 12px;
+// 	height: 12px;
+// 	border: 2px solid var(--white);
+// 	margin-right: 0.8rem;
+// 	padding: 0;
+// 	background-color: transparent;
 
-.tns-nav button.tns-nav-active {
-	background-color: var(--white);
-}
+// 	&:hover {
+// 		background-color: var(--secondary) !important;
+// 		border-color: var(--secondary);
+// 	}
+
+// 	&:last-child {
+// 		margin-right: 0;
+// 	}
+// }
+
+// .tns-nav button.tns-nav-active {
+// 	background-color: var(--white);
+// }
 
 /**************************************/
 /* !- Block Layout                    */
@@ -4111,6 +4121,64 @@ table.compare-list .remove a span {
 	@media (max-width: 600px) {
 		padding-left: 0;
 		padding-right: 1rem;
+	}
+}
+
+/**************************************/
+/* !Logo Block                        */
+/**************************************/
+.logo-block {
+	.text-block__subheading {
+		font-size: 1.125rem;
+
+		@include media-breakpoint-down(md) {
+			font-size: 1rem;
+		}
+	}
+}
+
+.logo-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.logo-carousel {
+	margin-top: 2rem;
+}
+
+.logo-carousel .tns-controls {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	display: flex;
+	justify-content: space-between;
+	z-index: 1;
+	left: -4.5rem;
+	right: -4.5rem;
+
+	button {
+		border: none;
+		text-align: center;
+		pointer-events: visible;
+		color: var(--primary);
+		font-size: 1.875rem;
+		background-color: transparent;
+		display: flex;
+
+		&:hover {
+			color: var(--secondary);
+		}
+	}
+
+	@include media-breakpoint-down(lg) {
+		// top: -55px;
+		// right: unset;
+		// left: 50%;
+		// transform: translatex(-50%);
+		// gap: 40px;
+		display: none;
 	}
 }
 

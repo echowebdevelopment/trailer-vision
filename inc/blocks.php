@@ -34,7 +34,8 @@ function register_acf_blocks() {
 		'contact-us-block',
 		'blog-slider-feed-block',
 		'page-introduction-block',
-		'divider-block'
+		'divider-block',
+		'logo-block',
 	);
 
 	foreach ( $blocks as $block ) {
