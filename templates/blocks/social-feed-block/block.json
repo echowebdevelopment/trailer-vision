@@ -1,0 +1,13 @@
+{
+	"name": "acf/social-feed-block",
+	"title": "Social Feed Block",
+	"description": "",
+	"category": "widgets",
+	"icon": "text-page",
+	"keywords": ["social", "feed"],
+	"acf": {
+		"mode": "editor",
+		"renderTemplate": "social-feed-block.php"
+	},
+	"align": "full"
+}

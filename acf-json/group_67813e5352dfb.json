@@ -1,6 +1,6 @@
 {
     "key": "group_67813e5352dfb",
-    "title": "Block : Photo Collage",
+    "title": "Block : Photo Gallery",
     "fields": [
         {
             "key": "field_67813e53557f9",
@@ -18,8 +18,8 @@
             },
             "layout": "table",
             "pagination": 0,
-            "min": 6,
-            "max": 6,
+            "min": 0,
+            "max": 0,
             "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
@@ -31,14 +31,14 @@
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "50",
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "id",
+                    "return_format": "array",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -53,10 +53,10 @@
                 },
                 {
                     "key": "field_67ab2915a6ff4",
-                    "label": "Product Link",
-                    "name": "product_link",
+                    "label": "Product Title",
+                    "name": "product_title",
                     "aria-label": "",
-                    "type": "link",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -65,8 +65,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "default_value": "",
+                    "maxlength": "",
                     "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
                     "parent_repeater": "field_67813e53557f9"
                 }
             ]
@@ -77,7 +81,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/photo-collage"
+                "value": "acf\/photo-gallery"
             }
         ]
     ],
@@ -90,5 +94,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1739270729
+    "display_title": "",
+    "modified": 1771499275
 }

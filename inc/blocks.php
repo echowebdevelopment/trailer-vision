@@ -19,10 +19,9 @@ function register_acf_blocks() {
 		'advert-cta-block',
 		'featured-category-block',
 		'page-title-block',
-		'photo-collage-block',
+		'photo-gallery-block',
 		'usps-block',
 		'advert-feature-block',
-		'photo-divider-block',
 		'video-block',
 		'faqs-block',
 		'text-block',
@@ -36,6 +35,7 @@ function register_acf_blocks() {
 		'page-introduction-block',
 		'divider-block',
 		'logo-block',
+		'social-feed-block'
 	);
 
 	foreach ( $blocks as $block ) {

@@ -219,6 +219,18 @@ h6 {
 	margin-bottom: 1rem;
 }
 
+.lead {
+	font-size: 1rem;
+}
+
+.block-buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
 @include media-breakpoint-down(md) {
 	h1 {
 		font-size: $font-size-base * 2;
@@ -231,40 +243,45 @@ h6 {
 	}
 }
 
-ol {
-	padding-left: 1.2rem;
+.accordion__answer ol,
+.text-block ol,
+.woocommerce-product-details__short-description ol {
+	list-style: none;
 
 	li {
-		&::marker {
+		position: relative;
+		margin-bottom: 1.5rem;
+
+		&::before {
+			content: counter(list-item);
+			position: absolute;
+			left: -2rem;
+			top: -5px;
 			color: var(--primary);
-			font-weight: 500;
+			font-weight: $font-weight-bold;
+			font-size: 1.25rem;
 		}
 	}
 }
 
-ul {
-	padding-left: 1.2rem;
+.accordion__answer ul,
+.text-block ul,
+.woocommerce-product-details__short-description ul {
+	list-style: none;
 
 	li {
-		&::marker {
+		position: relative;
+		margin-bottom: 1.5rem;
+
+		&::before {
+			content: url("../images/bullet-point-blue.svg") " ";
+			position: absolute;
+			left: -2rem;
+			top: 0;
 			color: var(--primary);
-			font-weight: 500;
-			// content: url('../images/bullet.svg') ' ';
 		}
 	}
 }
-
-// .accordion__answer ul li::marker {
-// 	content: url("../images/bullet.svg") " ";
-// }
-
-// .text-block ul li::marker {
-// 	content: url("../images/bullet.svg") " ";
-// }
-
-// .woocommerce-product-details__short-description ul li::marker {
-// 	content: url("../images/bullet.svg") " ";
-// }
 
 .woocommerce-message::before {
 	color: var(--primary);
@@ -4138,13 +4155,17 @@ table.compare-list .remove a span {
 }
 
 .logo-img {
-	width: 100%;
+	width: 150px;
 	height: 100%;
 	object-fit: contain;
 }
 
 .logo-carousel {
 	margin-top: 2rem;
+
+	.tns-horizontal.tns-subpixel > .tns-item.logo-carousel__item {
+		vertical-align: middle;
+	}
 }
 
 .logo-carousel .tns-controls {
@@ -4183,32 +4204,110 @@ table.compare-list .remove a span {
 }
 
 /**************************************/
+/* !Social Media Block                */
+/**************************************/
+.social-media-block {
+	background-image: url(../images/bg-footer.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;
+
+	.text-block__heading {
+		color: var(--white);
+	}
+
+	.text-block__subheading {
+		color: var(--white);
+		font-size: 1.125rem;
+	}
+
+	#sb_instagram #sbi_images .sbi_item {
+		border-radius: 10px;
+		box-shadow: $drop-shadow;
+	}
+
+	.media-social-links {
+		margin-top: 3rem;
+
+		p {
+			color: var(--white);
+			margin-bottom: 1rem;
+			font-size: 1.125rem;
+			font-weight: $font-weight-regular;
+		}
+
+		a {
+			text-decoration: none;
+			margin-right: 0.5rem;
+			color: var(--white);
+
+			i {
+				font-size: 1.5rem;
+			}
+
+			&:hover {
+				color: var(--highlight);
+			}
+		}
+	}
+
+	#sb_instagram a {
+		opacity: 1 !important;
+	}
+
+	#sb_instagram a:hover {
+		opacity: 1 !important;
+	}
+}
+
+/**************************************/
+/* !- Photo Gallery Block             */
+/**************************************/
+.photo-gallery {
+	.photo-gallery__item {
+		img {
+			height: 300px;
+			object-fit: cover;
+			border-radius: 10px;
+			margin-bottom: 1rem;
+
+			@include media-breakpoint-down(lg) {
+				height: 200px;
+			}
+
+			@include media-breakpoint-down(md) {
+				height: 150px;
+			}
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+/**************************************/
 /* !- Text Block                      */
 /**************************************/
-@include media-breakpoint-down(md) {
-	.tax-product_cat .text-block .container-fluid {
-		padding-right: calc(var(--bs-gutter-x) * 0.5);
-		padding-left: calc(var(--bs-gutter-x) * 0.5);
-	}
-
-	.text-block .container-fluid {
-		padding: 0;
-	}
-}
-
-.text-block__header {
-	margin-bottom: 2rem;
-}
-
-.text-block__heading {
-	margin-bottom: 1.5rem;
-}
-
-.text-block__subheading {
-	p {
-		font-size: 1.2rem;
-		font-weight: $font-weight-regular;
+.text-block {
+	p:last-child {
 		margin-bottom: 0;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 2.5rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.text-block__subheading {
+		font-size: 1.125rem;
 
 		@include media-breakpoint-down(md) {
 			font-size: 1rem;
@@ -4216,32 +4315,14 @@ table.compare-list .remove a span {
 	}
 }
 
-.lead {
-	font-size: 1rem;
-}
-
-.block-buttons {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: 1rem;
-	margin-top: 2rem;
-}
-
 /**************************************/
 /* !- Text Image                      */
 /**************************************/
-.text-image-block {
-	.row {
-		--bs-gutter-x: 5rem;
-	}
-
-	.text-img {
-		// height: 400px;
-		aspect-ratio: 4 / 3;
-		object-fit: cover;
-		width: 100%;
-	}
+.text-block__img {
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	width: 100%;
+	border-radius: 10px;
 }
 
 /**************************************/
@@ -5443,19 +5524,19 @@ ul.pagination {
 
 .lg-next,
 .lg-prev {
-	background-color: var(--secondary);
+	background-color: var(--white);
 	color: var(--primary);
 	cursor: pointer;
 	display: block;
-	font-size: 22px;
+	font-size: 1rem;
 	position: absolute;
 	top: 50%;
 	z-index: 1084;
 	outline: none;
 	border: none;
 	border-radius: 50%;
-	width: 50px;
-	height: 50px;
+	width: 2rem;
+	height: 2rem;
 }
 
 .lg-next.disabled,
@@ -5466,7 +5547,8 @@ ul.pagination {
 
 .lg-next:hover:not(.disabled),
 .lg-prev:hover:not(.disabled) {
-	color: #fff;
+	background-color: var(--secondary);
+	color: var(--primary);
 }
 
 .lg-single-item .lg-next,
@@ -5479,7 +5561,7 @@ ul.pagination {
 }
 
 .lg-next:before {
-	content: "\e91c";
+	content: "\e91b";
 	font-family: "icomoon" !important;
 }
 
@@ -5488,7 +5570,7 @@ ul.pagination {
 }
 
 .lg-prev:after {
-	content: "\e91a";
+	content: "\e919";
 	font-family: "icomoon" !important;
 }
 
@@ -5510,14 +5592,14 @@ ul.pagination {
 }
 
 .lg-outer::after {
-	content: "\e917";
+	content: "\e90c";
 	font-family: "icomoon" !important;
 	position: absolute;
 	top: 3rem;
 	right: 1rem;
 	cursor: pointer;
 	z-index: 9999;
-	background-color: var(--secondary);
+	background-color: var(--white);
 	color: var(--primary);
 	border-radius: 50%;
 	width: 30px;

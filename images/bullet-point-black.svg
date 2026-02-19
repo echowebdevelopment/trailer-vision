@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+  <g id="bullet-point-black" transform="translate(0.5 0.5)">
+    <path id="Path_48679" data-name="Path 48679" d="M102.966,101.484a1.481,1.481,0,1,0-1.481,1.481,1.481,1.481,0,0,0,1.481-1.481m-1.974,0a.494.494,0,1,1,.494.494.494.494,0,0,1-.494-.494" transform="translate(-94.529 -94.439)" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+    <path id="Path_48680" data-name="Path 48680" d="M6.911,3.455A3.455,3.455,0,1,0,3.455,6.911,3.455,3.455,0,0,0,6.911,3.455M1.71,5.2a2.468,2.468,0,1,1,1.745.723A2.452,2.452,0,0,1,1.71,5.2" transform="translate(3.5 3.59)" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+    <path id="Ellipse_353" data-name="Ellipse 353" d="M7,.955A6.045,6.045,0,1,0,13.045,7,6.052,6.052,0,0,0,7,.955M7,0A7,7,0,1,1,0,7,7,7,0,0,1,7,0Z" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+    <path id="Ellipse_354" data-name="Ellipse 354" d="M5.25.955a4.3,4.3,0,1,0,4.3,4.3,4.3,4.3,0,0,0-4.3-4.3M5.25,0A5.25,5.25,0,1,1,0,5.25,5.25,5.25,0,0,1,5.25,0Z" transform="translate(1.697 1.75)" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+  </g>
+</svg>
