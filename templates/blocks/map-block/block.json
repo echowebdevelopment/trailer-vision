@@ -1,0 +1,13 @@
+{
+	"name": "acf/map-block",
+	"title": "Map Block",
+	"description": "",
+	"category": "widgets",
+	"icon": "text-page",
+	"keywords": ["map", "location"],
+	"acf": {
+		"mode": "editor",
+		"renderTemplate": "map-block.php"
+	},
+	"align": "full"
+}

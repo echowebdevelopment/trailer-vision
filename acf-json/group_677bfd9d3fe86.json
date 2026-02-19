@@ -1,6 +1,6 @@
 {
     "key": "group_677bfd9d3fe86",
-    "title": "Company Info\/General Information",
+    "title": "Site Settings: Company Info\/General Information",
     "fields": [
         {
             "key": "field_677bfe76d569f",
@@ -108,6 +108,69 @@
             "key": "field_677bfdd2a5b1c",
             "label": "Directions Link",
             "name": "options_map_link",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69972309bb533",
+            "label": "Address Map iframe link",
+            "name": "address_map_iframe_link",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69972324bb535",
+            "label": "Location Horseboxes & Trailers",
+            "name": "location_horseboxes_trailers",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69972323bb534",
+            "label": "Location Motorhomes & Caravans",
+            "name": "location_motorhomes_caravans",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -286,5 +349,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770999727
+    "modified": 1771512682
 }
