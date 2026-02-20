@@ -16,6 +16,7 @@ $primary: #1f2d3b;
 $secondary: #628bb4;
 $tertiary: #bad0e5;
 
+$highlight-blue: #2D4883;
 $highlight: #fcea1a;
 $red: #e65b48;
 
@@ -31,7 +32,7 @@ $bg-white-opacity: rgba(255, 255, 255, 0.2);
 
 $drop-shadow: 0px 3px 6px $shadow-color;
 
-$body-color: $primary;
+$body-color: #565760;
 $headings-color: $primary;
 
 /**************************************/
@@ -126,6 +127,7 @@ $transition-timing: ease-in-out;
 	--primary: #1f2d3b;
 	--secondary: #628bb4;
 	--tertiary: #bad0e5;
+	--highlight-blue: #2D4883;
 	--highlight: #fcea1a;
 	--red: #e65b48;
 	--danger: #d96c5d;

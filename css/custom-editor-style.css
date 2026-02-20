@@ -34,6 +34,7 @@
   --primary: #1f2d3b;
   --secondary: #628bb4;
   --tertiary: #bad0e5;
+  --highlight-blue: #2D4883;
   --highlight: #fcea1a;
   --red: #e65b48;
   --danger: #d96c5d;
@@ -498,7 +499,7 @@ progress {
   --bs-dark-rgb: 33, 37, 41;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-body-color-rgb: 31, 45, 59;
+  --bs-body-color-rgb: 86, 87, 96;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-font-sans-serif: "Sen";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -507,7 +508,7 @@ progress {
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #1f2d3b;
+  --bs-body-color: #565760;
   --bs-body-bg: #ffffff;
   --bs-border-width: 1px;
   --bs-border-style: solid;

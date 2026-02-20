@@ -1,9 +1,9 @@
 {
-    "key": "group_678123346bf35",
-    "title": "Block : Featured Category",
+    "key": "group_699860277dcad",
+    "title": "Block: Location Map",
     "fields": [
         {
-            "key": "field_69984c92d03c0",
+            "key": "field_699860278a04f",
             "label": "Heading",
             "name": "heading",
             "aria-label": "",
@@ -24,7 +24,7 @@
             "append": ""
         },
         {
-            "key": "field_69984c94d03c1",
+            "key": "field_699860d60d6a9",
             "label": "Heading Size",
             "name": "heading_size",
             "aria-label": "",
@@ -55,11 +55,11 @@
             "save_options": 0
         },
         {
-            "key": "field_69984c96d03c2",
-            "label": "Subheading",
-            "name": "subheading",
+            "key": "field_699860ce0d6a8",
+            "label": "Content",
+            "name": "content",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -69,18 +69,18 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": 2,
-            "placeholder": "",
-            "new_lines": "br"
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 1
         },
         {
-            "key": "field_67812334c9080",
-            "label": "Category List",
-            "name": "category_list",
+            "key": "field_699860278da1c",
+            "label": "Instructions",
+            "name": "",
             "aria-label": "",
-            "type": "taxonomy",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -89,34 +89,9 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "product_cat",
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "object",
-            "field_type": "multi_select",
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "bidirectional": 0,
-            "multiple": 0,
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_69987cb158864",
-            "label": "Link to Shop",
-            "name": "link_to_shop",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 0
+            "message": "The maps are changed in the global site settings menu and the information is used accross all pages on the website",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -124,7 +99,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/featured-category"
+                "value": "acf\/find-us-block"
             }
         ]
     ],
@@ -138,5 +113,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771601091
+    "modified": 1771604170
 }

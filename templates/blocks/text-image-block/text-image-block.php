@@ -80,7 +80,7 @@ if ($content) {
 					<?php } ?>
 				</div>
 				<div class="col-12 col-lg-6 order-1 order-lg-0">
-					<?php echo wp_get_attachment_image($acf_image, 'full', false, array('class' => 'text-block__img img-fluid img-round-corner fade-in-left', 'style' => '--delay: 0.8s;', 'loading' => 'lazy')) ?>
+					<?php echo wp_get_attachment_image($acf_image, 'full', false, array('class' => 'text-block__img img-fluid fade-in-left', 'style' => '--delay: 0.8s;', 'loading' => 'lazy')) ?>
 				</div>
 			</div>
 		</div>

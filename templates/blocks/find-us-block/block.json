@@ -1,0 +1,13 @@
+{
+	"name": "acf/find-us-block",
+	"title": "Find Us Block",
+	"description": "",
+	"category": "widgets",
+	"icon": "text-page",
+	"keywords": ["map", "location", "find us"],
+	"acf": {
+		"mode": "editor",
+		"renderTemplate": "find-us-block.php"
+	},
+	"align": "full"
+}
