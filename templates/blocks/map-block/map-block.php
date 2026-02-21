@@ -13,8 +13,6 @@ defined('ABSPATH') or die('No script kiddies please!');
 $heading = get_field('heading');
 
 $map_link = get_field('address_map_iframe_link', 'option');
-
-
 ?>
 
 <div class="map-block block block--fullwidth">

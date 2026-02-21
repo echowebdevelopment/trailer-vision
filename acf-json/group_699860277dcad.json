@@ -1,6 +1,6 @@
 {
     "key": "group_699860277dcad",
-    "title": "Block: Location Map",
+    "title": "Block: Find Us Map",
     "fields": [
         {
             "key": "field_699860278a04f",
@@ -76,6 +76,48 @@
             "delay": 1
         },
         {
+            "key": "field_6999bdeb7b7c9",
+            "label": "Tab 1 Text",
+            "name": "tab_1_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6999bdf67b7ca",
+            "label": "Tab 2 Text",
+            "name": "tab_2_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_699860278da1c",
             "label": "Instructions",
             "name": "",
@@ -113,5 +155,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771604170
+    "modified": 1771683339
 }

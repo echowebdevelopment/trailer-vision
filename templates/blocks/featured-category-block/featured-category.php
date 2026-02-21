@@ -22,7 +22,7 @@ $link_to_shop = get_field('link_to_shop');
 
 $i = 1;
 ?>
-<div class="featured-category-block block block--padded block--fullwidth">
+<div class="featured-category-block block block--padded-md block--fullwidth">
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-10">
@@ -44,7 +44,7 @@ $i = 1;
 					<?php if ($category_list): ?>
 						<?php foreach ($category_list as $term): ?>
 							<?php $i++;
-							$delay = ($i - 1) * 0.2; ?>
+							$delay = ($i - 1) * 0.1; ?>
 							<div class="col-6 col-lg-4">
 								<div class="category-card fade-in-left" style="--delay: <?php echo $delay; ?>s;">
 									<a href="<?php echo get_term_link($term); ?>">

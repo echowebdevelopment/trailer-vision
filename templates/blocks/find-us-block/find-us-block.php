@@ -1,4 +1,5 @@
 <?php
+
 /**********************************************************
  *
  * File:         Text block
@@ -16,28 +17,48 @@ $heading = $acf_heading ? sprintf('<%1$s class="text-block__heading">%2$s</%1$s>
 
 $content = get_field('content');
 
+$tab_1_text = get_field('tab_1_text') ?: 'Horseboxes & Trailers';
+$tab_2_text = get_field('tab_2_text') ?: 'Motorhomes & Caravans';
+
 $location_horseboxes_trailers = get_field('location_horseboxes_trailers', 'option');
 $location_motorhomes_caravans = get_field('location_motorhomes_caravans', 'option');
 
 ?>
 
-<div class="find-us-block block block--fullwidth block--bg-coloured">
+<div class="find-us-block block block--fullwidth block--bg-coloured block--padded-md">
 	<div class="container-fluid">
 		<div class="row justify-content-center">
-			<div class="col-12 col-lg-3 col-xl-3 col-xxl-2 block--padded-md">
+			<div class="col-12 col-lg-10">
 				<?php if ($heading) { ?>
-					<div class="map-block-content">
-						<h2 class="text-block__heading fade-in-left" style="--delay: 0.2s;">
-							<?php echo $heading; ?>
-						</h2>
-						<?php echo do_shortcode('[company-address]'); ?>
-					</div>
+					<?php echo $heading; ?>
+				<?php } ?>
+				<?php if ($content) { ?>
+					<?php echo $content; ?>
 				<?php } ?>
 			</div>
-			<div class="col-12 col-lg-9 col-xl-9 col-xxl-10">
-				<?php echo $location_horseboxes_trailers; ?>
+			<div class="col-12 col-lg-10">
+				<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+					<li class="nav-item" role="presentation">
+						<button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab">
+							<?php echo $tab_1_text; ?>
+						</button>
+					</li>
+					<li class="nav-item" role="presentation">
+						<button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab">
+							<?php echo $tab_2_text; ?>
+						</button>
+					</li>
+				</ul>
 
-				<?php echo $location_motorhomes_caravans; ?>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="tab1" role="tabpanel">
+						<?php echo $location_horseboxes_trailers; ?>
+					</div>
+
+					<div class="tab-pane fade" id="tab2" role="tabpanel">
+						<?php echo $location_motorhomes_caravans; ?>
+					</div>
+				</div>				
 			</div>
 		</div>
 	</div>

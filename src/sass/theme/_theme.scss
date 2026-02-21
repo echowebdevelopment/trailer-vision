@@ -226,7 +226,7 @@ h6 {
 
 .lead {
 	font-size: 1.125rem;
-	font-weight: $font-weight-semibold;
+	font-weight: $font-weight-medium;
 	color: var(--primary);
 }
 
@@ -4260,6 +4260,16 @@ table.variations {
 		@include media-breakpoint-down(lg) {
 			clip-path: none;
 		}
+	}
+}
+
+/**************************************/
+/* !- Find Us Block                   */
+/**************************************/
+.find-us-block {
+	.lead {
+		color: var(--white);
+		font-size: 1rem;
 	}
 }
 
