@@ -1,0 +1,13 @@
+{
+	"name": "acf/newsletter-block",
+	"title": "Newsletter Block",
+	"description": "",
+	"category": "widgets",
+	"icon": "text-page",
+	"keywords": ["newsletter", "form"],
+	"acf": {
+		"mode": "editor",
+		"renderTemplate": "newsletter-block.php"
+	},
+	"align": "full"
+}

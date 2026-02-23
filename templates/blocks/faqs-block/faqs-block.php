@@ -25,7 +25,7 @@ $i = 1;
 ?>
 
 
-<div class="accordion-block block block--padded-md block--bg-plain-pattern block--fullwidth">
+<div class="accordion-block block block--padded block--bg-plain-pattern block--fullwidth">
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-10">

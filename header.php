@@ -21,10 +21,6 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="stylesheet" href="https://use.typekit.net/maj3wuu.css">
 
-	<link rel="stylesheet" href="https://assets.reviews.io/css/widgets/carousel-widget.css?_t=2025040415">
-	<link rel="stylesheet" href="https://assets.reviews.io/iconfont/reviewsio-icons/style.css?_t=2025040415">
-	<link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css" />
-
 	<?php wp_head(); ?>
 </head>
 

@@ -12,7 +12,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "75",
                 "class": "",
                 "id": ""
             },
@@ -24,16 +24,16 @@
             "append": ""
         },
         {
-            "key": "field_679b5acca63d3",
+            "key": "field_6999f09c812bb",
             "label": "Heading Size",
             "name": "heading_size_contact",
             "aria-label": "",
-            "type": "radio",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -43,13 +43,16 @@
                 "h3": "h3",
                 "h4": "h4"
             },
-            "default_value": "",
+            "default_value": false,
             "return_format": "value",
+            "multiple": 0,
             "allow_null": 0,
-            "other_choice": 0,
-            "allow_in_bindings": 1,
-            "layout": "vertical",
-            "save_other_choice": 0
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_679a8d635c709",
@@ -118,5 +121,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1738234828
+    "display_title": "",
+    "modified": 1771696459
 }

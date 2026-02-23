@@ -20,7 +20,7 @@ $subheading = $acf_subheading ? sprintf('<p class="text-block__subheading">%1$s<
 
 ?>
 
-<div class="social-media-block block block--padded-md block--fullwidth">
+<div class="social-media-block block block--padded block--fullwidth">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12">

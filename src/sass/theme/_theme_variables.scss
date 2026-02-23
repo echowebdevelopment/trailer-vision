@@ -20,8 +20,6 @@ $highlight-blue: #2D4883;
 $highlight: #fcea1a;
 $red: #e65b48;
 
-$advert-bg: #D6E0EA;
-
 $grey: #f8f8f8;
 $white: #ffffff;
 $black: #000000;
@@ -90,6 +88,7 @@ $lead-font-size: $font-size-base * 1;
 
 $font-weight-regular: 400;
 $font-weight-medium: 500;
+$font-weight-semibold: 500;
 $font-weight-bold: 700;
 
 $font-weight-base: $font-weight-regular;
@@ -132,7 +131,6 @@ $transition-timing: ease-in-out;
 	--red: #e65b48;
 	--danger: #d96c5d;
 	--sale: #d96c5d;
-	--advert-bg: #D6E0EA;
 	--grey: #f8f8f8;
 	--white: #ffffff;
 	--black: #000000;

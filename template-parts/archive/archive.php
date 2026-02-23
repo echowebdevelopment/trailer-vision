@@ -1,7 +1,9 @@
 <?php
 get_template_part('template-parts/partials/header/header-archive', get_post_type());
+
+global $wp_query;
 ?>
-<div class="container-fluid blog-archieve__container">
+<div class="container-fluid blog-archieve__container block--margin-top-none block--margin-md">
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="row g-5">
@@ -30,11 +32,11 @@ get_template_part('template-parts/partials/header/header-archive', get_post_type
             </div>
         </div>
     </div>
-    <?php if (have_posts()): ?>
-        <div class="blog-pagination block--padded-md">
+    <?php if ( $wp_query->found_posts >= 4 ) : ?>
+        <div class="blog-pagination block--margin-md">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <?php understrap_pagination() ?>
+                    <?php echo do_shortcode('[facetwp facet="pagination"]'); ?>
                 </div>
             </div>
         </div>

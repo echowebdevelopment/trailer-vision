@@ -1,11 +1,11 @@
 {
-    "key": "group_67ab4b242e9bd",
-    "title": "Checkout Options",
+    "key": "group_6999dd540e9c4",
+    "title": "Global Settings: Newsletter Block",
     "fields": [
         {
-            "key": "field_67ab4b25ac526",
-            "label": "Quote auxiliary text",
-            "name": "quote_auxiliary_text",
+            "key": "field_6999dd55e293a",
+            "label": "Heading",
+            "name": "heading_newsletter",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -24,9 +24,30 @@
             "append": ""
         },
         {
-            "key": "field_67ab4b4bac527",
-            "label": "Royal Mail auxiliary text",
-            "name": "royal_mail_auxiliary_text",
+            "key": "field_6999dd87e293b",
+            "label": "Content",
+            "name": "content_newsletter",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6999ddbbe293d",
+            "label": "Tagline",
+            "name": "tagline_newsletter",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -45,11 +66,11 @@
             "append": ""
         },
         {
-            "key": "field_67ab4b58ac528",
-            "label": "Ground\/Entrance auxiliary text",
-            "name": "ground_entrance_auxiliary_text",
+            "key": "field_6999dd93e293c",
+            "label": "Newsletter Form",
+            "name": "newsletter_form_newsletter",
             "aria-label": "",
-            "type": "text",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -58,54 +79,18 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
+            "post_type": [
+                "wpcf7_contact_form"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_67ab4b62ac529",
-            "label": "Upper\/Below ground auxiliary text",
-            "name": "upper_below_ground_auxiliary_text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_67ab4b8dac52b",
-            "label": "Local pickup auxiliary text",
-            "name": "local_pickup_auxiliary_text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -123,9 +108,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": false,
+    "active": true,
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771776018
+    "modified": 1771693033
 }

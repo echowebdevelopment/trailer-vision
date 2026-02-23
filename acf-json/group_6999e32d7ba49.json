@@ -1,9 +1,9 @@
 {
-    "key": "group_67a0ee79635a0",
-    "title": "Block: Blog Slider Feed",
+    "key": "group_6999e32d7ba49",
+    "title": "Block: Newsletter Block",
     "fields": [
         {
-            "key": "field_699b2bd8ffa19",
+            "key": "field_6999e3526cef2",
             "label": "Instructions",
             "name": "",
             "aria-label": "",
@@ -16,26 +16,9 @@
                 "class": "",
                 "id": ""
             },
-            "message": "This block will display the last 6 blog posts published",
+            "message": "To change the content on this block please go to the Global Site Settings area.",
             "new_lines": "wpautop",
             "esc_html": 0
-        },
-        {
-            "key": "field_67a0ee797fb80",
-            "label": "Link",
-            "name": "link_bog",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -43,7 +26,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/blog-slider-feed-block"
+                "value": "acf\/newsletter-block"
             }
         ]
     ],
@@ -57,5 +40,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771777017
+    "modified": 1771692919
 }

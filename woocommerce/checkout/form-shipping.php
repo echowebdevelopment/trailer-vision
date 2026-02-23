@@ -46,10 +46,12 @@ defined( 'ABSPATH' ) || exit;
 
 		</div>
 
+		<hr>
+
 	<?php endif; ?>
 </div>
 
-<hr>
+
 
 <?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 	<div class="shipping-options">

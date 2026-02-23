@@ -1,6 +1,6 @@
 {
     "key": "group_677bfd9d3fe86",
-    "title": "Site Settings: Company Info\/General Information",
+    "title": "Global Settings: Company Info\/General Information",
     "fields": [
         {
             "key": "field_677bfe76d569f",
@@ -349,5 +349,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771512682
+    "modified": 1771691325
 }

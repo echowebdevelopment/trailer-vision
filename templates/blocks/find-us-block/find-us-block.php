@@ -25,10 +25,10 @@ $location_motorhomes_caravans = get_field('location_motorhomes_caravans', 'optio
 
 ?>
 
-<div class="find-us-block block block--fullwidth block--bg-coloured block--padded-md">
+<div class="find-us-block block block--fullwidth block--bg-coloured block--padded">
 	<div class="container-fluid">
 		<div class="row justify-content-center">
-			<div class="col-12 col-lg-10">
+			<div class="col-12 col-lg-10 fade-in-left">
 				<?php if ($heading) { ?>
 					<?php echo $heading; ?>
 				<?php } ?>
@@ -36,7 +36,7 @@ $location_motorhomes_caravans = get_field('location_motorhomes_caravans', 'optio
 					<?php echo $content; ?>
 				<?php } ?>
 			</div>
-			<div class="col-12 col-lg-10">
+			<div class="col-12 col-lg-10 fade-in-left">
 				<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
 					<li class="nav-item" role="presentation">
 						<button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab">

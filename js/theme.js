@@ -6333,17 +6333,19 @@
     // 	window.location.href = updatedLink;
     // });
 
-    document.addEventListener("facetwp-loaded", function () {
-      $.each(FWP.settings.num_choices, function (key, val) {
-        var $facet = $(".facetwp-facet-" + key);
-        var $wrap = $facet.closest(".shop-filters .widget_block details.accordion__item");
-        var $flyout = $facet.closest(".flyout-row");
-        if ($wrap.length || $flyout.length) {
-          var $which = $wrap.length ? $wrap : $flyout;
-          0 === val ? $which.hide() : $which.show();
-        }
-      });
-    });
+    // document.addEventListener("facetwp-loaded", function () {
+    // 	$.each(FWP.settings.num_choices, function (key, val) {
+    // 		var $facet = $(".facetwp-facet-" + key);
+    // 		var $wrap = $facet.closest(
+    // 			".shop-filters .widget_block details.accordion__item",
+    // 		);
+    // 		var $flyout = $facet.closest(".flyout-row");
+    // 		if ($wrap.length || $flyout.length) {
+    // 			var $which = $wrap.length ? $wrap : $flyout;
+    // 			0 === val ? $which.hide() : $which.show();
+    // 		}
+    // 	});
+    // });
 
     /**************************************/
     /* !Tiny Carousels                    */
@@ -6441,7 +6443,7 @@
         autoplayButtonOutput: false,
         nav: false,
         controls: true,
-        controlsText: ["<i class='icon-arrow-right-big'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-arrow-left-big'></i><span class='visually-hidden'>Next</span>"],
+        controlsText: ["<i class='icon-nav-right'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-nav-forward'></i><span class='visually-hidden'>Next</span>"],
         responsive: {
           0: {
             items: 1
@@ -6472,7 +6474,7 @@
         autoplayButtonOutput: false,
         nav: false,
         controls: true,
-        controlsText: ["<i class='icon-arrow-right-big'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-arrow-left-big'></i><span class='visually-hidden'>Next</span>"],
+        controlsText: ["<i class='icon-nav-right'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-nav-forward'></i><span class='visually-hidden'>Next</span>"],
         responsive: {
           0: {
             items: 1
@@ -6501,38 +6503,7 @@
         autoplayButtonOutput: false,
         nav: false,
         controls: true,
-        controlsText: ["<i class='icon-arrow-right-big'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-arrow-left-big'></i><span class='visually-hidden'>Next</span>"]
-      });
-    }
-
-    /* !- Reviews carousel */
-    if ($(".brand-carousel__carousel").length > 0) {
-      /* TinySlider */
-      tns({
-        container: ".brand-carousel__carousel",
-        gutter: 8,
-        mouseDrag: true,
-        autoplay: true,
-        speed: 1000,
-        autoplayTimeout: 10000,
-        autoplayButtonOutput: false,
-        nav: false,
-        controls: true,
-        controlsText: ["<i class='icon-arrow-right-big'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-arrow-left-big'></i><span class='visually-hidden'>Next</span>"],
-        responsive: {
-          0: {
-            items: 1
-          },
-          768: {
-            items: 2
-          },
-          992: {
-            items: 3
-          },
-          1400: {
-            items: 4
-          }
-        }
+        controlsText: ["<i class='icon-nav-right'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-nav-forward'></i><span class='visually-hidden'>Next</span>"]
       });
     }
 

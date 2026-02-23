@@ -1,6 +1,6 @@
 {
     "key": "group_698b49c72f607",
-    "title": "General: Mega Menu",
+    "title": "Global Settings: Mega Menu",
     "fields": [
         {
             "key": "field_698b49c8c09f9",
@@ -212,5 +212,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770736210
+    "modified": 1771691328
 }

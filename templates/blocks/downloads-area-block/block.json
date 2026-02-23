@@ -1,0 +1,13 @@
+{
+	"name": "acf/downloads-area-block",
+	"title": "Download Area Block",
+	"description": "",
+	"category": "widgets",
+	"icon": "text-page",
+	"keywords": ["Download", "block", "area"],
+	"acf": {
+		"mode": "editor",
+		"renderTemplate": "downloads-area-block.php"
+	},
+	"align": "full"
+}

@@ -38,6 +38,8 @@ function register_acf_blocks() {
 		'social-feed-block',
 		'map-block',
 		'find-us-block',
+		'downloads-area-block',
+		'newsletter-block',
 	);
 
 	foreach ( $blocks as $block ) {

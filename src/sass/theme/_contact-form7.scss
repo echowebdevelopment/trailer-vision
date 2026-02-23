@@ -64,15 +64,17 @@
 
 	// not valid tip for each control
 	.wpcf7-not-valid-tip {
-		color: var(--accent-terracotta);
+		color: var(--red);
 		margin-bottom: 0.5rem;
+		padding-left: 1rem;
 	}
 
 	// validation errors ourput bottom of form
 	.wpcf7-validation-errors {
 		@extend .form-control;
-		color: var(--accent-terracotta);
+		color: $body-color;
 		border: 1px solid $gray-200;
+		font-weight: $font-weight-bold;
 	}
 }
 
@@ -84,10 +86,6 @@
 	@include media-breakpoint-down(xl) {
 		display: block;
 	}
-}
-
-.wpcf7 .wpcf7-submit:disabled {
-	border: 1px solid var(--grey-border);
 }
 
 .form-control,
@@ -109,30 +107,67 @@
 .wpcf7 input[type="submit"],
 .wpcf7 select,
 .wpcf7 textarea,
-.wpcf7 .wpcf7-validation-errors,
-.woocommerce-input-wrapper .input-text,
-.woocommerce #review_form #respond textarea,
-.woocommerce-cart #coupon_code.input-text {
-	border-color: var(--primary);
+.wpcf7 .wpcf7-validation-errors {
+	border: 1px solid var(--secondary);
 	background-color: var(--white);
-	color: var(--primary);
+	color: $body-color;
 	border-radius: 5px;
-	height: 40px;
+	height: 50px;
 	font-size: 1rem;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.25rem;
+	font-weight: $font-weight-medium;
 }
 
+.wpcf7 select:hover {
+	cursor: pointer;
+}
+
+.wpcf7 textarea {
+	height: 276px !important;
+	padding: 0.55rem 1rem;
+}
+
+/* Style the file input field itself */
+input.wpcf7-file.uploaded-file {
+	padding: 9px 15px;
+}
+
+/* Remove ugly default button styling on some browsers */
+input[type="file"]::file-selector-button {
+	background-color: var(--primary) !important;
+	color: var(--white) !important;
+	border: none !important;
+	height: 60px;
+}
+
+/* Select Dropdown fields */
 .selection .select2-selection--single {
-	border: 0;
-	background-color: transparent;
-	color: var(--primary);
+	border: 1px solid var(--secondary);
+	background-color: var(--white);
+	color: $body-color;
 	border-radius: 5px;
-	height: 40px;
+	height: 50px;
 	font-size: 1rem;
 }
 
-.woocommerce #review_form #respond textarea, .wpcf7 textarea {
-	height: 200px!important;
+.contact-select {
+	appearance: none;
+}
+
+.contact-select-col span {
+	position: relative;
+
+	&::after {
+		@extend %font-icon;
+		content: "\e91c";
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: var(--primary);
+		font-size: 0.4rem;
+		pointer-events: none;
+	}
 }
 
 /* custom checkbox styling for contact form 7 checkbox */
@@ -148,22 +183,31 @@ span.wpcf7-list-item {
 
 .wpcf7 .wpcf7-list-item {
 	display: block;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .wpcf7-checkbox {
 	display: flex;
 }
 
-.acceptance.wpcf7-checkbox {
-	margin-bottom: 0.5rem;
-}
+// .acceptance.wpcf7-checkbox {
+// 	margin-bottom: 0.5rem;
+// }
 
 .contact-form-block .acceptance.wpcf7-checkbox {
 	margin: 0.5rem 0;
 }
 
 .contact-us-block .acceptance .wpcf7-list-item-label {
+	margin-top: 4px;
+
+	@include media-breakpoint-down(xxl) {
+		white-space: normal;
+	}
+}
+
+.contact-us-block .acceptance .wpcf7-list-item-label,
+.newsletter-block .acceptance .wpcf7-list-item-label {
 	font-size: 0.8rem;
 }
 
@@ -185,9 +229,9 @@ span.wpcf7-list-item {
 	display: block;
 	position: absolute;
 	content: "";
-	border-radius: 0;
-	height: 20px;
-	width: 20px;
+	border-radius: 6px;
+	height: 25px;
+	width: 25px;
 	top: 0px;
 	left: 0px;
 	background-color: #fff;
@@ -198,12 +242,12 @@ span.wpcf7-list-item {
 	display: block;
 	position: absolute;
 	content: "\2713";
-	height: 20px;
-	width: 20px;
+	height: 25px;
+	width: 25px;
 	top: -2px;
 	left: 0px;
 	visibility: hidden;
-	font-size: 16px;
+	font-size: 20px;
 	text-align: center;
 }
 
@@ -213,77 +257,22 @@ span.wpcf7-list-item {
 }
 
 .wpcf7-list-item-label {
-	margin-left: 30px;
+	margin-left: 35px;
+	color: var(--primary);
 }
 
-/*.input-group--range {
-	  flex-wrap: nowrap;
-	  margin-top: 2rem;
-	  margin-bottom: 1rem;
-	  gap: 1rem;
-  
-	  .input-group-text {
-		  padding: 0;
-		  color: var(--white);
-		  font-size: $font-size-xs;
-		  background-color: transparent;
-		  border-radius: 0;
-		  border: none;
-	  }
-  
-	  .form-range {
-		  margin-left: 0;
-		  margin-right: 0;
-	  }
-  }
-  
-  .form-range-group {
-	  width: 100%;
-	  position: relative;
-	  margin-top: 0.3rem;
-  }
-  
-  .form-range__value {
-	  position: absolute;
-	  font-size: $font-size-xs;
-	  bottom: 2.5rem;
-	  left: 12.5px;
-	  width: 55px;
-	  text-align: center;
-	  transform: translateX(-50%);
-  }
-  
-  .toggle {
-	  border: 1px solid var(--grey);
-	  display: inline-flex;
-	  border-radius: $btn-border-radius;
-	  overflow: hidden;
-	  margin-top: .25rem;
-	  margin-bottom: .25rem;
-  
-	  abbr {
-		  text-decoration: none;
-		  &:hover {
-			  cursor: pointer;
-		  }
-	  }
-  }
-  
-  .toggle__btn.active,
-  .btn-check:checked + .toggle__btn
-  {
-	  background-color: var(--secondary);
-	  color: var(--body-colour);
-	  font-weight: $font-weight-bold;
-  }
-  
-  .toggle__btn {
-	  font-size: $font-size-sm;
-	  background-color: #707070;
-	  color: var(--white);
-	  border: none;
-	  min-width: 3em;
-	  text-align: center;
-	  padding-left: .25rem;
-	  padding-right: .25rem;
-  }*/
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+	border-color: var(--red);
+	color: var(--white);
+	background-color: var(--red);
+	text-align: center;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+	border-color: var(--primary);
+	color: var(--white);
+	background-color: var(--primary);
+	text-align: center;
+}

@@ -22,27 +22,21 @@ $read_time = get_reading_time($args['ID']);
 $card_img = get_post_thumbnail_id($args['ID']);
 ?>
 
-<div class="page-header-block block--fullwidth layout--half-image">
-	<?php echo wp_get_attachment_image($card_img, 'full', false, array('class' => 'layout--half-image__bg')) ?>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12 col-md-6 col-lg-6 col-xl-5 p-4 p-lg-5">
-				<div class="single-product__breadbrumb">
-					<?php if (function_exists('woocommerce_breadcrumb')) {
-						woocommerce_breadcrumb();
-					} ?>
-				</div>
-				<h1 class="section-title mb-5"><?php echo $args['title']; ?></h1>
-				<div class="blog-header__date-read">
-					<span class="blog-header__read-time"><?php echo $read_time; ?></span> |
-					<span class="blog-content__author-date"><?php echo $args["date"]; ?></span> |
-					<span class="blog-content__author-name">By <?php echo $args["author"]["name"]; ?> </span>
-				</div>
-
+<div class="blog-header-block page-header-block block block--fullwidth">
+	<div class="row g-0">
+		<div class="col-12 col-lg-6 page-header-block__content">
+			<?php if (function_exists('yoast_breadcrumb')) {
+				yoast_breadcrumb('<div class="breadcrumbs fade-in-left">', '</div>');
+			} ?>
+			<h1 class="text-block__heading fade-in-left"><?php echo $args['title']; ?></h1>
+			<div class="blog-header__date-read fade-in-left">
+				<span class="blog-content__author-name"><?php echo wp_get_attachment_image( 291, 'full', false, array('class'=>'img-fluid') ) ?> By <?php echo $args["author"]["name"]; ?> </span> |
+				<span class="blog-content__author-date"><?php echo $args["date"]; ?></span> | 
+				<span class="blog-header__read-time"><?php echo $read_time; ?></span>
 			</div>
-			<div class="col-lg-6 col-xl-7">
-
-			</div>
+		</div>
+		<div class="col-12 col-lg-6 page-header-block__image">
+			<?php echo wp_get_attachment_image($card_img, 'full', false, array('class' => 'img-fluid', 'loading' => 'eager')) ?>
 		</div>
 	</div>
 </div>

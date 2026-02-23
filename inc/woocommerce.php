@@ -1378,33 +1378,33 @@ function remove_free_label($full_label, $method)
 	return $full_label;
 }
 
-add_action('woocommerce_after_shipping_rate', 'add_text_to_shipping_options');
-function add_text_to_shipping_options($method)
-{
-	$quote_auxiliary_text = get_field('quote_auxiliary_text', 'option') ?: 'Please contact us directly for a custom delivery quote.';
-	$royal_mail_auxiliary_text = get_field('royal_mail_auxiliary_text', 'option') ?: 'Fast and reliable delivery via Royal Mail First Class.';
-	$ground_entrance_auxiliary_text = get_field('ground_entrance_auxiliary_text', 'option') ?: 'Your order will be delivered to the ground floor or entrance.';
-	$upper_below_ground_auxiliary_text = get_field('upper_below_ground_auxiliary_text', 'option') ?: 'Delivery is available for upper floors or below ground level.';
-	$local_pickup_auxiliary_text = get_field('local_pickup_auxiliary_text', 'option') ?: 'Pick up your order directly from our store.';
+// add_action('woocommerce_after_shipping_rate', 'add_text_to_shipping_options');
+// function add_text_to_shipping_options($method)
+// {
+// 	$quote_auxiliary_text = get_field('quote_auxiliary_text', 'option') ?: 'Please contact us directly for a custom delivery quote.';
+// 	$royal_mail_auxiliary_text = get_field('royal_mail_auxiliary_text', 'option') ?: 'Fast and reliable delivery via Royal Mail First Class.';
+// 	$ground_entrance_auxiliary_text = get_field('ground_entrance_auxiliary_text', 'option') ?: 'Your order will be delivered to the ground floor or entrance.';
+// 	$upper_below_ground_auxiliary_text = get_field('upper_below_ground_auxiliary_text', 'option') ?: 'Delivery is available for upper floors or below ground level.';
+// 	$local_pickup_auxiliary_text = get_field('local_pickup_auxiliary_text', 'option') ?: 'Pick up your order directly from our store.';
 
-	if (!is_checkout()) {
-		return;
-	}
+// 	if (!is_checkout()) {
+// 		return;
+// 	}
 
-	// Define different text for each shipping method title
-	$shipping_texts = array(
-		'Please call us for a delivery quotation' => $quote_auxiliary_text,
-		'Royal Mail First Class Post' => $royal_mail_auxiliary_text,
-		'Delivery to the Ground Floor/Entrance' => $ground_entrance_auxiliary_text,
-		'Upper Floor or Below Ground Floor Level' => $upper_below_ground_auxiliary_text,
-		'Local pickup' => $local_pickup_auxiliary_text,
-	);
+// 	// Define different text for each shipping method title
+// 	$shipping_texts = array(
+// 		'Please call us for a delivery quotation' => $quote_auxiliary_text,
+// 		'Royal Mail First Class Post' => $royal_mail_auxiliary_text,
+// 		'Delivery to the Ground Floor/Entrance' => $ground_entrance_auxiliary_text,
+// 		'Upper Floor or Below Ground Floor Level' => $upper_below_ground_auxiliary_text,
+// 		'Local pickup' => $local_pickup_auxiliary_text,
+// 	);
 
-	// Check if the shipping method title exists in the array and display the text
-	if (isset($shipping_texts[$method->get_label()])) {
-		echo '<p class="small">' . esc_html($shipping_texts[$method->get_label()]) . '</p>';
-	}
-}
+// 	// Check if the shipping method title exists in the array and display the text
+// 	if (isset($shipping_texts[$method->get_label()])) {
+// 		echo '<p class="small">' . esc_html($shipping_texts[$method->get_label()]) . '</p>';
+// 	}
+// }
 
 add_filter('woocommerce_cart_totals', 'display_shipping_inclusive_of_tax');
 function display_shipping_inclusive_of_tax($cart_totals)

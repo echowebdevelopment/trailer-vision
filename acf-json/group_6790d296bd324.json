@@ -1,6 +1,6 @@
 {
     "key": "group_6790d296bd324",
-    "title": "USP: Global Settings",
+    "title": "Global Settings: USP",
     "fields": [
         {
             "key": "field_6790d297297f9",
@@ -95,5 +95,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771425526
+    "modified": 1771691321
 }

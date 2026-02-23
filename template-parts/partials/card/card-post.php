@@ -14,7 +14,8 @@ $defaults = array(
         "ID"  => get_the_author_meta('ID'),
         "name"      => get_the_author_meta( "display_name" )
     ),
-    "date"      => get_the_date( "d M Y" )
+    "date"      => get_the_date( "d M Y" ),
+    "category" => get_the_category(),
 );
 
 $args = wp_parse_args( $args, $defaults );
@@ -22,6 +23,11 @@ $args = wp_parse_args( $args, $defaults );
 $read_time = get_reading_time($args['ID']);
 $content = truncate_to_lines( $args['content'], 2 );
 $card_img = get_post_thumbnail_id( $args['ID'] );
+$category_name = '';
+
+if ( ! empty( $args['category'] ) ) {
+    $category_name = $args['category'][0]->name;
+}
 
 $row_class = isset($args['row_class']) ? $args['row_class'] : '';
 
@@ -39,11 +45,14 @@ $row_class = isset($args['row_class']) ? $args['row_class'] : '';
                 <div class="col-12 col-lg-6">
                     <div class="blog-content">
                         <div class="blog-header__date-read">
-                            <span class="blog-content__author-date"><?php echo $args["date"]; ?></span> | <span class="blog-header__read-time"><?php echo $read_time; ?></span> | <span class="blog-content__author-name">By <?php echo $args["author"]["name"]; ?> </span>
+                            <span class="blog-content__category"><?php echo esc_html($category_name); ?></span> | <span class="blog-content__author-date"><?php echo $args["date"]; ?></span> | <span class="blog-header__read-time"><?php echo $read_time; ?></span>
                         </div>
-                        <h2 class="text-block__heading"><?php echo $args['title']; ?></h2>
+                        <h3 class="text-block__heading"><?php echo $args['title']; ?></h3>
                         <p class="blog-content__content"><?php echo $content; ?></p>
-                        <span class="btn btn--primary">Read article</span>
+                        <div class="blog-header__btn-author">
+                            <span class="btn btn--primary">Read article</span>
+                            <span class="blog-content__author-name"><?php echo wp_get_attachment_image( 291, 'full', false, array('class'=>'img-fluid') ) ?> By <?php echo $args["author"]["name"]; ?> </span>
+                        </div>
                     </div>
                 </div>
             </div>

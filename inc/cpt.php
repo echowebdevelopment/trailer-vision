@@ -53,7 +53,7 @@ add_action('init', function () {
 			2 => 'editor',
 			3 => 'thumbnail',
 		),
-		'has_archive' => 'Reviews',
+		'has_archive' => 'reviews',
 		'rewrite' => array(
 			'slug' => 'reviews',
 			'with_front' => false,
@@ -110,58 +110,5 @@ add_action('init', function () {
 		),
 		'delete_with_user' => false,
 	));
-
-	// register_post_type('echo_faqs', array(
-	// 	'labels' => array(
-	// 		'name' => 'FAQs',
-	// 		'singular_name' => 'FAQ',
-	// 		'menu_name' => 'FAQs',
-	// 		'all_items' => 'All FAQs',
-	// 		'edit_item' => 'Edit FAQ',
-	// 		'view_item' => 'View FAQ',
-	// 		'view_items' => 'View FAQs',
-	// 		'add_new_item' => 'Add New FAQ',
-	// 		'new_item' => 'New FAQ',
-	// 		'parent_item_colon' => 'Parent FAQ:',
-	// 		'search_items' => 'Search FAQs',
-	// 		'not_found' => 'No FAQs found',
-	// 		'not_found_in_trash' => 'No FAQs found in the bin',
-	// 		'archives' => 'FAQ Archives',
-	// 		'attributes' => 'FAQ Attributes',
-	// 		'insert_into_item' => 'Insert into FAQ',
-	// 		'uploaded_to_this_item' => 'Uploaded to this FAQ',
-	// 		'filter_items_list' => 'Filter FAQs list',
-	// 		'filter_by_date' => 'Filter FAQs by date',
-	// 		'items_list_navigation' => 'FAQs list navigation',
-	// 		'items_list' => 'FAQs list',
-	// 		'item_published' => 'FAQ published.',
-	// 		'item_published_privately' => 'FAQ published privately.',
-	// 		'item_reverted_to_draft' => 'FAQ reverted to draft.',
-	// 		'item_scheduled' => 'FAQ scheduled.',
-	// 		'item_updated' => 'FAQ updated.',
-	// 		'item_link' => 'FAQ Link',
-	// 		'item_link_description' => 'A link to a FAQ.',
-	// 	),
-	// 	'public' => true,
-	// 	'exclude_from_search' => true,
-	// 	'show_in_nav_menus' => false,
-	// 	'show_in_rest' => true,
-	// 	'menu_icon' => 'dashicons-align-left',
-	// 	'supports' => array(
-	// 		0 => 'title',
-	// 		1 => 'excerpt',
-	// 		2 => 'editor',
-	// 		3 => 'thumbnail',
-	// 	),
-	// 	'has_archive' => 'faqs',
-	// 	'rewrite' => array(
-	// 		'slug' => 'faqs',
-	// 		'with_front' => false,
-	// 		'pages' => false,
-	// 	),
-	// 	'can_export' => false,
-	// 	'delete_with_user' => false,
-	// ));
-
 });
 

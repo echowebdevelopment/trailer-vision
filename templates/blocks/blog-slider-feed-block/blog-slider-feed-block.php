@@ -30,27 +30,10 @@ $query = new WP_Query($loop_args);
 
 ?>
 
-<div class="reviews-slider-block block block--margin">
+<div class="blog-slider-block block block--padded block--fullwidth">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-12">
-				<div class="reviews-slider__header">
-					<?php if ($heading) { ?>
-						<div class="text-block__header">
-							<?php echo $heading; ?>
-							<?php if ($subheading) { ?>
-								<?php echo $subheading; ?>
-							<?php } ?>
-						</div>
-					<?php } ?>
-					<div class="reviews-slider__logo-link">
-						<?php if ($link) {
-							echo sprintf('<a class="btn btn--transparent" href="%1$s" target="%2$s">%3$s</a>', $link['url'], $link['target'], $link['title']);
-						} ?>
-					</div>
-
-				</div>
-
+		<div class="row gy-5 justify-content-center">
+			<div class="col-12 col-lg-10 fade-in-left">
 				<div class="blog-carousel carousel">
 					<?php if ($query->have_posts()): ?>
 						<div class="blog-carousel__carousel blog">
@@ -67,9 +50,12 @@ $query = new WP_Query($loop_args);
 						</div>
 					<?php endif; ?>
 				</div>
-
+			</div>
+			<div class="col-12 text-center fade-in-right">
+				<?php if ($link) {
+					echo sprintf('<a class="btn btn--primary" href="%1$s" target="%2$s">%3$s</a>', $link['url'], $link['target'], $link['title']);
+				} ?>
 			</div>
 		</div>
-
 	</div>
 </div>
