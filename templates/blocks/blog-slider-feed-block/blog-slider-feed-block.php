@@ -32,7 +32,7 @@ $query = new WP_Query($loop_args);
 
 <div class="blog-slider-block block block--padded block--fullwidth">
 	<div class="container-fluid">
-		<div class="row gy-5 justify-content-center">
+		<div class="row gy-4 justify-content-center">
 			<div class="col-12 col-lg-10 fade-in-left">
 				<div class="blog-carousel carousel">
 					<?php if ($query->have_posts()): ?>

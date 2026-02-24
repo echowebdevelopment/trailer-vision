@@ -21,6 +21,27 @@
             "selected": 0
         },
         {
+            "key": "field_699c5436c0434",
+            "label": "Promotional Message",
+            "name": "promotional_message",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_677bfd9da5b19",
             "label": "Address",
             "name": "options_address",
@@ -349,5 +370,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771691325
+    "modified": 1771853301
 }

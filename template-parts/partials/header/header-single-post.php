@@ -30,8 +30,10 @@ $card_img = get_post_thumbnail_id($args['ID']);
 			} ?>
 			<h1 class="text-block__heading fade-in-left"><?php echo $args['title']; ?></h1>
 			<div class="blog-header__date-read fade-in-left">
-				<span class="blog-content__author-name"><?php echo wp_get_attachment_image( 291, 'full', false, array('class'=>'img-fluid') ) ?> By <?php echo $args["author"]["name"]; ?> </span> |
-				<span class="blog-content__author-date"><?php echo $args["date"]; ?></span> | 
+				<span
+					class="blog-content__author-name"><?php echo wp_get_attachment_image(291, 'full', false, array('class' => 'img-fluid')) ?>
+					By <?php echo $args["author"]["name"]; ?> </span> |
+				<span class="blog-content__author-date"><?php echo $args["date"]; ?></span> |
 				<span class="blog-header__read-time"><?php echo $read_time; ?></span>
 			</div>
 		</div>

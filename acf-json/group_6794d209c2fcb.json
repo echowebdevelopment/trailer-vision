@@ -230,7 +230,7 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Button",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -301,5 +301,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771507404
+    "modified": 1771840717
 }

@@ -1,6 +1,6 @@
 <?php
-$title = get_field('title_blog', 'options') ?: 'Latest articles';
-$content_blog = get_field('content_blog', 'options') ?: '';
+$title = get_field('title_reviews', 'options') ?: 'Latest reviews';
+$content_blog = get_field('content_reviews', 'options') ?: '';
 ?>
 
 <div class="text-block block block--margin-top-md block--margin-bottom-sm">

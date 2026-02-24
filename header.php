@@ -79,3 +79,7 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 
 			<?php } ?>
 		</header><!-- #wrapper-navbar -->
+
+		<div class="promotional_message">
+			<p><?php echo get_field('promotional_message', 'options'); ?></p>
+		</div>

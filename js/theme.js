@@ -6404,7 +6404,7 @@
             items: 3
           },
           768: {
-            items: 3
+            items: 4
           },
           992: {
             items: 4
@@ -6423,10 +6423,11 @@
         mouseDrag: true,
         autoplay: true,
         speed: 1000,
-        autoplayTimeout: 4000,
+        autoplayTimeout: 5000,
         autoplayButtonOutput: false,
         nav: true,
-        controls: false
+        controls: true,
+        controlsText: ["<i class='icon-nav-right'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-nav-forward'></i><span class='visually-hidden'>Next</span>"]
       });
     }
 
@@ -6435,11 +6436,11 @@
       /* TinySlider */
       tns({
         container: ".reviews-carousel__carousel",
-        gutter: 8,
+        gutter: 40,
         mouseDrag: true,
         autoplay: true,
         speed: 1000,
-        autoplayTimeout: 10000,
+        autoplayTimeout: 5000,
         autoplayButtonOutput: false,
         nav: false,
         controls: true,
@@ -6449,13 +6450,13 @@
             items: 1
           },
           768: {
-            items: 2
+            items: 1
           },
           992: {
-            items: 3
+            items: 2
           },
           1400: {
-            items: 4
+            items: 2
           }
         }
       });
@@ -6470,7 +6471,7 @@
         mouseDrag: true,
         autoplay: true,
         speed: 1000,
-        autoplayTimeout: 10000,
+        autoplayTimeout: 5000,
         autoplayButtonOutput: false,
         nav: false,
         controls: true,

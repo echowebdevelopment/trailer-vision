@@ -1,6 +1,6 @@
 {
     "key": "group_678123346bf35",
-    "title": "Block : Featured Category",
+    "title": "Block: Featured Category",
     "fields": [
         {
             "key": "field_69984c92d03c0",
@@ -138,5 +138,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771601091
+    "modified": 1771840771
 }

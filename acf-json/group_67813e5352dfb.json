@@ -1,6 +1,6 @@
 {
     "key": "group_67813e5352dfb",
-    "title": "Block : Photo Gallery",
+    "title": "Block: Photo Gallery",
     "fields": [
         {
             "key": "field_67813e53557f9",
@@ -21,7 +21,7 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Item",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -95,5 +95,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771499275
+    "modified": 1771840736
 }

@@ -57,6 +57,8 @@ $container = get_theme_mod('echo_container_type');
 <?php // Closing div#page from header.php. ?>
 </div><!-- #page -->
 
+<?php get_template_part( 'templates/global/popup' ); ?>
+
 <?php wp_footer(); ?>
 
 <script>

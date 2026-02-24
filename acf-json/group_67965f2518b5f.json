@@ -3,34 +3,6 @@
     "title": "Block: Reviews Slider Block",
     "fields": [
         {
-            "key": "field_67965f252baa1",
-            "label": "Heading Size",
-            "name": "heading_size_reviews",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "h1": "h1",
-                "h2": "h2",
-                "h3": "h3",
-                "h4": "h4"
-            },
-            "default_value": "",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
-            "allow_in_bindings": 1,
-            "layout": "vertical",
-            "save_other_choice": 0
-        },
-        {
             "key": "field_67965f25330f6",
             "label": "Heading",
             "name": "heading_text_reviews",
@@ -73,23 +45,6 @@
             "new_lines": ""
         },
         {
-            "key": "field_67965fa340713",
-            "label": "Link",
-            "name": "link",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 0
-        },
-        {
             "key": "field_67965fad40714",
             "label": "Reviews Logo",
             "name": "reviews_logo",
@@ -113,7 +68,77 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_699c1f87c6ce0",
+            "label": "Buttons",
+            "name": "buttons_reviews",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Button",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_699c1f87c6ce1",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 1,
+                    "parent_repeater": "field_699c1f87c6ce0"
+                },
+                {
+                    "key": "field_699c1f87c6ce2",
+                    "label": "Theme",
+                    "name": "theme",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "primary": "Primary",
+                        "secondary": "Secondary",
+                        "transparent": "Transparent"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "allow_in_bindings": 0,
+                    "layout": "vertical",
+                    "save_other_choice": 0,
+                    "parent_repeater": "field_699c1f87c6ce0"
+                }
+            ]
         },
         {
             "key": "field_67965f2550fe6",
@@ -161,5 +186,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737909256
+    "display_title": "",
+    "modified": 1771840614
 }

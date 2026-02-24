@@ -1,6 +1,6 @@
 {
     "key": "group_6780fc14412f8",
-    "title": "Block : Advert CTA",
+    "title": "Block: Advert CTA",
     "fields": [
         {
             "key": "field_6995a5b4e85da",
@@ -163,5 +163,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771588639
+    "modified": 1771840766
 }

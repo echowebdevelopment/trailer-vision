@@ -1,11 +1,11 @@
 {
-    "key": "group_6795023ecc734",
-    "title": "Block : Video",
+    "key": "group_699c1e4bec7a0",
+    "title": "Archive: Reviews Landing Page",
     "fields": [
         {
-            "key": "field_6795023f078f3",
+            "key": "field_699c1e4c0312d",
             "label": "Title",
-            "name": "title",
+            "name": "title_reviews",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -24,11 +24,11 @@
             "append": ""
         },
         {
-            "key": "field_6795025b078f4",
-            "label": "Description",
-            "name": "description",
+            "key": "field_699c1e4c0360b",
+            "label": "Content",
+            "name": "content_reviews",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -38,37 +38,19 @@
                 "id": ""
             },
             "default_value": "",
-            "allow_in_bindings": 1,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_67950dbb078f5",
-            "label": "Video",
-            "name": "video",
-            "aria-label": "",
-            "type": "oembed",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "width": "",
-            "height": "",
-            "allow_in_bindings": 0
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
         [
             {
-                "param": "block",
+                "param": "options_page",
                 "operator": "==",
-                "value": "acf\/video"
+                "value": "site-settings"
             }
         ]
     ],
@@ -81,5 +63,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737826159
+    "display_title": "",
+    "modified": 1771839157
 }

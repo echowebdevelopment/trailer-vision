@@ -1,16 +1,28 @@
 <?php
-get_template_part('template-parts/partials/header/header-archive', get_post_type());
+/**
+ * The template for displaying archive pages
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Understrap
+ */
 
-global $wp_query;
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
+
+get_header();
+
+get_template_part('template-parts/partials/header/header-archive', get_post_type());
 ?>
-<div class="container-fluid blog-archieve__container block--margin-top-none block--margin-md">
+
+<div class="container-fluid reviews-archieve__container block--margin-top-none block--margin-md">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
             <div class="row g-5">
                 <?php
                 if (have_posts()) {
                     $count = 0; // Initialize counter
-
+                
                     while (have_posts()):
                         the_post();
                         $count++;
@@ -32,7 +44,7 @@ global $wp_query;
             </div>
         </div>
     </div>
-    <?php if ( $wp_query->found_posts >= 4 ) : ?>
+    <?php if ($wp_query->found_posts >= 4): ?>
         <div class="blog-pagination block--margin-md">
             <div class="row justify-content-center">
                 <div class="col-12">
@@ -42,3 +54,6 @@ global $wp_query;
         </div>
     <?php endif; ?>
 </div>
+
+<?php
+get_footer();
