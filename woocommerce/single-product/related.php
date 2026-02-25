@@ -59,12 +59,8 @@ if ($related_products): ?>
 								target="_blank">
 								<i class="icon-facebook"></i>
 							</a>
-							<a href="http://pinterest.com/pin/create/link/?url=<?php echo urlencode(get_permalink($id)) ?>"
-								target="_blank">
-								<i class="icon-interest"></i>
-							</a>
 							<a href="mailto:?body=<?php echo urlencode(get_permalink($id)) ?>" title="Share by Email">
-								<i class="icon-email-icon"></i>
+								<i class="icon-email"></i>
 							</a>
 						</div>
 					</div>

@@ -21,47 +21,55 @@ if (!defined('ABSPATH')) {
 
 global $product;
 
+if ($product->is_type('variation')) {
+	$parent_id = $product->get_parent_id();
+	$parent_product = wc_get_product($parent_id);
+	$parent_sku = $parent_product ? $parent_product->get_sku() : '';
+} else {
+	$parent_sku = $product->get_sku();
+}
+
+?>
+
+<?php
+$StockQ = $product->get_stock_quantity();
+$badges = []; // collect badges here
+
+// ACF custom badge
+$message = get_field('custom_badge_text', $product->get_ID());
+$color = get_field('custom_badge_theme', $product->get_ID()) ?: 'primary';
+
+$messageInStock = get_field('in_stock_text', 'options') ?: 'In Stock';
+$messageSale = get_field('on_sale_text', 'options') ?: 'On Sale';
+$messageOutOfStock = get_field('out_of_stock_text', 'options') ?: 'Out of Stock';
+$messageBackOrder = get_field('back_order_text', 'options') ?: 'Back Order';
+
+// Custom Badge
+if ($message) {
+	$badges[] = '<div class="special-badge ' . esc_attr($color) . '">' . esc_html__($message, 'woocommerce') . '</div>';
+} elseif ($product->is_on_sale()) {
+	$badges[] = '<div class="special-badge red sale">' . esc_html__($messageSale, 'woocommerce') . '</div>';
+} elseif ($product->is_on_backorder()) {
+	// Backorder
+	$badges[] = '<div class="special-badge secondary preorder">' . esc_html__($messageBackOrder, 'woocommerce') . '</div>';
+} elseif ($product->is_in_stock() || $StockQ > 0) {
+	// IN STOCK
+	$badges[] = '<div class="special-badge primary instock">' . esc_html__($messageInStock, 'woocommerce') . '</div>';
+} elseif (!$product->is_in_stock() || $StockQ <= 0) {
+	// OUT OF STOCK
+	$badges[] = '<div class="special-badge tertiary outstock">' . esc_html__($messageOutOfStock, 'woocommerce') . '</div>';
+}
+
+// Output all badges
+if (!empty($badges)) {
+	echo implode('', $badges);
+}
 ?>
 
 <div class="single-product__price-sale-badge single-product__title-area-desktop">
 	<p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
-		From <?php echo $product->get_price_html(); ?>
+		<span class="price-label">From</span> <?php echo $product->get_price_html(); ?>
 	</p>
 
-	<?php
-	if ($product->is_on_sale()) {
-		$regular_price = $product->get_regular_price();
-		$sale_price = $product->get_sale_price();
-
-		if ($regular_price && $sale_price) {
-			$percentage_saved = round((($regular_price - $sale_price) / $regular_price) * 100);
-			echo '<span class="special-badge sale">Save ' . $percentage_saved . '%</span>';
-		}
-	}
-
-	// For variable products, display sale percentage
-	if ($product->is_type('variable') && $product->is_on_sale()) {
-		$min_regular_price = null;
-		$min_sale_price = null;
-
-		foreach ($product->get_available_variations() as $variation) {
-			$regular_price = $variation['display_regular_price'];
-			$sale_price = $variation['display_price'];
-
-			if (is_null($min_regular_price) || $regular_price < $min_regular_price) {
-				$min_regular_price = $regular_price;
-			}
-			if (is_null($min_sale_price) || $sale_price < $min_sale_price) {
-				$min_sale_price = $sale_price;
-			}
-		}
-
-		if ($min_regular_price && $min_sale_price) {
-			$percentage_saved = round((($min_regular_price - $min_sale_price) / $min_regular_price) * 100);
-			echo '<span class="special-badge sale">Save ' . $percentage_saved . '%</span>';
-		}
-	}
-	?>
-
-	<?php echo do_shortcode('[yith_wcwl_add_to_wishlist]'); ?>
+	<span class="product-sku"><?php echo $parent_sku; ?></span>
 </div>

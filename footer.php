@@ -57,7 +57,7 @@ $container = get_theme_mod('echo_container_type');
 <?php // Closing div#page from header.php. ?>
 </div><!-- #page -->
 
-<?php get_template_part( 'templates/global/popup' ); ?>
+<?php get_template_part('templates/global/popup'); ?>
 
 <?php wp_footer(); ?>
 
@@ -81,6 +81,17 @@ $container = get_theme_mod('echo_container_type');
 		// Show a message indicating that the text was copied
 		alert("Text copied!");
 	}
+
+	document.addEventListener("click", function (e) {
+		const button = e.target.closest(".copy-link");
+		if (!button) return;
+
+		const textToCopy = button.dataset.link;
+
+		navigator.clipboard.writeText(textToCopy).then(function () {
+			alert("Text copied!");
+		});
+	});
 
 	function copyTextLoop() {
 		// Find the closest modal

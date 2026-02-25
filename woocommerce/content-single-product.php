@@ -30,71 +30,72 @@ if (post_password_required()) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
+
+$bottom_content = get_field('product_additional_content', $product->get_ID());
+
+if ($bottom_content) {
+	$additional_content = apply_filters('the_content', $bottom_content->post_content);
+}
 ?>
-<div id="product-<?php the_ID(); ?>" class="row justify-content-between">
 
-	<div id="single-product__images" <?php wc_product_class('col-12 col-xl-6 col-xxl-5 single-product__images pe-xl-0', $product); ?>>
-		<?php
-		/**
-		 * Hook: woocommerce_before_single_product_summary.
-		 *
-		 * @hooked woocommerce_show_product_sale_flash - 10
-		 * @hooked woocommerce_show_product_images - 20
-		 */
-		do_action('woocommerce_before_single_product_summary');
-		?>
-	</div>
+<div class="container-fluid">
 
-	<div <?php wc_product_class('col-12 col-xl-6 col-xxl-7 single-product__content', $product); ?>>
+	<div id="product-<?php the_ID(); ?>" class="row g-5 justify-content-center">
 
-		<div class="single-product__breadbrumb single-product__title-area-desktop">
-			<?php if (function_exists('woocommerce_breadcrumb')) {
-				woocommerce_breadcrumb();
-			} ?>
-		</div>
-
-		<div class="single-product__information">
+		<div id="single-product__images" <?php wc_product_class('col-12 col-lg-6 single-product__images fade-in-left', $product); ?>>
 			<?php
 			/**
-			 * Hook: woocommerce_single_product_summary.
+			 * Hook: woocommerce_before_single_product_summary.
 			 *
-			 * @hooked woocommerce_template_single_title - 5
-			 * @hooked woocommerce_template_single_rating - 10
-			 * @hooked woocommerce_template_single_price - 10
-			 * @hooked woocommerce_template_single_excerpt - 20
-			 * @hooked woocommerce_template_single_add_to_cart - 30
-			 * @hooked woocommerce_template_single_meta - 40
-			 * @hooked woocommerce_template_single_sharing - 50
-			 * @hooked WC_Structured_Data::generate_product_data() - 60
+			 * @hooked woocommerce_show_product_sale_flash - 10
+			 * @hooked woocommerce_show_product_images - 20
 			 */
-			do_action('woocommerce_single_product_summary');
-			?>
-
-			<?php
-			/**
-			 * Hook: woocommerce_after_single_product_summary.
-			 *
-			 * @hooked woocommerce_output_product_data_tabs - 10
-			 * @hooked woocommerce_upsell_display - 15
-			 * @hooked woocommerce_output_related_products - 20
-			 */
-			//do_action('woocommerce_after_single_product_summary');
+			do_action('woocommerce_before_single_product_summary');
 			?>
 		</div>
+
+		<div <?php wc_product_class('col-12 col-lg-6 single-product__content fade-in-right', $product); ?>>
+			<div class="single-product__information">
+				<?php
+				/**
+				 * Hook: woocommerce_single_product_summary.
+				 *
+				 * @hooked woocommerce_template_single_title - 5
+				 * @hooked woocommerce_template_single_rating - 10
+				 * @hooked woocommerce_template_single_price - 10
+				 * @hooked woocommerce_template_single_excerpt - 20
+				 * @hooked woocommerce_template_single_add_to_cart - 30
+				 * @hooked woocommerce_template_single_meta - 40
+				 * @hooked woocommerce_template_single_sharing - 50
+				 * @hooked WC_Structured_Data::generate_product_data() - 60
+				 */
+				do_action('woocommerce_single_product_summary');
+				?>
+
+				<?php
+				/**
+				 * Hook: woocommerce_after_single_product_summary.
+				 *
+				 * @hooked woocommerce_output_product_data_tabs - 10
+				 * @hooked woocommerce_upsell_display - 15
+				 * @hooked woocommerce_output_related_products - 20
+				 */
+				//do_action('woocommerce_after_single_product_summary');
+				?>
+			</div>
+		</div>
 	</div>
+
 </div>
 
 <?php do_action('woocommerce_after_single_product'); ?>
 
-<section class="single-product__content-custom">
-	<div class="container-fluid mt-1">
+<?php if ($bottom_content) { ?>
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col">
-
-				<?php get_template_part('templates/blocks/usp-block/usp-block', null); ?>
-				<?php do_action('woocommerce_before_single_product_summary_custom'); ?>
-
+			<div class="col-12">
+				<?php echo $additional_content; ?>
 			</div>
 		</div>
 	</div>
-</section>
+<?php } ?>

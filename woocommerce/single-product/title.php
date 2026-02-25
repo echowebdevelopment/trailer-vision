@@ -26,16 +26,12 @@ global $product;
 	<div class="product-title">
 		<?php the_title('<h1 class="product_title entry-title">', '</h1>'); ?>
 	</div>
-	<div class="product-rating-share">
-		<a href="#reviews" style="margin-bottom: 1rem; text-decoration: none;">
-			<div class="ruk_rating_snippet" data-sku="<?php echo $product->get_sku(); ?>"></div>
-		</a>
-
-		<div class="single-product__compare"><?php echo do_shortcode('[yith_compare_button]'); ?></div>
-
+	<div class="product-share">
 		<a type="button" class="btn--share" data-bs-toggle="modal" aria-label="Open Share Model"
-			data-bs-target="#product-modal-<?php echo $product->get_ID(); ?>"><i
-				class="icon-share-icon"></i><span>Share</span></a>
+			data-bs-target="#product-modal-<?php echo $product->get_ID(); ?>">
+			<!-- <span>Share</span> -->
+			<i class="icon-share"></i>
+		</a>
 		<!-- Modal -->
 		<div class="modal fade product-modal share-modal" id="product-modal-<?php echo $product->get_ID(); ?>"
 			tabindex="-1" aria-labelledby="product-modalLabel-<?php echo $product->get_ID(); ?>" aria-hidden="true">
@@ -54,14 +50,9 @@ global $product;
 							<i class="icon-facebook"></i>
 						</a>
 
-						<a href="http://pinterest.com/pin/create/link/?url=<?php echo urlencode(get_permalink($product->ID)) ?>"
-							target="_blank">
-							<i class="icon-interest"></i>
-						</a>
-
 						<a href="mailto:?body=<?php echo urlencode(get_permalink($product->ID)) ?>"
 							title="Share by Email">
-							<i class="icon-email-icon"></i>
+							<i class="icon-email"></i>
 						</a>
 
 						<input type="hidden" id="hiddenField" value="<?php echo get_permalink($product->ID) ?>">

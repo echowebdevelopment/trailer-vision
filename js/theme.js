@@ -6260,7 +6260,7 @@
 
     /* Lightbox Product Image */
     if ($(".lightbox-gallery").length > 0) {
-      $("#single-product__gallery-btn");
+      // var $button = $("#single-product__gallery-btn");
       var lightboxes = document.querySelectorAll(".lightbox-gallery");
       lightboxes.forEach(function (lightboxes) {
         lightGallery(lightboxes, {
@@ -6271,9 +6271,9 @@
 
       //lightGallery(document.getElementById("lightgallery"));
 
-      $("#magic_start").on("click", function () {
-        $("#lightgallery a:first-child > img").trigger("click");
-      });
+      // $("#magic_start").on("click", () => {
+      // 	$("#lightgallery a:first-child > img").trigger("click");
+      // });
     }
 
     /* function performAction() {
@@ -6467,7 +6467,7 @@
       /* TinySlider */
       tns({
         container: ".product-carousel__carousel",
-        gutter: 8,
+        gutter: 16,
         mouseDrag: true,
         autoplay: true,
         speed: 1000,
@@ -6509,73 +6509,61 @@
     }
 
     /* Facetwp load */
-    $(document).on("facetwp-refresh", function () {
+    // $(document).on("facetwp-refresh", function () {
+    // 	if (FWP.loaded) {
+    // 		FWP.setHash();
+    // 		window.location.reload();
+    // 	}
+    // });
+
+    // $(window).on("load", function () {
+    // 	if (FWP.loaded) {
+    // 		$("html, body").animate(
+    // 			{
+    // 				scrollTop: $(".facetwp-template").offset().top - 250,
+    // 			},
+    // 			500,
+    // 		);
+    // 	}
+    // });
+
+    $(document).on("facetwp-loaded", function () {
       if (FWP.loaded) {
-        FWP.setHash();
-        window.location.reload();
-      }
-    });
-    $(window).on("load", function () {
-      if (FWP.loaded) {
+        // Run only after the initial page load
         $("html, body").animate({
-          scrollTop: $(".facetwp-template").offset().top - 250
+          scrollTop: $(".facetwp-template").offset().top - 250 // Scroll to the top of the element with class "facetp-template"
         }, 500);
       }
     });
-
-    /* !- WC Variation Swatches */
-    // Remove title to disable native tooltip
-    // $(".variable-item.button-variable-item").on("mouseover", function (e) {
-    // 	e.stopPropagation(); // Prevent event bubbling
-    // 	$(this).removeAttr("title"); // Remove title to disable native tooltip
-    // });
-
-    /* !- WC Pao Addons */
-    // Hide swatches beyond the first 12
-    // $(".form-row.form-row-wide.wc-pao-addon-wrap").each(function () {
-    // 	let container = $(this);
-    // 	let swatches = container.find(".wc-pao-addon-image-swatch");
-
-    // 	if (swatches.length > 12) {
-    // 		// Hide swatches beyond the first 7
-    // 		swatches.slice(12).hide();
-
-    // 		// Create a unique View More button for each addon
-    // 		let viewMoreBtn = $(
-    // 			'<span class="btn--link btn-arrow-down small" style="display:block; cursor:pointer; margin:10px 0;">View more colours</span>'
-    // 		);
-
-    // 		// Append button after swatches
-    // 		container.append(viewMoreBtn);
-
-    // 		// Toggle swatches visibility on click
-    // 		viewMoreBtn.on("click", function () {
-    // 			let hiddenSwatches = swatches.slice(12);
-    // 			if (hiddenSwatches.is(":visible")) {
-    // 				hiddenSwatches.slideUp(500);
-    // 				$(this).text("View more colours");
-    // 			} else {
-    // 				hiddenSwatches.css("display", "inline-block").hide().slideDown(500);
-    // 				$(this).text("View less colours");
-    // 			}
-    // 		});
-    // 	}
-    // });
-
-    // $(".wc-pao-addon-name").each(function () {
-    // 	var description = $(this)
-    // 		.siblings(".wc-pao-addon-description")
-    // 		.text()
-    // 		.trim();
-    // 	if (description) {
-    // 		$(this).wrap('<span class="tooltip-container"></span>');
-    // 		$(this).after(
-    // 			'<button type="button" class="attribute-tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="' +
-    // 				description +
-    // 				'">?</button>'
-    // 		);
-    // 	}
-    // });
+    if ($(".product-gallery-slider").length > 0) {
+      /* TinySlider */
+      tns({
+        container: ".product-gallery-slider",
+        gutter: 16,
+        mouseDrag: true,
+        autoplay: true,
+        speed: 1000,
+        autoplayTimeout: 5000,
+        autoplayButtonOutput: false,
+        nav: false,
+        controls: true,
+        controlsText: ["<i class='icon-nav-right'></i><span class='visually-hidden'>Prev</span>", "<i class='icon-nav-forward'></i><span class='visually-hidden'>Next</span>"],
+        responsive: {
+          0: {
+            items: 2
+          },
+          768: {
+            items: 4
+          },
+          992: {
+            items: 3
+          },
+          1400: {
+            items: 4
+          }
+        }
+      });
+    }
 
     /* !- Sticky Add to Cart */
     var stickyBar = $(".sticky-add-to-cart");
@@ -6629,107 +6617,47 @@
         $(".single_add_to_cart_button").trigger("click");
       }
     });
+    var $form = $(".variations_form");
+    var $resetBtn = $form.find(".reset_variations");
+    if (!$resetBtn.length) return;
 
-    // /* !- Update total price with addon */
-    // // Store the previous addon prices globally
-    // let prevAddonPrice = 0;
-    // let selectedAddonIds = new Set(); // Store selected addon identifiers
+    // Hide the button initially
+    $resetBtn.css("display", "none");
 
-    // function updatePrice() {
-    // 	let basePriceElement = $(
-    // 		".woocommerce-variation-price .woocommerce-Price-amount bdi"
-    // 	);
-    // 	let basePrice =
-    // 		parseFloat(basePriceElement.text().replace(/[^0-9.]/g, "")) || 0;
-    // 	let selectedAddons = $(".wc-pao-addon-image-swatch.selected");
-    // 	let addonPrice = 0;
+    // Show the button when a variation is selected
+    $form.on("show_variation", function () {
+      $resetBtn.css("display", "inline-block"); // or 'block' if you prefer
+    });
 
-    // 	// If base price is 0, exit function
-    // 	if (basePrice <= 0) {
-    // 		// alert("Base price is 0, skipping addon calculation.");
-    // 		return; // Exit the function early if the base price is 0
-    // 	}
-
-    // 	// Reset addonIds for each price update
-    // 	selectedAddonIds.clear();
-
-    // 	// Loop through each selected addon and sum their prices
-    // 	selectedAddons.each(function () {
-    // 		let priceText = $(this).attr("data-price") || "0";
-    // 		let priceMatch = priceText.match(/£[^0-9]*([\d,]+(\.\d{1,2})?)/);
-
-    // 		if (priceMatch) {
-    // 			addonPrice += parseFloat(priceMatch[1].replace(/[^0-9.]/g, "")) || 0;
-    // 		}
-
-    // 		// Store unique identifier (e.g., data-price or another attribute)
-    // 		let addonIdentifier = $(this).attr("data-price"); // Ensure this is unique
-    // 		if (addonIdentifier) {
-    // 			selectedAddonIds.add(addonIdentifier);
-    // 		}
-    // 	});
-
-    // 	let newTotal = basePrice + addonPrice - prevAddonPrice;
-
-    // 	// Update the variation price display
-    // 	basePriceElement.html(
-    // 		`<span class="woocommerce-Price-currencySymbol">£</span>${newTotal.toFixed(
-    // 			2
-    // 		)}`
-    // 	);
-
-    // 	// Update the previous addon price to the new total
-    // 	prevAddonPrice = addonPrice;
-
-    // 	// Debugging output: New Total Price
-    // 	// alert("Base Price: " + basePrice);
-    // 	// alert("Total Addon Price: " + addonPrice);
-    // 	// alert("Previous Addon Price: " + prevAddonPrice);
-    // 	// alert("New Total Price: " + newTotal);
-    // }
-
-    // // Listen for clicks or touch events on addon image swatches
-    // $(document).on("click touchend", ".wc-pao-addon-image-swatch", function () {
-    // 	let addonIdentifier = $(this).attr("data-price"); // Ensure identifier is unique
-
-    // 	// Toggle selection based on current state
-    // 	if ($(this).hasClass("selected")) {
-    // 		selectedAddonIds.add(addonIdentifier);
-    // 	} else {
-    // 		selectedAddonIds.delete(addonIdentifier);
-    // 	}
-
-    // 	updatePrice();
-    // });
-
-    // // Ensure price updates when variation changes
-    // $(document).on("found_variation", function () {
-    // 	updatePrice();
-    // });
-
-    // // Preserve Addons When Variations Change
-    // $(document).on(
-    // 	"click",
-    // 	".variable-item, .woo-variation-raw-select",
-    // 	function () {
-    // 		prevAddonPrice = 0;
-
-    // 		// Wait for variation change, then restore selected addons
-    // 		$(".wc-pao-addon-image-swatch").each(function () {
-    // 			let addonIdentifier = $(this).attr("data-price"); // Ensure identifier is unique
-
-    // 			// Add or remove the selected class based on previously selected addons
-    // 			if (selectedAddonIds.has(addonIdentifier)) {
-    // 				$(this).addClass("selected");
-    // 			} else {
-    // 				$(this).removeClass("selected");
-    // 			}
-    // 		});
-
-    // 		updatePrice(); // Recalculate price with restored addons
-    // 	}
-    // );
+    // Hide the button when variations are reset
+    $form.on("reset_data", function () {
+      $resetBtn.css("display", "none");
+    });
   })(jQuery);
+
+  /* Thumbnial for products */
+  document.addEventListener("DOMContentLoaded", function () {
+    var mainImage = document.getElementById("main-product-image");
+    var thumbnails = document.querySelectorAll(".product-thumbnail-link");
+    thumbnails.forEach(function (thumb) {
+      thumb.addEventListener("click", function (e) {
+        e.preventDefault();
+        var newSrc = this.getAttribute("data-full");
+        if (!newSrc) return;
+
+        // Fade out, swap image, fade in
+        mainImage.style.opacity = 0;
+        setTimeout(function () {
+          mainImage.src = newSrc;
+          mainImage.srcset = newSrc;
+          mainImage.removeAttribute("sizes");
+          mainImage.style.opacity = 1;
+        }, 150);
+      });
+    });
+  });
+
+  /* Animation logic */
   function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
     return rect.top < window.innerHeight && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0;
@@ -6754,6 +6682,8 @@
       setTimeout(checkVisibility, 150);
     });
   });
+
+  /* Animations for USP */
   function triggerUspAnimations() {
     var uspBlock = document.querySelector(".usp-block");
     var logosBlock = document.querySelector(".logo-block");

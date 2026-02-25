@@ -11,18 +11,13 @@
 defined('ABSPATH') or die('No script kiddies please!');
 
 $heading_size = get_field('heading_size_prod_slider');
-$heading_center = get_field('heading_center_prod_slider');
 
 $acf_heading = get_field('heading_text_prod_slider');
 $heading = $acf_heading ? sprintf('<%1$s class="text-block__heading">%2$s</%1$s>', $heading_size, $acf_heading) : '';
 
-$auxCenter = '';
-
-if ($heading_center == 'yes') {
-	$auxCenter = 'text-center';
-}
-
 $products = get_field('feature_products_prod_slider') ?: array();
+
+$link = get_field('link_to_products');
 
 $loop_args = array(
 	'post_type' => 'product',
@@ -35,17 +30,17 @@ $query = new WP_Query($loop_args);
 
 ?>
 
-<div class="feature-product-slider-block block block--margin">
+<div class="feature-product-slider-block block block--padded block--fullwidth block--bg-plain-pattern">
 	<div class="container-fluid">
 		<div class="row justify-content-center">
-			<div class="col-12 col-md-11 col-xl-11 col-xxl-12">
-
+			<div class="col-12">
 				<?php if ($heading) { ?>
-					<div class="text-block__header <?php echo $auxCenter ?>">
+					<div class="text-block__header text-center">
 						<?php echo $heading; ?>
 					</div>
 				<?php } ?>
-
+			</div>
+			<div class="col-12 col-lg-11 col-xl-11 col-xxl-12">
 				<div class="product-carousel carousel">
 					<?php if ($query->have_posts()) { ?>
 						<div class="product-carousel__carousel products">
@@ -67,6 +62,16 @@ $query = new WP_Query($loop_args);
 					<?php } ?>
 				</div>
 			</div>
+			<div class="col-12">
+				<?php if ($link) { ?>
+					<div class="slider-button text-center">
+						<a class="btn btn--secondary" href="<?php echo $link['url']; ?>"
+							target="<?php echo $link['target']; ?>">
+							<?php echo $link['title']; ?>
+						</a>
+					</div>
+				<?php } ?>
+			</div>
 		</div>
 	</div>
 
@@ -83,7 +88,7 @@ $query = new WP_Query($loop_args);
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-						<p class="h3">Share</p>
+							<p class="h3">Share <?php echo get_the_title($id); ?></p>
 						</div>
 						<div class="modal-body social-share">
 							<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink($id)) ?>"
@@ -91,17 +96,13 @@ $query = new WP_Query($loop_args);
 								<i class="icon-facebook"></i>
 							</a>
 
-							<a href="http://pinterest.com/pin/create/link/?url=<?php echo urlencode(get_permalink($id)) ?>"
-								target="_blank">
-								<i class="icon-interest"></i>
-							</a>
-
 							<a href="mailto:?body=<?php echo urlencode(get_permalink($id)) ?>" title="Share by Email">
-								<i class="icon-email-icon"></i>
+								<i class="icon-email"></i>
 							</a>
 
-							<input type="hidden" id="hiddenField" value="<?php echo get_permalink($id) ?>">
-							<a class="btn--link" onclick="copyText()"><i class="icon-copy"></i>Copy Link</a>
+							<a class="btn--link copy-link" data-link="<?php echo get_permalink($id); ?>">
+								<i class="icon-copy"></i>Copy Link
+							</a>
 						</div>
 					</div>
 				</div>

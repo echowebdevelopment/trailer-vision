@@ -19,21 +19,21 @@ defined('ABSPATH') || exit;
 
 $term = get_queried_object();
 
-$banner_layout = get_field('layout', $term) ?: 'fullwidth-image';
-$bg = get_field('page-title--bg') ? 'block--bg-' . get_field('page-title--bg') : 'block--bg-none';
-
-$classes = array();
-$classes[] = 'layout--' . $banner_layout;
-$classes[] = $bg;
-$classes[] = $bg != 'block--bg-none';
-
 $title = get_field('alternative_h1', $term);
-$main_image = get_field('bg_image', $term) ?: 10889;
 $content = $term->description;
-$link = get_field('button');
+
+if (is_shop()) {
+	$title = get_field('heading_shop', 'option') ?: 'Shop';
+	$content = get_field('main_description_shop', 'option') ?: '';
+}
 
 $category_top_content = get_field('category_top_content', $term);
 $category_bottom_content = get_field('category_bottom_content', $term);
+
+if (is_shop()) {
+	$category_top_content = get_field('category_top_content_shop', 'option');
+	$category_bottom_content = get_field('category_bottom_content_shop', 'option');
+}
 
 if ($category_top_content) {
 	$category_top = apply_filters('the_content', $category_top_content->post_content);
@@ -43,45 +43,46 @@ if ($category_bottom_content) {
 	$category_bottom = apply_filters('the_content', $category_bottom_content->post_content);
 }
 
+$acf_heading = get_field('heading_cta', $term);
+$heading_cta = $acf_heading ? sprintf('<%1$s class="text-block__heading fade-in-left">%2$s</%1$s>', 'h3', $acf_heading) : '';
+$content_cta = get_field('content_cta', $term);
+
+if (is_shop()) {
+	$acf_heading = get_field('heading_cta_shop', 'option') ?: '';
+	$heading_cta = $acf_heading ? sprintf('<%1$s class="text-block__heading fade-in-left">%2$s</%1$s>', 'h3', $acf_heading) : '';
+	$content_cta = get_field('content_cta_shop', 'option') ?: '';
+}
+
 get_header('shop');
 
 ?>
 
-<div class="page-header-block block--fullwidth <?php echo implode(' ', $classes); ?>mb-5">
-	<?php echo wp_get_attachment_image($main_image, 'full', false, array('class' => 'layout--' . $banner_layout . '__bg')) ?>
+<div class="page-header-block page-header-product-category block block--fullwidth block--padded-sm">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12 col-md-6 col-lg-6 col-xl-5 p-4 p-lg-5">
-				<div class="single-product__breadbrumb">
+			<div class="col-12">
+				<div class="single-product__breadcrumb">
 					<?php if (function_exists('woocommerce_breadcrumb')) {
 						woocommerce_breadcrumb();
 					} ?>
 				</div>
 				<h1 class="section-title"><?php echo $title ?: woocommerce_page_title(); ?></h1>
-				<?php if (get_field('description', $term)) { ?>
-					<p><?php echo get_field('description', $term); ?></p>
-				<?php } ?>
-				<!-- <?php if (get_field('description', $term)) { ?>
-					<a href="#category-description" class="btn--link btn-arrow-down small">
-						Read more
+				<?php if (!is_shop()) { ?>
+					<a href="#left-sidebar" class="btn btn--primary btn-arrow-down">
+						View products
 					</a>
-				<?php } ?> -->
-			</div>
-			<div class="col-lg-6 col-xl-7">
-
+				<?php } ?>
 			</div>
 		</div>
 	</div>
 </div>
 
 <?php if ($content) { ?>
-	<div class="text-block block block--margin" id="category-description">
+	<div class="page-introduction-block block block--fullwidth block--padded-md">
 		<div class="container-fluid">
 			<div class="row justify-content-center">
-				<div class="col-12 col-lg-10">
-
+				<div class="col-12 col-lg-10 fade-in-top">
 					<?php echo wpautop($content); ?>
-
 				</div>
 			</div>
 		</div>
@@ -147,13 +148,67 @@ if (woocommerce_product_loop()) {
 		woocommerce_product_loop_end(); ?>
 	</div>
 
-	<div class="row pagination-area">
-		<div class="col-12 pagination-main">
-			<div class="pagination-col text-center">
+	<?php if (wc_get_loop_prop('total') > wc_get_loop_prop('per_page')): ?>
+		<div class="row">
+			<div class="col-12">
 				<?php echo do_shortcode('[facetwp facet="pagination"]'); ?>
 			</div>
 		</div>
-	</div>
+	<?php endif; ?>
+
+	<?php if ($heading_cta): ?>
+		<div class="advert-cta block--padded">
+			<div class="container-fluid">
+				<div class="row text-center justify-content-center">
+					<div class="col-12 col-lg-10">
+						<?php echo $heading_cta; ?>
+						<?php if ($content_cta) { ?>
+							<div class="advert-cta__content fade-in-left">
+								<?php echo $content_cta; ?>
+							</div>
+						<?php } ?>
+						<?php if (have_rows('buttons_cta', $term)): ?>
+							<div class="block-buttons justify-content-center fade-in-left">
+								<?php while (have_rows('buttons_cta', $term)):
+									the_row(); ?>
+									<?php
+									$link = get_sub_field('link');
+									$theme = get_sub_field('theme');
+									if (empty($link)) {
+										break;
+									}
+
+									echo sprintf('<a class="btn btn--%1$s" href="%2$s" target="%3$s">%4$s</a>', $theme, $link['url'], $link['target'], $link['title']);
+
+									?>
+								<?php endwhile; ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if (is_shop()): ?>
+							<?php if (have_rows('buttons_cta_shop', 'option')): ?>
+								<div class="block-buttons justify-content-center fade-in-left">
+									<?php while (have_rows('buttons_cta_shop', 'option')):
+										the_row(); ?>
+										<?php
+										$link = get_sub_field('link');
+										$theme = get_sub_field('theme');
+										if (empty($link)) {
+											break;
+										}
+
+										echo sprintf('<a class="btn btn--%1$s" href="%2$s" target="%3$s">%4$s</a>', $theme, $link['url'], $link['target'], $link['title']);
+
+										?>
+									<?php endwhile; ?>
+								</div>
+							<?php endif; ?>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
 
 	<?php
 	/**
@@ -238,13 +293,8 @@ $query = new WP_Query($args);
 							<i class="icon-facebook"></i>
 						</a>
 
-						<a href="http://pinterest.com/pin/create/link/?url=<?php echo urlencode(get_permalink($id)) ?>"
-							target="_blank">
-							<i class="icon-interest"></i>
-						</a>
-
 						<a href="mailto:?body=<?php echo urlencode(get_permalink($id)) ?>" title="Share by Email">
-							<i class="icon-email-icon"></i>
+							<i class="icon-email"></i>
 						</a>
 
 						<input type="hidden" class="hiddenField" value="<?php echo get_permalink($id) ?>">

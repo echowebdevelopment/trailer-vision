@@ -37,48 +37,60 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 
 			<?php get_template_part('global-templates/navbar', $navbar_type); ?>
 
-			<?php if (is_product()) {
-				global $product;
-				$price_with_tax = wc_get_price_including_tax($product); ?>
-				<div class="sticky-add-to-cart flex-column" style="display: none;">
-					<div class="sticky-content">
-						<div class="total-price">
-							<div class="d-flex flex-column">
-								<span class="label">From </span>
-								<?php echo wc_price($price_with_tax); ?>
-							</div>
-							<div class="d-block d-sm-none text-end" style="line-height: 1;">
-								<a class="link-to-description btn--link" href="#build-order">
-									View / Change your specification
-								</a>
-							</div>
-						</div>
-						<div class="sticky-add-to-cart-options">
-							<div class="mb-3 d-none d-sm-block">
-								<a class="link-to-description btn--link" href="#build-order">
-									View / Change your specification
-								</a>
-							</div>
-							<div class="sticky-add-to-cart-button">
-								<?php
-								woocommerce_quantity_input(
-									array(
-										'min_value' => apply_filters('woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product),
-										'max_value' => apply_filters('woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product),
-										'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $product->get_min_purchase_quantity(), // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-									)
-								);
-								?>
-								<a href="#" class="sticky_single_add_to_cart_button btn btn--secondary">Add to
-									Basket</a>
+		</header><!-- #wrapper-navbar -->
+
+		<?php if (is_product()) {
+			global $product;
+			$price_with_tax = wc_get_price_including_tax($product);
+			if ($product->is_type('variation')) {
+				$parent_id = $product->get_parent_id();
+				$parent_product = wc_get_product($parent_id);
+				$parent_sku = $parent_product ? $parent_product->get_sku() : '';
+			} else {
+				$parent_sku = $product->get_sku();
+			}
+
+			?>
+			<div class="sticky-add-to-cart flex-column" style="display: none;">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-12">
+
+							<div class="sticky-content">
+								<div class="sticky-product-title-block">
+									<span class="sticky-product-title"><?php echo $product->get_title(); ?></span>
+									<span class="product-sku"><?php echo $parent_sku; ?></span>
+								</div>
+								<div class="d-block d-sm-none text-end" style="line-height: 1; font-size: 14px;">
+									<a class="build-order" href="#build-order">
+										View / Change your specification
+									</a>
+								</div>
+								<div class="sticky-add-to-cart-options">
+									<div class="mb-3 d-none d-sm-block">
+										<a class="build-order" href="#build-order">
+											View / Change your specification
+										</a>
+									</div>
+									<div class="sticky-add-to-cart-button">
+										<div class="total-price">
+											<span class="label">From </span>
+											<?php echo wc_price($price_with_tax); ?>
+										</div>
+										<a href="#" class="sticky_single_add_to_cart_button btn btn--primary">
+											Add to Basket
+										</a>
+									</div>
+
+								</div>
 							</div>
 
 						</div>
 					</div>
 				</div>
+			</div>
 
-			<?php } ?>
-		</header><!-- #wrapper-navbar -->
+		<?php } ?>
 
 		<div class="promotional_message">
 			<p><?php echo get_field('promotional_message', 'options'); ?></p>

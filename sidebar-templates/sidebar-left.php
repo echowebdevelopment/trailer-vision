@@ -23,18 +23,20 @@ $sidebar_pos = get_theme_mod('echo_sidebar_position');
 		<?php endif; ?>
 
 		<div class="shop-filters-block">
-			<details class="shop-filters d-none d-xl-block accordion__item" open>
-				<summary class="main-filter accordion accordion__question">
-					<h2 class="accordion__question-text">Filters</h2>
-				</summary>
-				<div class="accordion__answer">
+			<div class="shop-filters d-none d-xl-block">
+				<div class="main-filter">
+					<h2 class="accordion__question-text">Filter by</h2>
+					<?php echo do_shortcode('[facetwp facet="reset_filters"]'); ?>
+				</div>
+				<div >
 					<?php dynamic_sidebar('left-sidebar'); ?>
 				</div>
-			</details>
+			</div>
 
-			<details id="shop-filters" class="shop-filters d-block d-xl-none accordion__item">
+			<details id="shop-filters" class="shop-filters mobile-shop-filters d-block d-xl-none accordion__item">
 				<summary class="main-filter accordion accordion__question">
-					<h2 class="accordion__question-text">Filters</h2>
+					<h2 class="accordion__question-text">Filter by</h2>
+					<?php echo do_shortcode('[facetwp facet="reset_filters"]'); ?>
 				</summary>
 				<div class="accordion__answer">
 					<?php dynamic_sidebar('left-sidebar'); ?>

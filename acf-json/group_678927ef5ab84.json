@@ -3,8 +3,8 @@
     "title": "Product: Single Product Infomation",
     "fields": [
         {
-            "key": "field_6792441eb9071",
-            "label": "Other Sizes Available",
+            "key": "field_699ee3e7346c3",
+            "label": "Custom Badges",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -21,9 +21,80 @@
             "selected": 0
         },
         {
-            "key": "field_679261e5a75f4",
-            "label": "Other Sizes Available",
-            "name": "other_sizes_available",
+            "key": "field_699ee3da346c2",
+            "label": "Custom Badge Message",
+            "name": "custom_badge_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_699ee478a1020",
+            "label": "Custom Badge Theme",
+            "name": "custom_badge_theme",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "tertiary": "Tertiary",
+                "highlight": "Highlight (Yellow)",
+                "red": "Red"
+            },
+            "default_value": "highlight",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_699dca3184633",
+            "label": "Product USP",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_699dca2d84632",
+            "label": "Product USP",
+            "name": "product_usp",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -34,25 +105,98 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "layout": "table",
             "pagination": 0,
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Item",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_67926230a75f6",
-                    "label": "Option Label",
-                    "name": "option_label",
+                    "key": "field_699dca7c84636",
+                    "label": "Type",
+                    "name": "type",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "select",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "icon": "Icon",
+                        "text": "Text"
+                    },
+                    "default_value": "icon",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_699dca2d84632"
+                },
+                {
+                    "key": "field_699dca5484634",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_699dca7c84636",
+                                "operator": "==",
+                                "value": "icon"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium",
+                    "parent_repeater": "field_699dca2d84632"
+                },
+                {
+                    "key": "field_699dca6e84635",
+                    "label": "Text",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_699dca7c84636",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -62,470 +206,74 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_679261e5a75f4"
+                    "parent_repeater": "field_699dca2d84632"
                 },
                 {
-                    "key": "field_679242e9dc7fb",
-                    "label": "Other Sizes Available",
-                    "name": "linked_products",
+                    "key": "field_699dcac984637",
+                    "label": "Icon Label",
+                    "name": "icon_label",
                     "aria-label": "",
-                    "type": "post_object",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "product"
-                    ],
-                    "post_status": "",
-                    "taxonomy": "",
-                    "return_format": "id",
-                    "multiple": 0,
-                    "allow_null": 0,
+                    "default_value": "",
+                    "maxlength": "",
                     "allow_in_bindings": 0,
-                    "bidirectional": 0,
-                    "ui": 1,
-                    "bidirectional_target": [],
-                    "parent_repeater": "field_679261e5a75f4"
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_699dca2d84632"
                 }
             ]
         },
         {
-            "key": "field_678fcd2a8f7a9",
-            "label": "Features",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678fcd218f7a8",
-            "label": "Features Content",
-            "name": "features_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 1,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_678927f059d44",
-            "label": "Specification",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_6789299788b1a",
-            "label": "Specification Content",
-            "name": "specification_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_6789294659d45",
-            "label": "Comfort",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_6789299f88b1b",
-            "label": "Comfort Content",
-            "name": "comfort_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_6789294859d46",
-            "label": "Dimensions",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678929a388b1c",
-            "label": "Dimensions Content",
-            "name": "dimensions_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_6789294959d47",
-            "label": "Packages",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678929a788b1d",
-            "label": "Packages Content",
-            "name": "packages_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_6789294a59d48",
-            "label": "Assembly",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678929ac88b21",
-            "label": "Assembly Content",
-            "name": "assembly_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_6789294c59d49",
-            "label": "Design",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678929ac88b20",
-            "label": "Design Content",
-            "name": "design_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_6789294e59d4a",
-            "label": "Fillings",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678929ab88b1f",
-            "label": "Fillings Content",
-            "name": "fillings_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_6789294f59d4b",
-            "label": "Technical",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678929bb88b22",
-            "label": "Technical Content",
-            "name": "technical_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_6789295259d4c",
-            "label": "Video",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678929aa88b1e",
-            "label": "Video Content",
-            "name": "video_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
-            "key": "field_678fcd5c8f7ab",
-            "label": "Fabrics",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_678fcd608f7ac",
-            "label": "Fabrics Content",
-            "name": "fabrics_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 1
-        },
-        {
             "key": "field_678fcd788f7af",
-            "label": "Covers",
+            "label": "Main Features",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_699d7a58b52b6",
+            "label": "Main Features Content",
+            "name": "main_features_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "This would be to show in the product grid",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 1
+        },
+        {
+            "key": "field_699d7a54b52b5",
+            "label": "Installation",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -543,8 +291,8 @@
         },
         {
             "key": "field_678fcd738f7ad",
-            "label": "Covers Content",
-            "name": "covers_content",
+            "label": "Installation Content",
+            "name": "installation_content",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -564,7 +312,7 @@
         },
         {
             "key": "field_678fcd7c8f7b0",
-            "label": "Designer",
+            "label": "Delivery & Returns",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -582,8 +330,8 @@
         },
         {
             "key": "field_678fcd758f7ae",
-            "label": "Designer Content",
-            "name": "designer_content",
+            "label": "Delivery & Returns Content",
+            "name": "delivery_returns_content",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -603,7 +351,7 @@
         },
         {
             "key": "field_67bc4863f16f0",
-            "label": "Delivery",
+            "label": "Warranty",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -621,8 +369,8 @@
         },
         {
             "key": "field_67bc4850f16ef",
-            "label": "Delivery Information",
-            "name": "delivery_information",
+            "label": "Warranty Information",
+            "name": "warranty_information",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -660,5 +408,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771839121
+    "modified": 1772020948
 }
