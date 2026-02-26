@@ -1,0 +1,13 @@
+{
+	"name": "acf/discover",
+	"title": "Discover Block",
+	"description": "",
+	"category": "widgets",
+	"icon": "tide",
+	"keywords": ["discover", "industry", "trailer", "vehicle"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "discover.php"
+	},
+	"align": "full"
+}

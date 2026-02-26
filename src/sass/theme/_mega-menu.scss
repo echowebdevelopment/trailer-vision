@@ -1,20 +1,43 @@
 .sticky-top .dropdown-menu.echo-menu-shortcode {
-	top: 66px;
+	top: 107px;
 }
 
 .dropdown-menu.echo-menu-shortcode {
 	border: 0;
 	padding: 0;
 	border-radius: 0;
-	top: 88px;
+	top: 107px;
 	left: 0;
 	right: 0;
-	box-shadow: 0 999px 0 999px rgba(0, 0, 0, 0.75);
+	box-shadow: 0 999px 0 999px rgb(255 255 255 / 50%);
+
+	.menu-body {
+		background: url(../images/bg-menu.png) no-repeat;
+		background-position: 50%;
+		background-size: cover;
+
+		@include media-breakpoint-down(xl) {
+			background: none;
+		}
+	}
 
 	.menu-heading {
 		padding-left: 2.5rem;
-		padding-right: 2.5rem;
+		padding-right: 5rem;
 		height: 100%;
+		background-color: var(--tertiary);
+		clip-path: polygon(0% 0%, 100% 0, 75% 100%, 0 100%);
+
+		@include media-breakpoint-down(xl) {
+			background-color: transparent;
+			padding: 2rem 5rem 2rem 0;
+
+			clip-path: none;
+		}
+
+		@include media-breakpoint-down (md) {
+			padding: 2rem 0 0;
+		}
 	}
 
 	.menu-content {
@@ -32,15 +55,39 @@
 	}
 
 	.header-menu {
-		p {
+		.mega-menu-title {
 			font-size: 1rem;
-			font-weight: $font-weight-medium;
-			color: var(--primary);
-			margin-bottom: 0.75rem;
+			font-weight: $font-weight-bold;
+			color: var(--secondary);
+			margin-bottom: 0.875rem;
+
+			a:not(.sub-menu a) {
+				font-size: 1rem;
+				font-weight: $font-weight-bold;
+				color: var(--secondary);
+				margin-bottom: 0.875rem;
+
+				@include media-breakpoint-down(xl) {
+					color: var(--secondary);
+
+					&:hover {
+						color: var(--primary);
+					}
+				}
+			}
 		}
 
-		a:hover p {
-			color: var(--gold);
+		.sub-menu {
+			padding: 0;
+		}
+
+		.column-menu .sub-menu {
+			column-count: 2;
+			column-gap: 3rem;
+
+			@include media-breakpoint-down (sm) {
+				column-count: 1;
+			}
 		}
 
 		ul.acf-menu {
@@ -55,12 +102,21 @@
 				}
 
 				a {
-					font-size: 0.813rem;
-					font-weight: $font-weight-regular;
-					color: var(--black);
+					font-size: 0.875rem;
+					font-weight: $font-weight-medium;
+					color: var(--white);
+					margin-bottom: 0.875rem;
 
 					&:hover {
-						color: var(--gold);
+						color: var(--highlight);
+					}
+
+					@include media-breakpoint-down(xl) {
+						color: var(--primary);
+
+						&:hover {
+							color: var(--secondary);
+						}
 					}
 				}
 
@@ -69,10 +125,6 @@
 				}
 			}
 		}
-	}
-
-	@media (max-width:1300px) {
-		top: 78px;
 	}
 }
 
@@ -113,10 +165,6 @@
 	bottom: 0;
 	background-color: var(--grey);
 	border: none;
-	background-image: url(../images/square-grey-image.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 100% 100%;
 
 	.offcanvas-body {
 		padding: 0;
@@ -139,37 +187,23 @@
 		font-size: 1.25rem;
 		font-weight: $font-weight-medium;
 		align-items: center;
-		gap: 1rem;
 		position: relative;
 
 		&:hover,
 		&:focus {
-			color: var(--gold);
+			color: var(--secondary);
 		}
 
 		i {
 			color: var(--primary);
-			font-size: .7rem;
+			font-size: 0.6rem;
+			margin-left: 0.55rem;
+			margin-top: 5px;
 		}
 
 		i::before {
-			content: "\e90a";
+			content: "\e91b";
 		}
-	}
-
-	&::after {
-		content: "";
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		// background-image: url(../images/partial-logo-white.svg);
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: 100% 100%;
-		z-index: 1;
-		width: 150px;
-		height: 150px;
-		z-index: 9999;
 	}
 }
 
@@ -179,17 +213,11 @@
 
 .offcanvas-body-menu .dropdown-menu.echo-menu-shortcode {
 	background-color: var(--grey);
-	// background-image: url(../images/square-grey-image.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 100% 100%;
 	height: 100%;
 	padding: 2.5rem 2.5rem 2.5rem 1.5rem;
 	top: 0;
 
-	.bg-square-grey-image {
-		background-image: none;
-		background-color: transparent;
+	.menu-content {
 		padding: 2rem 0;
 	}
 }
@@ -212,12 +240,12 @@
 	color: var(--primary);
 	box-shadow: none;
 	border: none;
-	font-size: 0.813rem;
+	font-size: 1rem;
 
 	i {
 		color: var(--primary);
 		font-size: 0.7rem;
-		margin-right: 8px;
+		margin-right: .55rem;
 	}
 }
 
@@ -230,7 +258,7 @@
 
 @media (max-height: 850px) {
 	.menu_style_2 .menu-content {
-		height: 90vh!important;
+		height: 90vh !important;
 		overflow-y: scroll;
 	}
 }

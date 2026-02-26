@@ -107,15 +107,14 @@ function login_account_shortcode()
 {
 	?>
 	<?php if (is_user_logged_in()) { ?>
-		<div class="account-col">
-			<a class="" href="<?php echo site_url('my-account/') ?>">
-				<i class="icon-account-Icon"></i> <span>Your Account</span>
-			</a>
-		<?php } else { ?>
-			<a class="" href="<?php echo site_url('my-account/') ?>">
-				<i class="icon-account-Icon"></i> <span>Login/Register</span>
-			</a>
-		<?php } ?>
-	</div>
+		<a class="" href="<?php echo site_url('my-account/') ?>">
+			<i class="icon-account-Icon"></i> <span>Your Account</span>
+		</a>
+	<?php } else { ?>
+		<a class="" href="<?php echo site_url('my-account/') ?>">
+			<i class="icon-account-Icon"></i> <span>Login/Register</span>
+		</a>
+	<?php } ?>
+
 	<?php
 }

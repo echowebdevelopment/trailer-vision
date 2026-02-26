@@ -13,6 +13,12 @@ defined('ABSPATH') || exit;
 $container = get_theme_mod('echo_container_type');
 ?>
 
+<?php
+if ( !is_checkout() ) {
+	get_template_part( 'templates/blocks/newsletter-block/newsletter-block', null ); 
+}
+?>
+
 <footer class="site-footer block border-top-secondary block--bg-primary" id="site-footer">
 
 	<div class="site-footer__primary block--padded-md">

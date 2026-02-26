@@ -22,74 +22,113 @@ $container = get_theme_mod('echo_container_type');
 
 		<div class="<?php echo esc_attr($container); ?>">
 
-			<!-- Your site branding in the menu -->
 			<?php get_template_part('global-templates/navbar-branding'); ?>
 
+			<div class="menu-wrapper">
 
-			<ul class="navbar-nav main-menu">
-				<li class="d-none d-xl-block">
-					<div>
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'primary',
-								'container_class' => '',
-								'container_id' => '',
-								'menu_class' => 'navbar-nav justify-content-evenly pt-0',
-								'fallback_cb' => '',
-								'menu_id' => 'main-menu',
-								'depth' => 2,
-								'walker' => new Understrap_WP_Bootstrap_Navwalker(),
-							)
-						);
-						?>
+				<div class="row w-100 align-items-center justify-content-between d-xl-flex d-none">
+
+					<div class="col-5">
+						<?php echo do_shortcode('[fibosearch]'); ?>
 					</div>
-				</li>
 
-				<li class="d-none d-xl-block">
-					<?php echo do_shortcode('[gtranslate]'); ?>
-				</li>
+					<div class="col-6">
+						<div class="main-submenu">
+							<?php echo do_shortcode('[gtranslate]'); ?>
+							<div class="submenu-account">
+								<a href="/">Home</a>
+								<a href="https://www.camos-uk.com/" target="_blank">Trade Customers</a>
+								<?php echo do_shortcode('[login-account]'); ?>
+							</div>
+						</div>
+					</div>
 
-				<li class="d-lg-block d-xl-none">
-					<nav class="navbar navbar-expand-xl">
+				</div>
 
-						<?php echo do_shortcode('[phone-number]'); ?>
+				<div class="row w-100">
 
-						<button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="offcanvas"
-							data-bs-target="#navbarNavOffcanvas" aria-controls="navbarNavOffcanvas"
-							aria-expanded="false">
-							<i class="icon-menu">Menu</i>
-						</button>
+					<div class="col-12">
 
-						<div class="offcanvas offcanvas-end" tabindex="-1" id="navbarNavOffcanvas">
+						<ul class="navbar-nav main-menu">
 
-							<div class="offcanvas-body-menu">
-								<button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="offcanvas"
-									data-bs-target="#navbarNavOffcanvas" aria-controls="navbarNavOffcanvas"
-									aria-expanded="false">
-									<i class="icon-cross"></i>
-								</button>
+							<li class="d-none d-xl-block">
 								<?php
 								wp_nav_menu(
 									array(
 										'theme_location' => 'primary',
-										'container_class' => 'offcanvas-body',
-										'container_id' => '',
-										'menu_class' => 'navbar-nav justify-content-evenly pt-0 flex-grow-1',
+										'container' => false,
+										'menu_class' => 'navbar-nav justify-content-evenly pt-0',
 										'fallback_cb' => '',
-										'menu_id' => 'menu',
+										'menu_id' => 'main-menu',
 										'depth' => 2,
 										'walker' => new Understrap_WP_Bootstrap_Navwalker(),
 									)
 								);
 								?>
-							</div>
-						</div>
-					</nav>
-				</li>
+							</li>
 
-			</ul>
-		</div><!-- .container(-fluid) -->
+							<li class="contact-menu">
+								<?php echo do_shortcode('[gtranslate]'); ?>
+								<?php echo do_shortcode('[phone-number]'); ?>
+								<?php echo do_shortcode('[email-address]'); ?>
+								<a class="account-link" href="<?php echo site_url('my-account/') ?>">
+									<i class="icon-account"></i>
+								</a>
+								<a href="<?php echo wc_get_cart_url(); ?>" class="basket-link">
+									<i class="icon-basket"></i>
+									<?php if (WC()->cart->get_cart_contents_count() != 0) { ?>
+										<span
+											class="basket-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+									<?php } ?>
+								</a>
+							</li>
 
-	</nav><!-- #main-nav -->
+							<li class="d-lg-block d-xl-none">
+								<nav class="navbar navbar-expand-xl">
+
+									<button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="offcanvas"
+										data-bs-target="#navbarNavOffcanvas" aria-controls="navbarNavOffcanvas"
+										aria-expanded="false">
+										<i class="icon-menu"></i><span class="sr-only">Menu</span>
+									</button>
+
+									<div class="offcanvas offcanvas-end" tabindex="-1" id="navbarNavOffcanvas">
+
+										<div class="offcanvas-body-menu">
+											<button class="navbar-toggler border-0 p-0" type="button"
+												data-bs-toggle="offcanvas" data-bs-target="#navbarNavOffcanvas"
+												aria-controls="navbarNavOffcanvas" aria-expanded="false">
+												<i class="icon-cross"></i>
+											</button>
+											<?php
+											wp_nav_menu(
+												array(
+													'theme_location' => 'primary',
+													'container_class' => 'offcanvas-body',
+													'container_id' => '',
+													'menu_class' => 'navbar-nav justify-content-evenly pt-0 flex-grow-1',
+													'fallback_cb' => '',
+													'menu_id' => 'menu',
+													'depth' => 2,
+													'walker' => new Understrap_WP_Bootstrap_Navwalker(),
+												)
+											);
+											?>
+										</div>
+									</div>
+								</nav>
+								
+							</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</nav>
 </div>

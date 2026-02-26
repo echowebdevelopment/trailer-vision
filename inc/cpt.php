@@ -53,9 +53,9 @@ add_action('init', function () {
 			2 => 'editor',
 			3 => 'thumbnail',
 		),
-		'has_archive' => 'reviews',
+		'has_archive' => 'testimonials',
 		'rewrite' => array(
-			'slug' => 'reviews',
+			'slug' => 'testimonials',
 			'with_front' => false,
 			'pages' => false,
 		),

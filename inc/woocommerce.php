@@ -1039,7 +1039,7 @@ function custom_shipping_package_name($name)
 add_filter('woocommerce_checkout_fields', 'custom_checkout_phone_label');
 function custom_checkout_phone_label($fields)
 {
-	$fields['billing']['billing_phone']['label'] = 'Phone - preferably a mobile number';
+	$fields['billing']['billing_phone']['label'] = 'Phone';
 	return $fields;
 }
 
@@ -1444,48 +1444,48 @@ function add_company_to_email($fields, $sent_to_admin, $order)
 }
 
 /* Custome field Alternative number */
-add_filter('woocommerce_checkout_fields', 'custom_add_alt_phone_checkout_field');
-function custom_add_alt_phone_checkout_field($fields)
-{
-	// Add alternative phone number just after the main phone
-	$fields['billing']['billing_alt_phone'] = array(
-		'label' => __('Alternative Phone Number', 'woocommerce'),
-		'required' => false,
-		'class' => array('form-row-wide'),
-		'priority' => 100,
-	);
-	return $fields;
-}
+// add_filter('woocommerce_checkout_fields', 'custom_add_alt_phone_checkout_field');
+// function custom_add_alt_phone_checkout_field($fields)
+// {
+// 	// Add alternative phone number just after the main phone
+// 	$fields['billing']['billing_alt_phone'] = array(
+// 		'label' => __('Alternative Phone Number', 'woocommerce'),
+// 		'required' => false,
+// 		'class' => array('form-row-wide'),
+// 		'priority' => 100,
+// 	);
+// 	return $fields;
+// }
 
-add_action('woocommerce_checkout_update_order_meta', 'custom_save_alt_phone_checkout_field');
-function custom_save_alt_phone_checkout_field($order_id)
-{
-	if (!empty($_POST['billing_alt_phone'])) {
-		update_post_meta($order_id, '_billing_alt_phone', sanitize_text_field($_POST['billing_alt_phone']));
-	}
-}
+// add_action('woocommerce_checkout_update_order_meta', 'custom_save_alt_phone_checkout_field');
+// function custom_save_alt_phone_checkout_field($order_id)
+// {
+// 	if (!empty($_POST['billing_alt_phone'])) {
+// 		update_post_meta($order_id, '_billing_alt_phone', sanitize_text_field($_POST['billing_alt_phone']));
+// 	}
+// }
 
-add_action('woocommerce_admin_order_data_after_billing_address', 'custom_display_alt_phone_admin_order', 10, 1);
-function custom_display_alt_phone_admin_order($order)
-{
-	$alt_phone = get_post_meta($order->get_id(), '_billing_alt_phone', true);
-	if ($alt_phone) {
-		echo '<p><strong>' . __('Alternative Phone') . ':</strong> ' . esc_html($alt_phone) . '</p>';
-	}
-}
+// add_action('woocommerce_admin_order_data_after_billing_address', 'custom_display_alt_phone_admin_order', 10, 1);
+// function custom_display_alt_phone_admin_order($order)
+// {
+// 	$alt_phone = get_post_meta($order->get_id(), '_billing_alt_phone', true);
+// 	if ($alt_phone) {
+// 		echo '<p><strong>' . __('Alternative Phone') . ':</strong> ' . esc_html($alt_phone) . '</p>';
+// 	}
+// }
 
-add_filter('woocommerce_email_customer_details_fields', 'custom_add_alt_phone_to_emails', 10, 3);
-function custom_add_alt_phone_to_emails($fields, $sent_to_admin, $order)
-{
-	$alt_phone = get_post_meta($order->get_id(), '_billing_alt_phone', true);
-	if ($alt_phone) {
-		$fields['billing_alt_phone'] = array(
-			'label' => __('Alternative Phone', 'woocommerce'),
-			'value' => $alt_phone,
-		);
-	}
-	return $fields;
-}
+// add_filter('woocommerce_email_customer_details_fields', 'custom_add_alt_phone_to_emails', 10, 3);
+// function custom_add_alt_phone_to_emails($fields, $sent_to_admin, $order)
+// {
+// 	$alt_phone = get_post_meta($order->get_id(), '_billing_alt_phone', true);
+// 	if ($alt_phone) {
+// 		$fields['billing_alt_phone'] = array(
+// 			'label' => __('Alternative Phone', 'woocommerce'),
+// 			'value' => $alt_phone,
+// 		);
+// 	}
+// 	return $fields;
+// }
 
 
 
