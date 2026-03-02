@@ -11,6 +11,8 @@ $image_caption = $image->post_excerpt ?: $product->get_title();
 
 // Gallery images
 $gallery_image_ids = $product->get_gallery_image_ids();
+
+$remove_global_usp = get_field('remove_global_usp', $product->get_ID());
 ?>
 
 <div class="single-product-images lightbox-gallery">
@@ -69,35 +71,56 @@ $gallery_image_ids = $product->get_gallery_image_ids();
 </div>
 
 <div class="product-usp">
-	<?php if (have_rows('product_usp', $product->get_ID())):
-		while (have_rows('product_usp', $product->get_ID())):
-			the_row();
-			echo get_sub_field('text');
-		endwhile;
-	elseif (have_rows('options_product_usp', 'option')):
-		while (have_rows('options_product_usp', 'option')):
-			the_row();
+	<?php if ($remove_global_usp != "yes"): ?>
+		<?php if (have_rows('product_usp', $product->get_ID())):
+			while (have_rows('product_usp', $product->get_ID())):
+				the_row();
+				$text = get_sub_field('text');
+				$image = get_sub_field('icon');
+				$icon_label = get_sub_field('icon_label'); ?>
 
-			$text = get_sub_field('text');
-			$image = get_sub_field('icon');
-			$icon_label = get_sub_field('icon_label'); ?>
+				<div class="product-usp-content">
+					<?php if ($text): ?>
+						<div class="product-usp-badge">
+							<?php echo $text; ?>
+						</div>
+					<?php endif; ?>
+					<?php if ($image): ?>
+						<?php echo wp_get_attachment_image($image, 'full', false, array('class' => 'img-fluid', 'loading' => 'lazy')); ?>
+					<?php endif; ?>
+					<?php if ($icon_label): ?>
+						<span>
+							<?php echo $icon_label; ?>
+						</span>
+					<?php endif; ?>
+				</div>
 
-			<div class="product-usp-content">
-				<?php if ($text): ?>
-					<div class="product-usp-badge">
-						<?php echo $text; ?>
-					</div>
-				<?php endif; ?>
-				<?php if ($image): ?>
-					<?php echo wp_get_attachment_image($image, 'full', false, array('class' => 'img-fluid', 'loading' => 'lazy')); ?>
-				<?php endif; ?>
-				<?php if ($icon_label): ?>
-					<span>
-						<?php echo $icon_label; ?>
-					</span>
-				<?php endif; ?>
-			</div>
-			
-		<?php endwhile;
-	endif; ?>
+			<?php endwhile;
+		elseif (have_rows('options_product_usp', 'option')):
+			while (have_rows('options_product_usp', 'option')):
+				the_row();
+
+				$text = get_sub_field('text');
+				$image = get_sub_field('icon');
+				$icon_label = get_sub_field('icon_label'); ?>
+
+				<div class="product-usp-content">
+					<?php if ($text): ?>
+						<div class="product-usp-badge">
+							<?php echo $text; ?>
+						</div>
+					<?php endif; ?>
+					<?php if ($image): ?>
+						<?php echo wp_get_attachment_image($image, 'full', false, array('class' => 'img-fluid', 'loading' => 'lazy')); ?>
+					<?php endif; ?>
+					<?php if ($icon_label): ?>
+						<span>
+							<?php echo $icon_label; ?>
+						</span>
+					<?php endif; ?>
+				</div>
+
+			<?php endwhile;
+		endif; ?>
+	<?php endif; ?>
 </div>

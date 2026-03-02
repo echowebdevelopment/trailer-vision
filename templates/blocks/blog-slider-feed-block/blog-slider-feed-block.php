@@ -51,7 +51,7 @@ $query = new WP_Query($loop_args);
 					<?php endif; ?>
 				</div>
 			</div>
-			<div class="col-12 text-center fade-in-right">
+			<div class="col-12 text-center fade-in-right see-more-button">
 				<?php if ($link) {
 					echo sprintf('<a class="btn btn--primary" href="%1$s" target="%2$s">%3$s</a>', $link['url'], $link['target'], $link['title']);
 				} ?>

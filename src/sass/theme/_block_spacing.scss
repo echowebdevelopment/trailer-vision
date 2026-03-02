@@ -45,6 +45,11 @@
 		padding-top: var(--spacer);
 		padding-bottom: var(--spacer);
 	}
+
+	@include media-breakpoint-down(sm) {
+		padding-top: var(--spacer-sm);
+		padding-bottom: var(--spacer-sm);
+	}
 }
 
 .block--padded-sm {

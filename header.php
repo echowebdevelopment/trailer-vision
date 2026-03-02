@@ -94,6 +94,7 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 
 		<div class="search-mobile">
 			<?php echo do_shortcode('[fibosearch]'); ?>
+			<?php echo do_shortcode('[gtranslate]'); ?>
 		</div>
 
 		<div class="promotional_message">

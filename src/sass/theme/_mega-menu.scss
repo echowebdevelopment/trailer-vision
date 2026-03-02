@@ -1,5 +1,5 @@
 .sticky-top .dropdown-menu.echo-menu-shortcode {
-	top: 107px;
+	top: 89px;
 }
 
 .dropdown-menu.echo-menu-shortcode {
@@ -41,7 +41,8 @@
 	}
 
 	.menu-content {
-		padding-left: 6.125rem;
+		padding-right: 2rem;
+		padding-left: 4.125rem;
 		height: 100%;
 	}
 
@@ -146,11 +147,11 @@
 }
 
 .navbar-toggler {
-	color: var(--primary) !important;
+	color: var(--secondary) !important;
 }
 
 .navbar-toggler:hover {
-	color: var(--secondary) !important;
+	color: var(--tertiary) !important;
 }
 
 .navbar-toggler:focus {
@@ -257,7 +258,7 @@
 }
 
 @media (max-height: 850px) {
-	.menu_style_2 .menu-content {
+	.menu-content {
 		height: 90vh !important;
 		overflow-y: scroll;
 	}

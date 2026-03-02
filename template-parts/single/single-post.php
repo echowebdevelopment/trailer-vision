@@ -18,8 +18,7 @@ $query = new WP_Query($loop_args);
         <div class="row justify-content-center">
             <div class="col-12">
                 <?php the_content() ?>
-            </div>
-            <div class="col-12 col-lg-12">
+            
                 <?php
                 $post_details = array(
                     "ID" => get_the_ID(),

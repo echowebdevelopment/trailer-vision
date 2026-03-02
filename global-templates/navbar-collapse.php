@@ -68,7 +68,6 @@ $container = get_theme_mod('echo_container_type');
 							</li>
 
 							<li class="contact-menu">
-								<?php echo do_shortcode('[gtranslate]'); ?>
 								<?php echo do_shortcode('[phone-number]'); ?>
 								<?php echo do_shortcode('[email-address]'); ?>
 								<a class="account-link" href="<?php echo site_url('my-account/') ?>">

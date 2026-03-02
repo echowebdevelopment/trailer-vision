@@ -14,8 +14,8 @@ $container = get_theme_mod('echo_container_type');
 ?>
 
 <?php
-if ( !is_checkout() ) {
-	get_template_part( 'templates/blocks/newsletter-block/newsletter-block', null ); 
+if (!is_checkout() && !is_cart()) {
+	get_template_part('templates/blocks/newsletter-block/newsletter-block', null);
 }
 ?>
 

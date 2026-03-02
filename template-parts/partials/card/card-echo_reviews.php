@@ -22,7 +22,7 @@ $args = wp_parse_args($args, $defaults);
 
 $rating = get_field('number_of_stars', get_the_ID());
 $review_subject = get_field('review_subject', get_the_ID());
-$iframe = get_field('video_url', get_the_ID());
+$video_url = get_field('video_url', get_the_ID());
 
 $images = get_field('gallery', get_the_ID());
 
@@ -64,10 +64,10 @@ $row_class = isset($args['row_class']) ? $args['row_class'] : '';
             </div>
             <div class="col-12 col-lg-6">
                 <div class="row g-2">
-                    <?php if ($iframe) { ?>
+                    <?php if ($video_url) { ?>
                         <div class="col-12">
                             <div class="video-container fade-in-bottom">
-                                <iframe width="100%" height="200" frameborder="0" src="<?php echo $iframe; ?>"></iframe>
+                                <?php echo wp_oembed_get( $video_url ); ?>
                             </div>
                         </div>
                     <?php } ?>

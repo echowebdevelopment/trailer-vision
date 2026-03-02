@@ -54,7 +54,7 @@ $mobile_menu_name = $data['mobile_menu_name'];
                     <?php if ($about['menus']): ?>
                         <div class="row gy-3">
                             <?php foreach ($about['menus'] as $about_menu): ?>
-                                <div class="col-12 col-md-6 col-lg-4 col-xl-4 header-menu">
+                                <div class="col-12 col-md-6 col-lg-4 col-xl-<?php echo $about_menu['number_of_columns_on_desktop'] ?: 4; ?> header-menu">
                                     <?php if ($about_menu['main_title']): ?>
                                         <p class="mega-menu-title"><?php echo esc_html($about_menu['main_title']); ?></p>
                                     <?php endif; ?>

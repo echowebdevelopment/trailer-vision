@@ -22,7 +22,7 @@ $link_to_shop = get_field('link_to_shop');
 
 $i = 1;
 ?>
-<div class="featured-category-block block block--padded block--fullwidth">
+<div class="featured-category-block discover-block block block--padded block--fullwidth">
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-10">

@@ -34,7 +34,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
@@ -56,7 +56,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -144,6 +144,36 @@
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
+                                    "key": "field_69a175e07ab18",
+                                    "label": "Number of Columns on Desktop",
+                                    "name": "number_of_columns_on_desktop",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "3": "4",
+                                        "4": "3"
+                                    },
+                                    "default_value": 3,
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "parent_repeater": "field_698b4a0ec09fe"
+                                },
+                                {
                                     "key": "field_698b4a20c09ff",
                                     "label": "Main Title",
                                     "name": "main_title",
@@ -212,5 +242,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771691328
+    "modified": 1772189457
 }

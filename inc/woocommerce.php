@@ -599,7 +599,7 @@ add_action('woocommerce_before_add_to_cart_form', 'add_product_description_butto
 function add_product_description_button()
 {
 	global $product;
-	if (!empty($product->get_description())) { ?>
+	if (!empty($product->get_short_description())) { ?>
 		<a href="#product_description" class="link-to-description">Read more <i class="icon-nav-down"></i></a>
 	<?php }
 }
@@ -753,7 +753,7 @@ function product_accordion()
 				<?php if (!empty(get_field('options_product_installation_information', 'option')) || !empty(get_field('installation_content', $id))) { ?>
 					<details class="accordion__item">
 						<summary class="accordion accordion__question">
-							<span class="accordion__question-text">Installation Global</span>
+							<span class="accordion__question-text">Installation</span>
 						</summary>
 						<div class="accordion__answer">
 							<?php echo get_field('installation_content', $id) ?: get_field('options_product_installation_information', 'option'); ?>
@@ -764,7 +764,7 @@ function product_accordion()
 				<?php if (!empty(get_field('options_product_delivery_information', 'option')) || !empty(get_field('delivery_returns_content', $id))) { ?>
 					<details class="accordion__item">
 						<summary class="accordion accordion__question">
-							<span class="accordion__question-text">Delivery & Returns Global</span>
+							<span class="accordion__question-text">Delivery & Returns</span>
 						</summary>
 						<div class="accordion__answer">
 							<?php echo get_field('delivery_returns_content', $id) ?: get_field('options_product_delivery_information', 'option'); ?>
@@ -775,7 +775,7 @@ function product_accordion()
 				<?php if (!empty(get_field('options_product_warrenty_information', 'option')) || !empty(get_field('warranty_information', $id))) { ?>
 					<details class="accordion__item">
 						<summary class="accordion accordion__question">
-							<span class="accordion__question-text">Warranty Global</span>
+							<span class="accordion__question-text">Warranty</span>
 						</summary>
 						<div class="accordion__answer">
 							<?php echo get_field('warranty_information', $id) ?: get_field('options_product_warrenty_information', 'option'); ?>
@@ -1015,7 +1015,7 @@ function loop_actions_button()
 	global $product;
 	?>
 	<div class="grid-product-buttons">
-		<a href="<?php echo get_permalink($product->get_id()); ?>" class="btn btn--primary">View Product</a>
+		<a href="<?php echo get_permalink($product->get_id()); ?>" class="btn btn--primary">View product</a>
 		<a type="button" class="btn--share" data-bs-toggle="modal" aria-label="Open Share Model"
 			data-bs-target="#product-slider-modal-<?php echo $product->get_ID(); ?>">
 			<i class="icon-share"></i>
@@ -1033,7 +1033,7 @@ add_action('woocommerce_checkout_billing', 'chekout_title');
 add_filter('woocommerce_shipping_package_name', 'custom_shipping_package_name');
 function custom_shipping_package_name($name)
 {
-	return 'Delivery Choices';
+	return '<h4>Delivery</h4>';
 }
 
 add_filter('woocommerce_checkout_fields', 'custom_checkout_phone_label');
@@ -1047,7 +1047,7 @@ add_filter('woocommerce_cart_shipping_method_full_label', 'remove_free_label', 1
 function remove_free_label($full_label, $method)
 {
 	if ($full_label == 'Local Pickup' || $full_label == 'Local pickup') {
-		$full_label = 'Collect from our workshop close to Cambridge';
+		$full_label = 'Collect from our workshop';
 	}
 
 	return $full_label;
@@ -1441,6 +1441,20 @@ function add_company_to_email($fields, $sent_to_admin, $order)
 		);
 	}
 	return $fields;
+}
+
+add_filter('woocommerce_get_price_html', 'add_incl_vat_text_loop_only', 10, 2);
+function add_incl_vat_text_loop_only($price, $product) {
+
+    if (is_admin()) {
+        return $price;
+    }
+
+    if (!is_product()) {
+        $price .= ' <small class="price-incl-vat">incl. VAT</small>';
+    }
+
+    return $price;
 }
 
 /* Custome field Alternative number */

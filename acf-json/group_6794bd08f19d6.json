@@ -153,7 +153,7 @@
                 {
                     "key": "field_6794bf4a37ed4",
                     "label": "Answer",
-                    "name": "a",
+                    "name": "answer",
                     "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
@@ -169,7 +169,7 @@
                     "tabs": "all",
                     "toolbar": "full",
                     "media_upload": 1,
-                    "delay": 0,
+                    "delay": 1,
                     "parent_repeater": "field_6794bf3437ed2"
                 }
             ]
@@ -211,5 +211,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771507976
+    "modified": 1772191893
 }

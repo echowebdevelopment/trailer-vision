@@ -41,23 +41,25 @@ $i = 1;
 					<?php while (have_rows('questions')):
 						the_row('questions');
 						$i++;
-						$delay = ($i - 1) * 0.2; ?>
+						$delay = ($i - 1) * 0.1; ?>
 						<details id="faq-id-<?php echo $i ?>" class="accordion__item fade-in-left"
 							style="--delay: <?php echo $delay; ?>s;">
 							<summary class="accordion accordion__question">
 								<?php echo get_sub_field('q'); ?>
 							</summary>
 							<div class="accordion__answer">
-								<?php echo wpautop(get_sub_field('a')); ?>
+								<?php echo get_sub_field('answer'); ?>
 							</div>
 						</details>
 						<?php $i++;
 					endwhile; ?>
 				</div>
 
-				<div class="block-buttons justify-content-center">
-					<?php echo sprintf('<a class="btn btn--primary" href="%1$s" target="%2$s">%3$s</a>', $link_all_faqs['url'], $link_all_faqs['target'], $link_all_faqs['title']); ?>
-				</div>
+				<?php if ($link_all_faqs) { ?>
+					<div class="block-buttons justify-content-center">
+						<?php echo sprintf('<a class="btn btn--primary" href="%1$s" target="%2$s">%3$s</a>', $link_all_faqs['url'], $link_all_faqs['target'], $link_all_faqs['title']); ?>
+					</div>
+				<?php } ?>
 			</div>
 		</div>
 
@@ -67,28 +69,28 @@ $i = 1;
 			$j = 1;
 			?>
 			<script type="application/ld+json">
-							{
-							"@context": "https://schema.org",
-							"@type": "FAQPage",
-							"mainEntity": [
-								<?php while (have_rows('questions')):
-									the_row('questions'); ?>
-												{
-													"@type": "Question",
-													"name": "<?php echo get_sub_field('q'); ?>",
-														"acceptedAnswer": {
-														"@type": "Answer",
-														"text": "<?php echo esc_attr(wp_strip_all_tags(get_sub_field('a'))); ?>"
-													}
-												}
-												<?php if ($j < count($count)) {
-													echo ',';
-													$j++;
-												} ?>
-								<?php endwhile; ?>
-							]
-							}
-						</script>
+								{
+								"@context": "https://schema.org",
+								"@type": "FAQPage",
+								"mainEntity": [
+									<?php while (have_rows('questions')):
+										the_row('questions'); ?>
+														{
+															"@type": "Question",
+															"name": "<?php echo get_sub_field('q'); ?>",
+																"acceptedAnswer": {
+																"@type": "Answer",
+																"text": "<?php echo esc_attr(wp_strip_all_tags(get_sub_field('a'))); ?>"
+															}
+														}
+														<?php if ($j < count($count)) {
+															echo ',';
+															$j++;
+														} ?>
+									<?php endwhile; ?>
+								]
+								}
+							</script>
 		<?php endif; ?>
 	</div>
 </div>
