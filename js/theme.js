@@ -6276,77 +6276,6 @@
       // });
     }
 
-    /* function performAction() {
-    	if (window.innerWidth < 1200) {
-    		$(".single-product__title-area-mobile").show();
-    		$(".single-product__title-area-desktop").hide();
-    	} else {
-    		$(".single-product__title-area-mobile").hide();
-    		$(".single-product__title-area-desktop").show();
-    	}
-    }
-    
-    // Trigger the action on page load and on resize
-    performAction();
-    $(window).resize(function () {
-    	performAction();
-    }); */
-
-    /* Variables passing attributes */
-    // $(".other-size-available").click(function (e) {
-    // 	e.preventDefault();
-
-    // 	let selectedOptions = {};
-
-    // 	$(".variations select").each(function () {
-    // 		let attributeName = $(this).attr("name");
-    // 		let attributeValue = $(this).find("option:selected").val();
-
-    // 		if (attributeValue && attributeValue !== "") {
-    // 			selectedOptions[attributeName] = attributeValue;
-    // 		}
-    // 	});
-
-    // 	// $('.wc-pao-addons-container .wc-pao-addon-wrap .selected').each(function () {
-    // 	//     let fieldName = $(this).attr('data-addon-name');
-    // 	//     let fieldValue = $(this).attr('data-value');
-
-    // 	//     if (fieldName && fieldValue) {
-    // 	//         selectedOptions[fieldName] = fieldValue;
-    // 	//     }
-
-    // 	// 	alert(fieldName);
-    // 	// });
-
-    // 	let queryString = $.param(selectedOptions);
-    // 	let currentLink = $(this).attr("data-base-url") || $(this).attr("href");
-    // 	let updatedLink = currentLink;
-
-    // 	if (queryString) {
-    // 		updatedLink = currentLink.includes("?")
-    // 			? `${currentLink}&${queryString}`
-    // 			: `${currentLink}?${queryString}`;
-    // 	}
-
-    // 	$(this).attr("href", updatedLink);
-
-    // 	window.location.href = updatedLink;
-    // });
-
-    // document.addEventListener("facetwp-loaded", function () {
-    // 	$.each(FWP.settings.num_choices, function (key, val) {
-    // 		var $facet = $(".facetwp-facet-" + key);
-    // 		var $wrap = $facet.closest(
-    // 			".shop-filters .widget_block details.accordion__item",
-    // 		);
-    // 		var $flyout = $facet.closest(".flyout-row");
-    // 		if ($wrap.length || $flyout.length) {
-    // 			var $which = $wrap.length ? $wrap : $flyout;
-    // 			0 === val ? $which.hide() : $which.show();
-    // 		}
-    // 	});
-    // });
-
     /**************************************/
     /* !Tiny Carousels                    */
     /**************************************/
@@ -6383,13 +6312,38 @@
         }
       });
     }
+    if ($(".discover-carousel__carousel").length > 0) {
+      /* TinySlider */
+      tns({
+        container: ".discover-carousel__carousel",
+        mouseDrag: true,
+        autoplay: true,
+        speed: 1000,
+        gutter: 40,
+        autoplayTimeout: 5000,
+        autoplayButtonOutput: false,
+        nav: false,
+        controls: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          576: {
+            items: 2
+          },
+          992: {
+            items: 3
+          }
+        }
+      });
+    }
     if ($(".logo-carousel__carousel").length > 0) {
       /* TinySlider */
       tns({
         container: ".logo-carousel__carousel",
         mouseDrag: true,
         autoplay: true,
-        gutter: 40,
+        gutter: 24,
         speed: 1000,
         autoplayTimeout: 5000,
         autoplayButtonOutput: false,
@@ -6528,10 +6482,10 @@
     // });
 
     $(document).on("facetwp-loaded", function () {
-      if (FWP.loaded) {
+      if (typeof FWP !== "undefined" && FWP.loaded) {
         // Run only after the initial page load
         $("html, body").animate({
-          scrollTop: $(".facetwp-template").offset().top - 250 // Scroll to the top of the element with class "facetp-template"
+          scrollTop: $(".facetwp-template").offset().top - 250
         }, 500);
       }
     });
@@ -6570,7 +6524,9 @@
     var addToCartBtn = $(".sticky_single_add_to_cart_button");
     $(".sticky-add-to-cart .total-price");
     $(".sticky-add-to-cart .quantity");
-    parseFloat($(".product .price .woocommerce-Price-amount").first().text().replace(/[^0-9.]/g, ""));
+    if ($(".product .price .woocommerce-Price-amount").length) {
+      parseFloat($(".product .price .woocommerce-Price-amount").first().text().replace(/[^0-9.]/g, ""));
+    }
 
     // Disable button initially for variable products
     if ($(".variations_form").length) {
@@ -6579,23 +6535,23 @@
 
     // Handle scroll to show/hide sticky bar
     $(window).on("scroll", function () {
-      var rect = $(".single_add_to_cart_button")[0].getBoundingClientRect();
-
-      // Show sticky bar when scrolled past the add to cart button
+      var $btn = $(".single_add_to_cart_button");
+      if (!$btn.length) return;
+      var rect = $btn[0].getBoundingClientRect();
       if (rect.bottom <= 0) {
         stickyBar.fadeIn();
       } else {
         stickyBar.fadeOut();
       }
-
-      // Check if the element with the class "single-product__content-custom" is in view
       var contentCustomElement = $(".single-product__content-custom");
-      var contentCustomOffset = contentCustomElement.offset().top;
-      var scrollPosition = $(window).scrollTop() + $(window).height();
-      if (scrollPosition >= contentCustomOffset) {
-        stickyBar.addClass("d-none"); // Add the class to hide sticky bar
-      } else {
-        stickyBar.removeClass("d-none"); // Remove the class to show sticky bar
+      if (contentCustomElement.length) {
+        var contentCustomOffset = contentCustomElement.offset().top;
+        var scrollPosition = $(window).scrollTop() + $(window).height();
+        if (scrollPosition >= contentCustomOffset) {
+          stickyBar.addClass("d-none");
+        } else {
+          stickyBar.removeClass("d-none");
+        }
       }
     });
 
@@ -6619,7 +6575,16 @@
     });
     var $form = $(".variations_form");
     var $resetBtn = $form.find(".reset_variations");
-    if (!$resetBtn.length) return;
+    if ($resetBtn.length) {
+      // Hide the button initially
+      $resetBtn.css("display", "none");
+      $form.on("show_variation", function () {
+        $resetBtn.css("display", "inline-block");
+      });
+      $form.on("reset_data", function () {
+        $resetBtn.css("display", "none");
+      });
+    }
 
     // Hide the button initially
     $resetBtn.css("display", "none");
@@ -6633,12 +6598,97 @@
     $form.on("reset_data", function () {
       $resetBtn.css("display", "none");
     });
+
+    /* MEGA MENU open on hover */
+    function handleMegaMenu() {
+      var $menuContainer = $(".main-menu");
+      var $links = $menuContainer.find('a[data-bs-toggle="dropdown"], a.nav-link');
+      var $lis = $menuContainer.find("li");
+
+      // Remove all previous events and classes
+      $lis.off("mouseenter mouseleave");
+      $links.off("click");
+      $lis.removeClass("show");
+      $menuContainer.find(".dropdown-menu").removeClass("show");
+      if (window.innerWidth >= 1200) {
+        // DESKTOP: hover effect, main link clickable
+        var timeout;
+        $links.each(function () {
+          var $link = $(this);
+          var $li = $link.parent();
+          var $menu = $li.find(".dropdown-menu");
+          if ($menu.length) {
+            // Remove Bootstrap toggle for desktop
+            $link.removeAttr("data-bs-toggle");
+            $li.on("mouseenter", function () {
+              clearTimeout(timeout);
+              // Close other open menus
+              $li.siblings(".show").removeClass("show").find(".dropdown-menu").removeClass("show");
+              $li.addClass("show");
+              $menu.addClass("show");
+            });
+            $li.on("mouseleave", function () {
+              timeout = setTimeout(function () {
+                $li.removeClass("show");
+                $menu.removeClass("show");
+              }, 300);
+            });
+            $menu.on("mouseenter", function () {
+              clearTimeout(timeout);
+            });
+            $menu.on("mouseleave", function () {
+              timeout = setTimeout(function () {
+                $li.removeClass("show");
+                $menu.removeClass("show");
+              }, 300);
+            });
+          }
+
+          // Make main link clickable on desktop
+          $link.on("click", function (e) {
+            var href = $link.attr("href");
+            if (href && href !== "#") {
+              window.location.href = href;
+            }
+          });
+        });
+      } else {
+        // MOBILE: click toggles submenu OR follows link
+        $links.each(function () {
+          var $link = $(this);
+          var $li = $link.parent();
+          var $menu = $li.find(".dropdown-menu");
+
+          // Restore Bootstrap toggle if needed
+          if (!$link.attr("data-bs-toggle") && $menu.length > 0) {
+            $link.attr("data-bs-toggle", "dropdown");
+          }
+          $link.on("click", function (e) {
+            var href = $link.attr("href");
+            var hasDropdown = $menu.length > 0;
+            if (hasDropdown) {
+              e.preventDefault();
+              var isOpen = $li.hasClass("show");
+              $li.toggleClass("show");
+              $menu.toggleClass("show", !isOpen);
+            } else if (href && href !== "#") {
+              window.location.href = href;
+            }
+          });
+        });
+      }
+    }
+
+    // Init and on resize
+    handleMegaMenu();
+    $(window).on("resize", handleMegaMenu);
   })(jQuery);
 
   /* Thumbnial for products */
   document.addEventListener("DOMContentLoaded", function () {
     var mainImage = document.getElementById("main-product-image");
     var thumbnails = document.querySelectorAll(".product-thumbnail-link");
+    if (!mainImage) return;
     thumbnails.forEach(function (thumb) {
       thumb.addEventListener("click", function (e) {
         e.preventDefault();
@@ -6681,36 +6731,6 @@
     tab.addEventListener("shown.bs.tab", function () {
       setTimeout(checkVisibility, 150);
     });
-  });
-
-  /* Animations for USP */
-  function triggerUspAnimations() {
-    var uspBlock = document.querySelector(".usp-block");
-    var logosBlock = document.querySelector(".logo-block");
-    if (!uspBlock) return;
-    if (!logosBlock) return;
-    var rect = uspBlock.getBoundingClientRect();
-    var isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-    var rectlogo = logosBlock.getBoundingClientRect();
-    var isVisibleLogo = rectlogo.top < window.innerHeight && rectlogo.bottom > 0;
-    if (isVisible || isVisibleLogo) {
-      uspBlock.querySelectorAll(".fade-in-left, .fade-in-right, .fade-in-top, .fade-in-bottom").forEach(function (el) {
-        el.classList.add("visible");
-      });
-      logosBlock.querySelectorAll(".fade-in-left, .fade-in-right, .fade-in-top, .fade-in-bottom").forEach(function (el) {
-        el.classList.add("visible");
-      });
-    }
-  }
-
-  // Run on load
-  document.addEventListener("DOMContentLoaded", function () {
-    triggerUspAnimations();
-  });
-
-  // Also run after slider init (important)
-  window.addEventListener("load", function () {
-    triggerUspAnimations();
   });
 
   /* Floating Label */

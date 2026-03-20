@@ -59,7 +59,7 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 							<div class="sticky-content">
 								<div class="sticky-product-title-block">
 									<span class="sticky-product-title"><?php echo $product->get_title(); ?></span>
-									<span class="product-sku"><?php echo $parent_sku; ?></span>
+									<span class="product-sku d-none d-sm-block"><?php echo $parent_sku; ?></span>
 								</div>
 								<div class="d-block d-sm-none text-end" style="line-height: 1; font-size: 14px;">
 									<a class="build-order" href="#build-order">

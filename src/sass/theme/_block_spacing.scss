@@ -47,8 +47,8 @@
 	}
 
 	@include media-breakpoint-down(sm) {
-		padding-top: var(--spacer-sm);
-		padding-bottom: var(--spacer-sm);
+		padding-top: var(--spacer-md);
+		padding-bottom: var(--spacer-md);
 	}
 }
 
@@ -62,8 +62,8 @@
 	padding-bottom: var(--spacer-md);
 
 	@include media-breakpoint-down(sm) {
-		padding-top: var(--spacer-sm);
-		padding-bottom: var(--spacer-sm);
+		padding-top: var(--spacer-md);
+		padding-bottom: var(--spacer-md);
 	}
 }
 
@@ -72,8 +72,8 @@
 	padding-bottom: var(--spacer-lg);
 
 	@include media-breakpoint-down(md) {
-		padding-top: var(--spacer-sm);
-		padding-bottom: var(--spacer-sm);
+		padding-top: var(--spacer-md);
+		padding-bottom: var(--spacer-md);
 	}
 }
 

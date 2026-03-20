@@ -3,7 +3,7 @@ $title = get_field('title_reviews', 'options') ?: 'Latest reviews';
 $content_blog = get_field('content_reviews', 'options') ?: '';
 ?>
 
-<div class="text-block block block--margin-top-md block--margin-bottom-sm">
+<div class="text-block block block--margin-md">
     <div class="container-fluid">
         <div class="row align-items-end justify-content-center">
             <div class="col-12 col-lg-5">
@@ -17,7 +17,7 @@ $content_blog = get_field('content_reviews', 'options') ?: '';
                     ?>
                 </div>
             </div>
-            <div class="col-12 col-lg-10">
+            <div class="col-12 col-lg-10 d-none d-lg-block">
                 <hr class="separator separator--thin">
             </div>
         </div>

@@ -32,43 +32,43 @@ if ($product->is_type('variation')) {
 ?>
 
 <?php
-$StockQ = $product->get_stock_quantity();
-$badges = []; // collect badges here
+// $StockQ = $product->get_stock_quantity();
+// $badges = []; // collect badges here
 
-// ACF custom badge
-$message = get_field('custom_badge_text', $product->get_ID());
-$color = get_field('custom_badge_theme', $product->get_ID()) ?: 'primary';
+// // ACF custom badge
+// $message = get_field('custom_badge_text', $product->get_ID());
+// $color = get_field('custom_badge_theme', $product->get_ID()) ?: 'primary';
 
-$messageInStock = get_field('in_stock_text', 'options') ?: 'In Stock';
-$messageSale = get_field('on_sale_text', 'options') ?: 'On Sale';
-$messageOutOfStock = get_field('out_of_stock_text', 'options') ?: 'Out of Stock';
-$messageBackOrder = get_field('back_order_text', 'options') ?: 'Back Order';
+// $messageInStock = get_field('in_stock_text', 'options') ?: 'In Stock';
+// $messageSale = get_field('on_sale_text', 'options') ?: 'On Sale';
+// $messageOutOfStock = get_field('out_of_stock_text', 'options') ?: 'Out of Stock';
+// $messageBackOrder = get_field('back_order_text', 'options') ?: 'Back Order';
 
-// Custom Badge
-if ($message) {
-	$badges[] = '<div class="special-badge ' . esc_attr($color) . '">' . esc_html__($message, 'woocommerce') . '</div>';
-} elseif ($product->is_on_sale()) {
-	$badges[] = '<div class="special-badge red sale">' . esc_html__($messageSale, 'woocommerce') . '</div>';
-} elseif ($product->is_on_backorder()) {
-	// Backorder
-	$badges[] = '<div class="special-badge secondary preorder">' . esc_html__($messageBackOrder, 'woocommerce') . '</div>';
-} elseif ($product->is_in_stock() || $StockQ > 0) {
-	// IN STOCK
-	$badges[] = '<div class="special-badge primary instock">' . esc_html__($messageInStock, 'woocommerce') . '</div>';
-} elseif (!$product->is_in_stock() || $StockQ <= 0) {
-	// OUT OF STOCK
-	$badges[] = '<div class="special-badge tertiary outstock">' . esc_html__($messageOutOfStock, 'woocommerce') . '</div>';
-}
+// // Custom Badge
+// if ($message) {
+// 	$badges[] = '<div class="special-badge ' . esc_attr($color) . '">' . esc_html__($message, 'woocommerce') . '</div>';
+// } elseif ($product->is_on_sale()) {
+// 	$badges[] = '<div class="special-badge red sale">' . esc_html__($messageSale, 'woocommerce') . '</div>';
+// } elseif ($product->is_on_backorder()) {
+// 	// Backorder
+// 	$badges[] = '<div class="special-badge secondary preorder">' . esc_html__($messageBackOrder, 'woocommerce') . '</div>';
+// } elseif ($product->is_in_stock() || $StockQ > 0) {
+// 	// IN STOCK
+// 	$badges[] = '<div class="special-badge primary instock">' . esc_html__($messageInStock, 'woocommerce') . '</div>';
+// } elseif (!$product->is_in_stock() || $StockQ <= 0) {
+// 	// OUT OF STOCK
+// 	$badges[] = '<div class="special-badge tertiary outstock">' . esc_html__($messageOutOfStock, 'woocommerce') . '</div>';
+// }
 
-// Output all badges
-if (!empty($badges)) {
-	echo implode('', $badges);
-}
+// // Output all badges
+// if (!empty($badges)) {
+// 	echo implode('', $badges);
+// }
 ?>
 
 <div class="single-product__price-sale-badge single-product__title-area-desktop">
 	<p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
-		<span class="price-label">From</span> <?php echo $product->get_price_html(); ?>
+		<span class="price-label">From</span> <?php echo $product->get_price_html(); ?> <small class="price-incl-vat">incl. VAT</small>
 	</p>
 
 	<span class="product-sku"><?php echo $parent_sku; ?></span>

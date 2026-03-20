@@ -27,6 +27,25 @@
 		height: 100%;
 		background-color: var(--tertiary);
 		clip-path: polygon(0% 0%, 100% 0, 75% 100%, 0 100%);
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 25%;
+			width: 400px;
+			height: 200px;
+			background-image: url(../images/pulse-light-blue-semi-hor.svg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 50%;
+			opacity: 0.3;
+
+			@include media-breakpoint-down(lg) {
+				content: none;
+			}
+		}
 
 		@include media-breakpoint-down(xl) {
 			background-color: transparent;
@@ -35,7 +54,7 @@
 			clip-path: none;
 		}
 
-		@include media-breakpoint-down (md) {
+		@include media-breakpoint-down(md) {
 			padding: 2rem 0 0;
 		}
 	}
@@ -86,7 +105,7 @@
 			column-count: 2;
 			column-gap: 3rem;
 
-			@include media-breakpoint-down (sm) {
+			@include media-breakpoint-down(sm) {
 				column-count: 1;
 			}
 		}
@@ -246,7 +265,7 @@
 	i {
 		color: var(--primary);
 		font-size: 0.7rem;
-		margin-right: .55rem;
+		margin-right: 0.55rem;
 	}
 }
 
@@ -255,6 +274,20 @@
 		font-size: 1.25rem;
 		font-weight: $font-weight-medium;
 	}
+}
+
+@include media-breakpoint-up(xl) {
+	.main-menu .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+    }
+
+    .main-menu li.show > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 @media (max-height: 850px) {

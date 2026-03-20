@@ -19,7 +19,6 @@ $acf_description = get_field('description');
 $description = $acf_description ? sprintf('<p class="text-block__subheading">%1$s</p>', $acf_description) : '';
 
 $images = get_field('logos');
-$i = 0;
 ?>
 
 <div class="logo-block block block--margin-md">
@@ -35,13 +34,11 @@ $i = 0;
 					</div>
 				<?php } ?>
 			</div>
-			<div class="col-12 col-lg-10 logo-carousel">
+			<div class="col-12 col-lg-10 logo-carousel fade-in-left">
 				<?php if ($images) { ?>
 					<div class="logo-carousel__carousel">
-						<?php foreach ($images as $image):
-							$i++;
-							$delay = ($i - 1) * 0.1; ?>
-							<div class="logo-carousel__item carousel__item fade-in-left" style="--delay: <?php echo $delay; ?>s;">
+						<?php foreach ($images as $image): ?>
+							<div class="logo-carousel__item carousel__item">
 								<?php echo wp_get_attachment_image($image, 'full', false, array('class' => 'logo-img img-fluid', 'loading' => 'lazy')) ?>
 							</div>
 						<?php endforeach; ?>

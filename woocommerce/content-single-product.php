@@ -40,9 +40,9 @@ if ($bottom_content) {
 
 <div class="container-fluid">
 
-	<div id="product-<?php the_ID(); ?>" class="row g-5 justify-content-center">
+	<div id="product-<?php the_ID(); ?>" class="row justify-content-center">
 
-		<div id="single-product__images" <?php wc_product_class('col-12 col-lg-6 single-product__images fade-in-left', $product); ?>>
+		<div id="single-product__images" <?php wc_product_class('col-12 col-lg-6 col-xl-5 single-product__images fade-in-left', $product); ?>>
 			<?php
 			/**
 			 * Hook: woocommerce_before_single_product_summary.
@@ -54,7 +54,7 @@ if ($bottom_content) {
 			?>
 		</div>
 
-		<div <?php wc_product_class('col-12 col-lg-6 single-product__content fade-in-right', $product); ?>>
+		<div <?php wc_product_class('col-12 col-lg-6 col-xl-7 single-product__content fade-in-right', $product); ?>>
 			<div class="single-product__information">
 				<?php
 				/**

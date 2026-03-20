@@ -431,72 +431,37 @@ function mobile_title_area()
 					</p>
 
 					<?php
-					$StockQ = $product->get_stock_quantity();
-					$badges = []; // collect badges here
+					// $StockQ = $product->get_stock_quantity();
+					// $badges = []; // collect badges here
 				
-					// ACF custom badge
-					$message = get_field('custom_badge_text', $product->get_ID());
-					$color = get_field('custom_badge_theme', $product->get_ID()) ?: 'primary';
+					// // ACF custom badge
+					// $message = get_field('custom_badge_text', $product->get_ID());
+					// $color = get_field('custom_badge_theme', $product->get_ID()) ?: 'primary';
 
-					$messageInStock = get_field('in_stock_text', 'options') ?: 'In Stock';
-					$messageSale = get_field('on_sale_text', 'options') ?: 'On Sale';
-					$messageOutOfStock = get_field('out_of_stock_text', 'options') ?: 'Out of Stock';
-					$messageBackOrder = get_field('back_order_text', 'options') ?: 'Back Order';
+					// $messageInStock = get_field('in_stock_text', 'options') ?: 'In Stock';
+					// $messageSale = get_field('on_sale_text', 'options') ?: 'On Sale';
+					// $messageOutOfStock = get_field('out_of_stock_text', 'options') ?: 'Out of Stock';
+					// $messageBackOrder = get_field('back_order_text', 'options') ?: 'Back Order';
 
-					// Custom Badge
-					if ($message) {
-						$badges[] = '<div class="special-badge ' . esc_attr($color) . '">' . esc_html__($message, 'woocommerce') . '</div>';
-					} elseif ($product->is_on_sale()) {
-						$badges[] = '<div class="special-badge red sale">' . esc_html__($messageSale, 'woocommerce') . '</div>';
-					} elseif ($product->is_on_backorder()) {
-						// Backorder
-						$badges[] = '<div class="special-badge secondary preorder">' . esc_html__($messageBackOrder, 'woocommerce') . '</div>';
-					} elseif ($product->is_in_stock() || $StockQ > 0) {
-						// IN STOCK
-						$badges[] = '<div class="special-badge primary instock">' . esc_html__($messageInStock, 'woocommerce') . '</div>';
-					} elseif (!$product->is_in_stock() || $StockQ <= 0) {
-						// OUT OF STOCK
-						$badges[] = '<div class="special-badge tertiary outstock">' . esc_html__($messageOutOfStock, 'woocommerce') . '</div>';
-					}
-
-					// Output all badges
-					if (!empty($badges)) {
-						echo implode('', $badges);
-					}
-					?>
-
-					<?php
-					// if ($product->is_on_sale()) {
-					// 	$regular_price = $product->get_regular_price();
-					// 	$sale_price = $product->get_sale_price();
-				
-					// 	if ($regular_price && $sale_price) {
-					// 		$percentage_saved = round((($regular_price - $sale_price) / $regular_price) * 100);
-					// 		echo '<span class="special-badge sale">Save ' . $percentage_saved . '%</span>';
-					// 	}
+					// // Custom Badge
+					// if ($message) {
+					// 	$badges[] = '<div class="special-badge ' . esc_attr($color) . '">' . esc_html__($message, 'woocommerce') . '</div>';
+					// } elseif ($product->is_on_sale()) {
+					// 	$badges[] = '<div class="special-badge red sale">' . esc_html__($messageSale, 'woocommerce') . '</div>';
+					// } elseif ($product->is_on_backorder()) {
+					// 	// Backorder
+					// 	$badges[] = '<div class="special-badge secondary preorder">' . esc_html__($messageBackOrder, 'woocommerce') . '</div>';
+					// } elseif ($product->is_in_stock() || $StockQ > 0) {
+					// 	// IN STOCK
+					// 	$badges[] = '<div class="special-badge primary instock">' . esc_html__($messageInStock, 'woocommerce') . '</div>';
+					// } elseif (!$product->is_in_stock() || $StockQ <= 0) {
+					// 	// OUT OF STOCK
+					// 	$badges[] = '<div class="special-badge tertiary outstock">' . esc_html__($messageOutOfStock, 'woocommerce') . '</div>';
 					// }
-				
-					// // For variable products, display sale percentage
-					// if ($product->is_type('variable') && $product->is_on_sale()) {
-					// 	$min_regular_price = null;
-					// 	$min_sale_price = null;
-				
-					// 	foreach ($product->get_available_variations() as $variation) {
-					// 		$regular_price = $variation['display_regular_price'];
-					// 		$sale_price = $variation['display_price'];
-				
-					// 		if (is_null($min_regular_price) || $regular_price < $min_regular_price) {
-					// 			$min_regular_price = $regular_price;
-					// 		}
-					// 		if (is_null($min_sale_price) || $sale_price < $min_sale_price) {
-					// 			$min_sale_price = $sale_price;
-					// 		}
-					// 	}
-				
-					// 	if ($min_regular_price && $min_sale_price) {
-					// 		$percentage_saved = round((($min_regular_price - $min_sale_price) / $min_regular_price) * 100);
-					// 		echo '<span class="special-badge sale">Save ' . $percentage_saved . '%</span>';
-					// 	}
+
+					// // Output all badges
+					// if (!empty($badges)) {
+					// 	echo implode('', $badges);
 					// }
 					?>
 				</div>
@@ -512,6 +477,7 @@ remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_pro
 
 
 /* Function to create extra rules for the sale badge */
+add_action('woocommerce_before_single_product_summary', 'bbloomer_new_badge_shop_page', 10);
 add_action('woocommerce_before_shop_loop_item_title', 'bbloomer_new_badge_shop_page', 10);
 // add_action('woocommerce_before_single_product', 'bbloomer_new_badge_shop_page', 30);
 function bbloomer_new_badge_shop_page()
