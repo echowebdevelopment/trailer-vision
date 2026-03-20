@@ -41,7 +41,7 @@ $i = 0;
 							<div class="hero-slider-content block--fg">
 								<?php if ($heading) { ?>
 									<div class="container-fluid">
-										<div class="row align-items-center">
+										<div class="row gy-5 align-items-center">
 											<div class="col-12 col-lg-4">
 												<div class="text-block__header">
 													<?php echo $heading; ?>

@@ -278,16 +278,16 @@
 
 @include media-breakpoint-up(xl) {
 	.main-menu .dropdown-menu {
-        display: block;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.2s ease;
-    }
+		display: block;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.2s ease;
+	}
 
-    .main-menu li.show > .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-    }
+	.main-menu li.show > .dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 @media (max-height: 850px) {

@@ -40,7 +40,7 @@ $i = 1;
 						<?php } ?>
 					</div>
 				</div>
-				<div class="row g-4">
+				<div class="row g-4 category-row">
 					<?php if ($category_list): ?>
 						<?php foreach ($category_list as $term): ?>
 							<?php $i++;

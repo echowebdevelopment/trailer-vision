@@ -46,7 +46,7 @@ if ($content) {
 	<div class="row justify-content-center">
 		<div class="col-12 col-lg-10">
 			<div class="row gx-5 <?php echo $auxaVertical . ' ' . $auxClass ?>">
-				<div class="col-12 col-lg-6 order-2 order-lg-0 mt-5 mt-lg-0">
+				<div class="col-12 col-lg-6 order-2 order-lg-0 block--margin-top-md mt-lg-0">
 					<?php if ($heading) { ?>
 						<div class="text-block__header <?php $auxaMargin; ?>">
 							<?php echo $heading; ?>

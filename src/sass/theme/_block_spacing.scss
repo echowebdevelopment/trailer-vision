@@ -7,11 +7,6 @@
 	margin-bottom: var(--spacer);
 
 	@include media-breakpoint-down(sm) {
-		margin-top: var(--spacer-sm);
-		margin-bottom: var(--spacer-sm);
-	}
-
-	@include media-breakpoint-only(sm) {
 		margin-top: var(--spacer-md);
 		margin-bottom: var(--spacer-md);
 	}
