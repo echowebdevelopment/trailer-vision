@@ -52,8 +52,10 @@ $second_image = !empty($gallery_image_ids) ? wp_get_attachment_image($gallery_im
 	?>
 
 	<div class="product-category__image">
-		<?php echo get_the_post_thumbnail($product->get_id(), 'woocommerce_thumbnail', array('class' => 'main-image-menu img-fluid', 'loading' => 'lazy')); ?>
-		<?php echo $second_image; ?>
+		<?php echo get_the_post_thumbnail($product->get_id(), 'small', array('class' => 'main-image-menu img-fluid', 'loading' => 'lazy')); ?>
+		<?php if ($second_image) {
+			echo $second_image;
+		} ?>
 	</div>
 
 	<?php

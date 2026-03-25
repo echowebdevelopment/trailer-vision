@@ -97,6 +97,8 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 			<?php echo do_shortcode('[gtranslate]'); ?>
 		</div>
 
-		<div class="promotional_message">
-			<p><?php echo get_field('promotional_message', 'options'); ?></p>
-		</div>
+		<?php if (get_field('promotional_message', 'options')) { ?>
+			<div class="promotional_message">
+				<p><?php echo get_field('promotional_message', 'options'); ?></p>
+			</div>
+		<?php } ?>
