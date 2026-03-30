@@ -68,7 +68,13 @@ if ($product->is_type('variation')) {
 
 <div class="single-product__price-sale-badge single-product__title-area-desktop">
 	<p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
-		<span class="price-label">From</span> <?php echo $product->get_price_html(); ?> <small class="price-incl-vat">incl. VAT</small>
+		<?php if ($product->is_type('variable')): ?>
+			<span class="price-label">From</span>
+		<?php endif; ?>
+		<?php echo $product->get_price_html(); ?>
+		<?php if ($product->is_type('variable')): ?>
+			<small class="price-incl-vat">incl. VAT</small>
+		<?php endif; ?>
 	</p>
 
 	<span class="product-sku"><?php echo $parent_sku; ?></span>

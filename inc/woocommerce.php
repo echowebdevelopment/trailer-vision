@@ -1416,7 +1416,7 @@ function add_incl_vat_text_loop_only($price, $product) {
         return $price;
     }
 
-    if (!is_product()) {
+    if (!is_product() && $product->is_type('variable')) {
         $price .= ' <small class="price-incl-vat">incl. VAT</small>';
     }
 

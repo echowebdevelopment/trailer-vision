@@ -70,6 +70,7 @@ $remove_global_usp = get_field('remove_global_usp', $product->get_ID());
 	<?php endif; ?>
 </div>
 
+<?php /*
 <div class="product-usp">
 	<?php if ($remove_global_usp != "yes"): ?>
 		<?php if (have_rows('product_usp', $product->get_ID())):
@@ -124,3 +125,5 @@ $remove_global_usp = get_field('remove_global_usp', $product->get_ID());
 		endif; ?>
 	<?php endif; ?>
 </div>
+
+*/ ?>

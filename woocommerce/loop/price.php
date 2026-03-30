@@ -15,13 +15,18 @@
  * @version     1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
 global $product;
 ?>
 
-<?php if ( $price_html = $product->get_price_html() ) : ?>
-	<span class="price">From <?php echo $price_html; ?></span>
+<?php if ($price_html = $product->get_price_html()): ?>
+	<span class="price">
+		<?php if ($product->is_type('variable')): ?>
+			From
+		<?php endif; ?>
+		<?php echo $price_html; ?>
+	</span>
 <?php endif; ?>

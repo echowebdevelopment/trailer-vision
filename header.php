@@ -42,10 +42,12 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 		<?php if (is_product()) {
 			global $product;
 			$price_with_tax = wc_get_price_including_tax($product);
+			$auxClass = 'justify-content-center';
 			if ($product->is_type('variation')) {
 				$parent_id = $product->get_parent_id();
 				$parent_product = wc_get_product($parent_id);
 				$parent_sku = $parent_product ? $parent_product->get_sku() : '';
+				$auxClass = '';
 			} else {
 				$parent_sku = $product->get_sku();
 			}
@@ -61,21 +63,28 @@ $navbar_type = get_theme_mod('understrap_navbar_type', 'collapse');
 									<span class="sticky-product-title"><?php echo $product->get_title(); ?></span>
 									<span class="product-sku d-none d-sm-block"><?php echo $parent_sku; ?></span>
 								</div>
-								<div class="d-block d-sm-none text-end" style="line-height: 1; font-size: 14px;">
-									<a class="build-order" href="#build-order">
-										View / Change your specification
-									</a>
-								</div>
-								<div class="sticky-add-to-cart-options">
-									<div class="mb-3 d-none d-sm-block">
+								<?php if ($product->is_type('variable')): ?>
+									<div class="d-block d-sm-none text-end" style="line-height: 1; font-size: 14px;">
 										<a class="build-order" href="#build-order">
 											View / Change your specification
 										</a>
 									</div>
+								<?php endif; ?>
+								<div class="sticky-add-to-cart-options <?php echo $auxClass; ?>">
+									<?php if ($product->is_type('variable')): ?>
+										<div class="mb-3 d-none d-sm-block">
+											<a class="build-order" href="#build-order">
+												View / Change your specification
+											</a>
+										</div>
+									<?php endif; ?>
 									<div class="sticky-add-to-cart-button">
 										<div class="total-price">
-											<span class="label">From </span>
+											<?php if ($product->is_type('variable')): ?>
+												<span class="label">From</span>
+											<?php endif; ?>
 											<?php echo wc_price($price_with_tax); ?>
+											<small class="price-incl-vat">incl. VAT</small>
 										</div>
 										<a href="#" class="sticky_single_add_to_cart_button btn btn--primary">
 											Add to Basket
