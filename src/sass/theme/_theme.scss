@@ -3695,8 +3695,8 @@ table.variations {
 			background: #1f2d3b;
 			background: linear-gradient(
 				90deg,
-				rgba(31, 45, 59, 1) 0%,
-				rgba(31, 45, 59, 0.5) 50%,
+				#1f2d3b 0,
+				rgba(31, 45, 59, 0.4) 25%,
 				rgba(31, 45, 59, 0.25) 100%
 			);
 			position: absolute;
@@ -3809,7 +3809,7 @@ table.variations {
 		object-fit: cover;
 		height: 400px;
 		width: 100%;
-		object-position: top;
+		object-position: center;
 
 		@include media-breakpoint-down(sm) {
 			height: 300px;

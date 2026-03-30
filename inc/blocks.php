@@ -23,6 +23,7 @@ function register_acf_blocks()
 		'divider-block',
 		'downloads-area-block',
 		'discover-block',
+		'discover-grid-block',
 		'faqs-block',
 		'feature-products-slider-block',
 		'featured-category-block',

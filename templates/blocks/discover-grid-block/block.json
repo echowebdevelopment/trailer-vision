@@ -1,0 +1,13 @@
+{
+	"name": "acf/discover-grid",
+	"title": "Discover Grid Block",
+	"description": "",
+	"category": "widgets",
+	"icon": "tide",
+	"keywords": ["discover", "industry", "trailer", "vehicle"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "discover-grid.php"
+	},
+	"align": "full"
+}

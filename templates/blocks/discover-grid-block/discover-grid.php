@@ -19,6 +19,8 @@ $subheading = get_field('subheading');
 $discover_block = get_field('discover_block');
 
 $link_to_shop = get_field('link_to_shop');
+
+$i = 1;
 ?>
 
 <div class="discover-block block block--padded block--fullwidth">
@@ -35,20 +37,21 @@ $link_to_shop = get_field('link_to_shop');
 										<?php echo $subheading; ?>
 									</p>
 								<?php } ?>
-								<?php echo do_shortcode('[fibosearch]'); ?>
 							</div>
 						<?php } ?>
 
-						<div class="discover-carousel__carousel carousel">
+						<div class="row g-4 category-row">
 							<?php if ($discover_block): ?>
 								<?php foreach ($discover_block as $term): ?>
 									<?php
 									$image = $term['image'];
 									$title = $term['title'];
 									$category_link = $term['category_link'];
+									$i++;
+									$delay = ($i - 1) * 0.1;
 									?>
-									<div>
-										<div class="category-card">
+									<div class="col-6 col-lg-4">
+										<div class="category-card" style="--delay: <?php echo $delay; ?>s;">
 											<?php if ($category_link) { ?>
 												<a href="<?php echo $category_link['url']; ?>">
 												<?php } ?>

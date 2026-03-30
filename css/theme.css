@@ -13380,7 +13380,7 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
     display: block;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.2s ease;
+    transition: ease-in-out 0.2s ease;
   }
   .main-menu li.show > .dropdown-menu {
     opacity: 1;
@@ -17107,7 +17107,7 @@ table.variations tr:nth-last-child(2) {
 .homepage-slider-block .tns-horizontal.tns-subpixel > .hero-slider.tns-item:before {
   content: "";
   background: #1f2d3b;
-  background: linear-gradient(90deg, rgb(31, 45, 59) 0%, rgba(31, 45, 59, 0.5) 50%, rgba(31, 45, 59, 0.25) 100%);
+  background: linear-gradient(90deg, #1f2d3b 0, rgba(31, 45, 59, 0.4) 25%, rgba(31, 45, 59, 0.25) 100%);
   position: absolute;
   top: 0;
   left: 0;
@@ -17217,8 +17217,8 @@ table.variations tr:nth-last-child(2) {
   object-fit: cover;
   height: 400px;
   width: 100%;
-  -o-object-position: top;
-  object-position: top;
+  -o-object-position: center;
+  object-position: center;
 }
 @media (max-width: 575.98px) {
   .page-header-block__image img {

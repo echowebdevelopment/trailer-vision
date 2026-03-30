@@ -24,13 +24,21 @@ $content = get_field('content_text_image');
 $acf_image = get_field('image_text_image');
 $position_image = get_field('position_image_text_image');
 $vertical_aligment_text_image = get_field('vertical_aligment_text_image');
+$mobile_image_position = get_field('mobile_image_position');
 
 $auxClass = "flex-wrap";
 $auxaMargin = 'mb-0';
 $auxaVertical = 'align-items-center';
+$auxOrderImg = 'order-2 block--margin-top-md';
+$auxOrderText = 'order-1';
 
 if ($position_image == "right") {
 	$auxClass = "flex-row-reverse";
+}
+
+if ($mobile_image_position == "bottom") {
+	$auxOrderImg = 'order-1';
+	$auxOrderText = 'order-2 block--margin-top-md';
 }
 
 if ($vertical_aligment_text_image == "top") {
@@ -46,7 +54,7 @@ if ($content) {
 	<div class="row justify-content-center">
 		<div class="col-12 col-lg-10">
 			<div class="row gx-5 <?php echo $auxaVertical . ' ' . $auxClass ?>">
-				<div class="col-12 col-lg-6 order-2 order-lg-0 block--margin-top-md mt-lg-0">
+				<div class="col-12 col-lg-6 <?php echo $auxOrderImg; ?> order-lg-0 mt-lg-0">
 					<?php if ($heading) { ?>
 						<div class="text-block__header <?php $auxaMargin; ?>">
 							<?php echo $heading; ?>
@@ -79,11 +87,10 @@ if ($content) {
 						<?php endif; ?>
 					<?php } ?>
 				</div>
-				<div class="col-12 col-lg-6 order-1 order-lg-0">
-					<?php echo wp_get_attachment_image($acf_image, 'full', false, array('class' => 'text-block__img img-fluid fade-in-left', 'style' => '--delay: 0.8s;', 'loading' => 'lazy')) ?>
+				<div class="col-12 col-lg-6 <?php echo $auxOrderText; ?> order-lg-0">
+					<?php echo wp_get_attachment_image($acf_image, 'full', false, array('class' => 'text-block__img img-fluid fade-in-left image-shadow', 'style' => '--delay: 0.8s;', 'loading' => 'lazy')) ?>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
