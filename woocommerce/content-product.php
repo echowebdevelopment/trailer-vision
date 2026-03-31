@@ -30,6 +30,11 @@ $id = $product->get_id();
 $main_features_content = get_field('main_features_content', $product->get_ID());
 $gallery_image_ids = $product->get_gallery_image_ids();
 $second_image = !empty($gallery_image_ids) ? wp_get_attachment_image($gallery_image_ids[0], 'woocommerce_thumbnail', false, array('class' => 'hover-image-menu img-fluid', 'loading' => 'lazy')) : '';
+$auxClass = 'main-image-menu';
+
+if (empty($second_image)) {
+	$auxClass = '';
+}
 
 ?>
 <li <?php wc_product_class('', $product); ?>>
@@ -52,7 +57,7 @@ $second_image = !empty($gallery_image_ids) ? wp_get_attachment_image($gallery_im
 	?>
 
 	<div class="product-category__image">
-		<?php echo get_the_post_thumbnail($product->get_id(), 'small', array('class' => 'main-image-menu img-fluid', 'loading' => 'lazy')); ?>
+		<?php echo get_the_post_thumbnail($product->get_id(), 'small', array('class' => 'img-fluid ' . $auxClass, 'loading' => 'lazy')); ?>
 		<?php if ($second_image) {
 			echo $second_image;
 		} ?>
